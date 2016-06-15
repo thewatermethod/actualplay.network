@@ -1,4 +1,8 @@
 body.page, body.single{
+	.branding-wrapper{
+		max-width: 900px;
+		margin: auto;
+	}
 	header#masthead{
 		background-color: white;
 		background-image: url(../assets/graph.svg);
@@ -25,12 +29,22 @@ body.page, body.single{
 			}
 		}
 
+		.site-branding{
+			float: left;
+		}
+
+		i{
+			padding: .25em 1em;
+    		font-size: 3rem;
+    		float: right;
+		}
+
 		nav.main-navigation{
 			height: 100%; 
 			width: 33%; 
 			position: absolute;
 			top: 0;
-			bottom: 0;
+			bottom: 0;		
 			padding-top: 80px;
 			background: rgba(1,1,1,.5);
 			left: -9999px;
