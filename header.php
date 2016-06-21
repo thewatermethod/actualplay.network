@@ -44,9 +44,10 @@
 				?>
 			</div><!-- .site-branding -->
 
-			<?php if ( !is_front_page() && !is_home() ) :  echo'<i class="fa fa-bars" aria-hidden="true"></i>';  endif;?>
+			<?php if ( !is_front_page() && !is_home() ) :  echo'<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>';  endif;?>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<h2>Menu</h2>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav><!-- #site-navigation -->
 

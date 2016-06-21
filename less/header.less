@@ -41,13 +41,25 @@ body.page, body.single{
 
 		nav.main-navigation{
 			height: 100%; 
-			width: 33%; 
+			width: 20%; 
 			position: absolute;
 			top: 0;
 			bottom: 0;		
 			padding-top: 80px;
-			background: rgba(1,1,1,.5);
+			background:white;
 			left: -9999px;
+			text-align: center;
+ 			-webkit-transition: all .75s;
+			transition: all .75s;
+
+			h2{
+				text-align: center;
+			}
+
+			&.expanded{
+				left: 0;
+			}
+
 			ul{
 				padding: 20px;
 				text-align: center;
@@ -55,7 +67,11 @@ body.page, body.single{
 					padding: 20px;
 					font-size: 2em;
 					a{
-						color: white;
+						color: black;
+						text-decoration: underline;
+						&:hover{
+							color: blue;
+						}
 					}
 				}
 			}
