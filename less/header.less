@@ -1,4 +1,4 @@
-body.page, body.single{
+body.page, body.single, body.search{
 	.branding-wrapper{
 		max-width: 900px;
 		margin: auto;
@@ -18,14 +18,25 @@ body.page, body.single{
 			float: left;
 		}
 
+		img#hideOnHome{
+			max-width: 100%;
+			max-height: 100%;
+			width: 50%;
+			float: none;
+		}
+
 		.site-title{
 			font-family: "Fjalla One", serif;
 			margin: 0;
 			padding: .25em 0 0 0;
 			font-size: 3rem;
+
 			a {
 				text-decoration: none;
 				color: black;
+				&:hover{
+					border-bottom: 2px solid #39b5de;
+				}
 			}
 		}
 
@@ -37,6 +48,10 @@ body.page, body.single{
 			padding: .25em 1em;
     		font-size: 3rem;
     		float: right;
+    		cursor: pointer;
+    		&:hover{
+    			color: #39b5de;
+    		}
 		}
 
 		nav.main-navigation{
@@ -45,13 +60,15 @@ body.page, body.single{
 			position: absolute;
 			top: 0;
 			bottom: 0;		
-			padding-top: 80px;
 			background:white;
 			left: -9999px;
 			text-align: center;
  			-webkit-transition: all .75s;
 			transition: all .75s;
-
+			z-index: 100;
+			#nav-close{
+				display: none;
+			}
 			h2{
 				text-align: center;
 			}
@@ -67,10 +84,10 @@ body.page, body.single{
 					padding: 20px;
 					font-size: 2em;
 					a{
-						color: black;
-						text-decoration: underline;
+						color: black;						
 						&:hover{
-							color: blue;
+							padding-bottom: 0;
+							border-bottom: 2px solid #39b5de;
 						}
 					}
 				}
@@ -87,3 +104,53 @@ main#main,aside#secondary{
 	background: white;
 }
 
+@media(max-width: 1200px){
+	body.page, body.single{
+		header#masthead{
+			img#hideOnHome{
+				max-width: 25%;
+			}
+			nav.main-navigation{				
+				width: 50%;
+				box-shadow: 1px 1px 1px grey;
+
+				#nav-close{
+					display: block;
+					position: absolute;
+					font-family: "Fjalla One", serif;
+					top: 20px;
+					right: 20px;
+					font-size: 22px;
+					cursor: pointer;
+					&:hover{
+						border-bottom: 2px solid #39b5de;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media(max-width: 768px){
+	body.page, body.single{
+		header#masthead{
+			img#hideOnHome{
+				max-width: 25%;
+			}
+			nav.main-navigation{				
+				width: 90%;
+				box-shadow: 1px 1px 1px grey;
+			}
+		}
+	}
+}
+
+@media(max-width: 585px){
+	body.page, body.single{
+		header#masthead{
+			.site-title{
+				display: none;
+			}
+		}
+	}	
+}

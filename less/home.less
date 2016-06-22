@@ -9,6 +9,11 @@ body.home{
 		height: 100%;
 	}
 
+	img#hideOnHome{
+		display: none;
+	}
+
+
 	header#masthead{
 		flex-grow: 1;
 		background: url(../assets/graph.svg);
@@ -30,6 +35,13 @@ body.home{
 			padding: 0;
 		}
 
+		form[role="search"]{
+			margin-bottom: 20px;
+			input[type="submit"]{
+				display: none;				
+			}
+		}
+
 		.main-navigation{
 			background: rgba(1,1,1,.5);
             width: 80%;
@@ -39,6 +51,9 @@ body.home{
             padding: 1em;
             margin: 0 auto;
             font-size: 1.25em;
+            h2{
+            	display: none;
+            }
             li{
             	float: none;
             }

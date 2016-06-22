@@ -47,9 +47,21 @@
 			<?php if ( !is_front_page() && !is_home() ) :  echo'<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>';  endif;?>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<h2>Menu</h2>
+				<?php if ( !is_front_page() && !is_home() ) :  echo'<span id="nav-close">Close</span>';  endif;?>
+
+				<?php if ( get_header_image() ) : ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<img id="hideOnHome" src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+					</a>
+				<?php endif; 
+
+				get_search_form();
+				
+				// End header image check. ?>
+
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 			</nav><!-- #site-navigation -->
+
 
 			<?php 
 				if ( is_front_page() && is_home() ) : 

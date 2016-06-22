@@ -1,10 +1,25 @@
 
-@media (max-width: 768px){
+@media (max-width: 1200px){
 	html{
 		body.home{
 			overflow-x: hidden;
 			overflow-y: auto;
+			header#masthead{
+				.site-branding{
+					width: 80%;
+					margin: auto;
+					h1.site-title{
+						float: left;
+						clear: none;
+						padding-top: 20px;
+						font-size: 4em;
+					}
+					img{
+						float: left;
+					}
+				}
 
+			}
 			div#page.site{
 				flex-flow: column;
 				height: auto;
@@ -35,3 +50,26 @@
 	}
 }
 
+@media(max-width: 768px){
+	html{
+		body.home{
+			
+			header#masthead{
+				.home-callout{
+					margin-bottom: 20px;
+				}
+				.site-branding{
+				
+					.site-title{
+						display: none;
+					}
+					img{
+						float: none;
+						max-width: 80%;
+					}
+				}
+
+			}
+		}
+	}
+}
