@@ -1,3 +1,11 @@
+@media (max-width: 1600px){
+	html{
+		body.home header#masthead{
+			max-width: 22.5%;
+		}
+	}
+
+}
 
 @media (max-width: 1200px){
 	html{
@@ -50,10 +58,26 @@
 	}
 }
 
+@media(max-width: 850px){
+	html{
+		body.home header#masthead h1 a{
+			display: none;
+		}
+		body.home header#masthead .site-branding img{
+			float: none;
+			text-align: center;
+		}
+	}	
+}
+
 @media(max-width: 768px){
+
+
 	html{
 		body.home{
-			
+			.main-navigation a{
+				text-align: center;
+			}
 			header#masthead{
 				.home-callout{
 					margin-bottom: 20px;
@@ -65,7 +89,7 @@
 					}
 					img{
 						float: none;
-						max-width: 80%;
+						max-width: 350px;
 					}
 				}
 
