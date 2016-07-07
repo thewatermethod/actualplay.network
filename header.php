@@ -55,11 +55,14 @@
 					</a>
 				<?php endif; 
 
-				get_search_form();
+				
 				
 				// End header image check. ?>
 
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+
+					get_search_form();
+				 ?>
 			</nav><!-- #site-navigation -->
 
 
