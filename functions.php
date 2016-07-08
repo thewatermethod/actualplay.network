@@ -133,7 +133,7 @@ function actual_play_scripts() {
 
 	wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
 
-	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Fjalla+One');
+	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Copse');
 
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
 
