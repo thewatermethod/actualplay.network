@@ -18,7 +18,11 @@
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'actual-play' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'actual-play' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'actual-play' ), 'actual-play', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+			Privacy policy
+			<span class="sep"> | </span>
+			Site Resources
+			<span class="sep"> | </span>
+			Theme crafted in the <a href="http://www.twilitgrotto.com">Twilit Grotto</a>			
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 
