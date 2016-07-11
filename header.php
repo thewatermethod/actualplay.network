@@ -44,10 +44,10 @@
 				?>
 			</div><!-- .site-branding -->
 
-			<?php if ( !is_front_page() && !is_home() ) :  echo'<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>';  endif;?>
+			<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<?php if ( !is_front_page() && !is_home() ) :  echo'<span id="nav-close">Close</span>';  endif;?>
+				<span id="nav-close">Close</span>
 
 				<?php if ( get_header_image() ) : ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
