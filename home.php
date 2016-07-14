@@ -43,8 +43,7 @@ get_header(); ?>
 			 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class($post_int); ?> 
 					style="background-image: url('<?php echo $image[0]; ?>');">
-
-					<?php if ($post_int === 0): echo "<h2 class='callout'><a href='" . esc_url( get_permalink() ) . "'' rel='bookmark'>Listen to our newest episode here</a> or <a href='#'>find out more about our show </a>.</h2>"; endif;?>
+				
 
 
 					<div class="article-wrap" <?php if($post_int ===0): echo 'id="hero"'; endif;?> >

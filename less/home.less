@@ -3,6 +3,23 @@ body.home{
 	height: 100%;
 	overflow: hidden;
 
+   	h2.callout{
+   		z-index: 10;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		background: lighten(#2F4F4F,10%);
+		text-align: center;
+		color: #ccc;
+		margin-top: 0;
+		a{
+			color: white;	  
+			&:hover{
+				color: lighten(#006400, 20%);
+			}
+		}
+	}	
+
 	div#page{
 		display: flex;
 		flex-flow: row;
@@ -62,6 +79,7 @@ body.home{
             a{
             	color: white;
             	text-decoration: underline;
+            	border-bottom: 2px solid transparent;
             	&:hover{
             		color: darken(white, 20%);
             	}
@@ -123,16 +141,7 @@ body.home{
 				background-size: auto 100%;		
 				background: black;
 
-		    	h2.callout{
-		    		position: absolute;
-					width: 100%;
-					background: lighten(#2F4F4F,10%);
-					text-align: center;
-					color: #ccc;
-					a{
-						color: white;	  
-					}
-				}						
+					
 
 				.article-wrap{
 					display: block;

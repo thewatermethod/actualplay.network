@@ -49,6 +49,9 @@ body.page, body.single, body.search, body.archive, body.category{
     		font-size: 3rem;
     		float: right;
     		cursor: pointer;
+    		span{
+    			font-family: "Copse";
+    		}
     		&:hover{
     			color: #39b5de;
     		}
@@ -80,12 +83,15 @@ body.page, body.single, body.search, body.archive, body.category{
 
 			ul{
 				padding: 20px;
-				text-align: center;
+				text-align: left;
 				li{
 					padding: 20px;
-					font-size: 2em;
+					font-size: 1.5em;
+					width: 100%;
+
 					a{
 						color: black;						
+						border-bottom: 2px solid transparent;
 						&:hover{
 							padding-bottom: 0;
 							border-bottom: 2px solid #39b5de;

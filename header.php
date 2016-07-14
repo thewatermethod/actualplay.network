@@ -44,7 +44,7 @@
 				?>
 			</div><!-- .site-branding -->
 
-			<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>
+			<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"><?php if ( is_front_page() && is_home() ) :  ?><span style="font-family: Copse;"> Menu</span><?php endif;?></i>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<span id="nav-close">Close</span>
@@ -72,6 +72,24 @@
 				endif;
 			?>
 		<?php if ( !is_front_page() && !is_home() ) :  echo'</div>';  endif;?>
+
+		<?php if( is_front_page() || is_home() ): ?>
+
+		<?php  
+
+		$this_query = new WP_Query( array( 'category_name' => 'podcasts', 'posts_per_page' =>1 ) );
+
+		while ( $this_query->have_posts() ) {
+    		$this_query->the_post();
+    		echo "<h2 class='callout'><a href='" . esc_url( get_permalink() ) . "'' rel='bookmark'>Listen to our newest episode here</a> or <a href='#'>find out more about our show </a>.</h2>"; 
+		}
+
+		wp_reset_postdata();
+		
+		?>
+
+		<?php endif; ?>
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
