@@ -81,7 +81,7 @@
 
 		while ( $this_query->have_posts() ) {
     		$this_query->the_post();
-    		echo "<h2 class='callout'><a href='" . esc_url( get_permalink() ) . "'' rel='bookmark'>Listen to our newest episode here</a> or <a href='#'>find out more about our show </a>.</h2>"; 
+    		echo "<h2 class='callout'><a href='" . esc_url( get_permalink() ) . "'' rel='bookmark'>Listen to our newest episode here</a> or <a href='#'>find out more about our show </a></h2>"; 
 		}
 
 		wp_reset_postdata();
