@@ -42,6 +42,13 @@
 				'after'  => '</div>',
 			) );
 		?>
+
+	<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
+	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+		<?php dynamic_sidebar( 'sidebar-2' ); ?>
+	</div><!-- #primary-sidebar -->
+	<?php endif; ?>	
+
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">

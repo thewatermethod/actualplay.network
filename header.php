@@ -44,7 +44,7 @@
 				?>
 			</div><!-- .site-branding -->
 
-			<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"><?php if ( is_front_page() && is_home() ) :  ?><span style="font-family: Copse;"> Menu</span><?php endif;?></i>
+			<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<span id="nav-close">Close</span>
