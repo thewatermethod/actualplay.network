@@ -1,153 +1,107 @@
 <?php
+add_action( 'admin_menu', 'actualplay_add_admin_menu' );
+add_action( 'admin_init', 'actualplay_settings_init' );
 
-class ActualPlaySettingsPage
-{
-    /**
-     * Holds the values to be used in the fields callbacks
-     */
-    private $options;
 
-    /**
-     * Start up
-     */
-    public function __construct()
-    {
-        add_action( 'admin_menu', array( $this, 'add_plugin_page' ) );
-        add_action( 'admin_init', array( $this, 'page_init' ) );
-    }
+function actualplay_add_admin_menu(  ) { 
 
-    /**
-     * Add options page
-     */
-    public function add_plugin_page()
-    {
-        // This page will be under "Settings"
-        add_options_page(
-            'Settings Admin', 
-            'Podcast Theme Settings', 
-            'manage_options', 
-            'my-setting-admin', 
-            array( $this, 'create_admin_page' )
-        );
-    }
+    add_options_page( 'ActualPlay.Network', 'ActualPlay.Network', 'manage_options', 'actualplay.network', 'actualplay_options_page' );
 
-    /**
-     * Options page callback
-     */
-    public function create_admin_page()
-    {
-        // Set class property
-        $this->options = get_option( 'my_option_name' );
-        ?>
-        <div class="wrap">
-            <h2>My Settings</h2>           
-            <form method="post" action="options.php">
-            <?php
-                // This prints out all hidden setting fields
-                settings_fields( 'my_option_group' );   
-                do_settings_sections( 'my-setting-admin' );
-                submit_button(); 
-            ?>
-            </form>
-        </div>
-        <?php
-    }
-
-    /**
-     * Register and add settings
-     */
-    public function page_init()
-    {        
-        register_setting(
-            'my_option_group', // Option group
-            'my_option_name', // Option name
-            array( $this, 'sanitize' ) // Sanitize
-        );
-
-        add_settings_section(
-            'setting_section_id', // ID
-            'Podcast Sharing Links', // Title
-            array( $this, 'print_section_info' ), // Callback
-            'my-setting-admin' // Page
-        );  
-
-        add_settings_field(
-            'itunes_link', 
-            'iTunes Link', 
-            array( $this, 'itunes_callback' ), 
-            'my-setting-admin', 
-            'setting_section_id'
-        ); 
-
-        add_settings_field(
-            'stitcher_link', 
-            'Stitcher Link', 
-            array( $this, 'stitcher_callback' ), 
-            'my-setting-admin', 
-            'setting_section_id'
-        ); 
-
-        add_settings_field(
-            'about_page', 
-            'About Page', 
-            array( $this, 'about_page_callback' ), 
-            'my-setting-admin', 
-            'setting_section_id'
-        ); 
-    }
-
-    /**
-     * Sanitize each setting field as needed
-     *
-     * @param array $input Contains all settings fields as array keys
-     */
-    public function sanitize( $input )
-    {
-        $new_input = array();
-        if( isset( $input['id_number'] ) )
-            $new_input['id_number'] = absint( $input['id_number'] );
-
-        if( isset( $input['title'] ) )
-            $new_input['title'] = sanitize_text_field( $input['title'] );
-
-        return $new_input;
-    }
-
-    /** 
-     * Print the Section text
-     */
-    public function print_section_info()
-    {
-        print 'Enter your settings below:';
-    }
-
-    /** 
-     * Get the settings option array and print one of its values
-     */
-    public function itunes_callback()
-    {
-        printf(
-            '<input type="url" id="itunes" name="my_option_name[itunes_link]" value="%s" />',
-            isset( $this->options['itunes_link'] ) ? esc_attr( $this->options['itunes_link']) : ''
-        );
-    
-    }
-    public function stitcher_callback()
-    {
-        printf(
-            '<input type="url" id="sticher" name="my_option_name[sticher_link]" value="%s" />',
-            isset( $this->options['stitcher_link'] ) ? esc_attr( $this->options['stitcher_link']) : ''
-        );
-    }
-
-    public function about_page_callback()
-    {
-        printf(
-            '<input type="url" id="about_page" name="my_option_name[about_page]" value="%s" />',
-            isset( $this->options['about_page'] ) ? esc_attr( $this->options['about_page']) : ''
-        );
-    }
 }
 
-if( is_admin() )
-    $my_settings_page = new ActualPlaySettingsPage();
+
+function actualplay_settings_init(  ) { 
+
+    register_setting( 'pluginPage', 'actualplay_settings' );
+
+    add_settings_section(
+        'actualplay_pluginPage_section', 
+        __( 'Your section description', 'actual-play' ), 
+        'actualplay_settings_section_callback', 
+        'pluginPage'
+    );
+
+    add_settings_field( 
+        'actualplay_itunes', 
+        __( 'iTunes Page Link', 'actual-play' ), 
+        'actualplay_itunes_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+
+    add_settings_field( 
+        'actualplay_stitcher', 
+        __( 'Stitcher Page Link', 'actual-play' ), 
+        'actualplay_stitcher_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+
+    add_settings_field( 
+        'actualplay_soundcloud', 
+        __( 'Soundcloud link', 'actual-play' ), 
+        'actualplay_soundcloud_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+
+
+}
+
+
+function actualplay_itunes_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_itunes]' value='<?php echo $options['actualplay_itunes']; ?>'>
+    <?php
+
+}
+
+
+function actualplay_stitcher_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_stitcher]' value='<?php echo $options['actualplay_stitcher']; ?>'>
+    <?php
+
+}
+
+
+function actualplay_soundcloud_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_soundcloud]' value='<?php echo $options['actualplay_soundcloud']; ?>'>
+    <?php
+
+}
+
+
+function actualplay_settings_section_callback(  ) { 
+
+    echo __( 'This section description', 'actual-play' );
+
+}
+
+
+function actualplay_options_page(  ) { 
+
+    ?>
+    <form action='options.php' method='post'>
+
+        <h2>ActualPlay.Network</h2>
+
+        <?php
+        settings_fields( 'pluginPage' );
+        do_settings_sections( 'pluginPage' );
+        submit_button();
+        ?>
+
+    </form>
+    <?php
+
+}
+
+?>

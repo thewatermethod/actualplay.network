@@ -26,8 +26,8 @@
 			<?php
 
 				$footer_menu_args = array(
-					'theme_location' => 'footer',
-					'link_after' => '<span class="sep"> | </span>'
+					'theme_location' => 'footer'
+					
 				);
 
 				wp_nav_menu($footer_menu_args);

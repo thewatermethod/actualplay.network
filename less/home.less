@@ -10,7 +10,7 @@ body.home{
 		width: 100%;
 		background: lighten(#2F4F4F,10%);
 		text-align: center;
-		color: #ccc;
+		color: black;
 		margin-top: 0;
 		padding: .5em;		
 		a{	
@@ -20,10 +20,8 @@ body.home{
 			color: white;	  
 			border-radius: 6px;
 			&:hover{
-				text-decoration: underline;
-				//color: lighten(#006400, 20%);
-				//border: 2px solid lighten(#006400, 20%);
-				border: 2px solid transparent;
+				color: lightgrey;
+				border: 2px solid lightgrey;						
 			}
 		}
 	}	
@@ -60,6 +58,9 @@ body.home{
 			text-decoration: none;
 			margin: 0;
 			padding: 0;
+		}
+		p.desc{
+			font-style: italic;
 		}
 
 		form[role="search"]{
