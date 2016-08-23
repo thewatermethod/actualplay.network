@@ -20,11 +20,7 @@
 		<?php if( !has_nav_menu('footer') ) : ?>
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'actual-play' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'actual-play' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
-			Privacy policy
-			<span class="sep"> | </span>
-			Site Resources
-			<span class="sep"> | </span>
-			Theme crafted in the <a href="http://www.twilitgrotto.com">Twilit Grotto</a>	
+					Theme crafted in the <a href="http://www.twilitgrotto.com">Twilit Grotto</a>	
 		<?php else : ?>
 
 			<?php

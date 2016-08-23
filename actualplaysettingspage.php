@@ -24,7 +24,7 @@ class ActualPlaySettingsPage
         // This page will be under "Settings"
         add_options_page(
             'Settings Admin', 
-            'My Settings', 
+            'Podcast Theme Settings', 
             'manage_options', 
             'my-setting-admin', 
             array( $this, 'create_admin_page' )
@@ -66,26 +66,34 @@ class ActualPlaySettingsPage
 
         add_settings_section(
             'setting_section_id', // ID
-            'My Custom Settings', // Title
+            'Podcast Sharing Links', // Title
             array( $this, 'print_section_info' ), // Callback
             'my-setting-admin' // Page
         );  
 
         add_settings_field(
-            'id_number', // ID
-            'ID Number', // Title 
-            array( $this, 'id_number_callback' ), // Callback
-            'my-setting-admin', // Page
-            'setting_section_id' // Section           
-        );      
-
-        add_settings_field(
-            'title', 
-            'Title', 
-            array( $this, 'title_callback' ), 
+            'itunes_link', 
+            'iTunes Link', 
+            array( $this, 'itunes_callback' ), 
             'my-setting-admin', 
             'setting_section_id'
-        );      
+        ); 
+
+        add_settings_field(
+            'stitcher_link', 
+            'Stitcher Link', 
+            array( $this, 'stitcher_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        ); 
+
+        add_settings_field(
+            'about_page', 
+            'About Page', 
+            array( $this, 'about_page_callback' ), 
+            'my-setting-admin', 
+            'setting_section_id'
+        ); 
     }
 
     /**
@@ -132,6 +140,29 @@ class ActualPlaySettingsPage
         printf(
             '<input type="text" id="title" name="my_option_name[title]" value="%s" />',
             isset( $this->options['title'] ) ? esc_attr( $this->options['title']) : ''
+        );
+    }
+    public function itunes_callback()
+    {
+        printf(
+            '<input type="url" id="itunes" name="my_option_name[itunes_link]" value="%s" />',
+            isset( $this->options['itunes_link'] ) ? esc_attr( $this->options['itunes_link']) : ''
+        );
+    
+    }
+    public function stitcher_callback()
+    {
+        printf(
+            '<input type="url" id="sticher" name="my_option_name[sticher_link]" value="%s" />',
+            isset( $this->options['stitcher_link'] ) ? esc_attr( $this->options['stitcher_link']) : ''
+        );
+    }
+
+    public function about_page_callback()
+    {
+        printf(
+            '<input type="url" id="about_page" name="my_option_name[about_page]" value="%s" />',
+            isset( $this->options['about_page'] ) ? esc_attr( $this->options['about_page']) : ''
         );
     }
 }
