@@ -44,15 +44,15 @@
 		?>
 
 	<?php if( in_category('podcasts') ) :?>
-	
-	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-		<?php dynamic_sidebar( 'sidebar-4' ); ?>		
-	</div><!-- #primary-sidebar -->
+		
+		<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+			<?php dynamic_sidebar( 'sidebar-4' ); ?>		
+		</div><!-- #primary-sidebar -->
 	
 	<?php elseif ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-		<?php dynamic_sidebar( 'sidebar-2' ); ?>
-	</div><!-- #primary-sidebar -->
+		<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+			<?php dynamic_sidebar( 'sidebar-2' ); ?>
+		</div><!-- #primary-sidebar -->
 	<?php endif; ?>	
 
 	</div><!-- .entry-content -->
