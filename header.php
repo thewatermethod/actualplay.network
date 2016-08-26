@@ -40,37 +40,37 @@
 				if ( is_front_page() && is_home() ) : ?>
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<p class="desc"><?php bloginfo('description'); ?></p>
-					<ul class="sharing-links">
-					<?php
-					if( $actual_play_settings["actualplay_rss"] ):?>
-						<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-					<?php endif;?>
-
-					<?php if( $actual_play_settings["actualplay_itunes"] ):?>
-						<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
-					<?php endif;
-
-
-					if( $actual_play_settings["actualplay_soundcloud"] ):?>	
-						<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
-					<?php endif;	
-					if( $actual_play_settings["actualplay_stitcher"] ):?>		
-						<li><a href="<?php echo $actual_play_settings["actualplay_stitcher"]; ?>">Stitcher</a></li>
-					<?php endif;
-					if( $actual_play_settings["actualplay_facebook"] ):?>	
-						<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-					<?php endif;
-					if( $actual_play_settings["actualplay_twitter"] ):?>	
-						<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-					<?php endif; ?>
-					</ul>
+	
 
 				<?php else : ?>
 					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
 				endif;
 
-				?>
+				?>	<ul class="sharing-links">
+						<?php
+						if( $actual_play_settings["actualplay_rss"] ):?>
+							<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+						<?php endif;?>
+
+						<?php if( $actual_play_settings["actualplay_itunes"] ):?>
+							<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
+						<?php endif;
+
+
+						if( $actual_play_settings["actualplay_soundcloud"] ):?>	
+							<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+						<?php endif;	
+						if( $actual_play_settings["actualplay_stitcher"] ):?>		
+							<li><a href="<?php echo $actual_play_settings["actualplay_stitcher"]; ?>">Stitcher</a></li>
+						<?php endif;
+						if( $actual_play_settings["actualplay_facebook"] ):?>	
+							<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+						<?php endif;
+						if( $actual_play_settings["actualplay_twitter"] ):?>	
+							<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<?php endif; ?>
+					</ul>
 			</div><!-- .site-branding -->
 
 			<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>

@@ -24,6 +24,32 @@ aside#secondary{
 	}
 
 }
+html body header#masthead{
+	ul.sharing-links{
+		position: fixed;
+		top: 25%;
+		right: 50px;
+		background: white;
+		margin-left: 0;
+		padding-left: 0;
+
+		li{
+			list-style: none;
+
+			i{	
+				
+				padding: 1rem 0; 
+		
+			}
+		}
+	}
+}
+
+@media(max-width: 1250px), (max-height: 600px){
+	html body header#masthead ul.sharing-links{
+		display: none;
+	}
+}
 
 @media(max-width: 1100px){
 
