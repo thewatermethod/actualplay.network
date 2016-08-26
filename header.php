@@ -47,17 +47,17 @@
 				<?php
 				endif;
 
+				// if( $actual_play_settings["actualplay_rss"] || $actual_play_settings["actualplay_rss"] ||  $actual_play_settings["actualplay_soundcloud"] || $actual_play_settings["actualplay_stitcher"] ) || $actual_play_settings["actualplay_facebook"] || $actual_play_settings["actualplay_twitter"] ):
+
 				?>	<ul class="sharing-links">
 						<?php
 						if( $actual_play_settings["actualplay_rss"] ):?>
 							<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
 						<?php endif;?>
 
-						<?php if( $actual_play_settings["actualplay_itunes"] ):?>
+						<?php if( $actual_play_settings["actualplay_rss"]  ):?>
 							<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
 						<?php endif;
-
-
 						if( $actual_play_settings["actualplay_soundcloud"] ):?>	
 							<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
 						<?php endif;	
@@ -71,6 +71,7 @@
 							<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 						<?php endif; ?>
 					</ul>
+				<?php// endif;?>
 			</div><!-- .site-branding -->
 
 			<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>
