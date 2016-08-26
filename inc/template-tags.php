@@ -35,7 +35,7 @@ function actual_play_posted_on() {
 	);
 
 	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
-
+	
 }
 endif;
 
