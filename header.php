@@ -10,7 +10,7 @@
 */
 
 
-	
+	$actual_play_settings = get_option( 'actualplay_settings', "#" );
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -40,6 +40,31 @@
 				if ( is_front_page() && is_home() ) : ?>
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<p class="desc"><?php bloginfo('description'); ?></p>
+					<ul class="sharing-links">
+					<?php
+					if( $actual_play_settings["actualplay_rss"] ):?>
+						<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+					<?php endif;?>
+
+					<?php if( $actual_play_settings["actualplay_itunes"] ):?>
+						<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
+					<?php endif;
+
+
+					if( $actual_play_settings["actualplay_soundcloud"] ):?>	
+						<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+					<?php endif;	
+					if( $actual_play_settings["actualplay_stitcher"] ):?>		
+						<li><a href="<?php echo $actual_play_settings["actualplay_stitcher"]; ?>">Stitcher</a></li>
+					<?php endif;
+					if( $actual_play_settings["actualplay_facebook"] ):?>	
+						<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+					<?php endif;
+					if( $actual_play_settings["actualplay_twitter"] ):?>	
+						<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<?php endif; ?>
+					</ul>
+
 				<?php else : ?>
 					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
@@ -83,8 +108,6 @@
 
 		$this_query = new WP_Query( array( 'category_name' => 'podcasts', 'posts_per_page' =>1 ) );
 
-		$actual_play_settings = get_option( 'actualplay_settings', "http://www.itunes.com" );
-		
 		while ( $this_query->have_posts() ) {
     		$this_query->the_post();
     		echo "<h2 class='callout'><a href='" . esc_url( get_permalink() ) . "'' rel='bookmark'>Listen to our newest episode here</a> or <a href='". $actual_play_settings["actualplay_itunes"]   ."'>subscribe on iTunes</a></h2>"; 

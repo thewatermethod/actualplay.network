@@ -29,26 +29,18 @@ function actualplay_settings_init(  ) {
         'actualplay_pluginPage_section' 
     );
 
-    add_settings_field( 
-        'actualplay_stitcher', 
-        __( 'Stitcher Page Link', 'actual-play' ), 
-        'actualplay_stitcher_render', 
-        'pluginPage', 
-        'actualplay_pluginPage_section' 
-    );
+    // add_settings_field( 
+    //     'actualplay_stitcher', 
+    //     __( 'Stitcher Page Link', 'actual-play' ), 
+    //     'actualplay_stitcher_render', 
+    //     'pluginPage', 
+    //     'actualplay_pluginPage_section' 
+    // );
 
     add_settings_field( 
         'actualplay_soundcloud', 
         __( 'Soundcloud link', 'actual-play' ), 
         'actualplay_soundcloud_render', 
-        'pluginPage', 
-        'actualplay_pluginPage_section' 
-    );
-
-    add_settings_field( 
-        'actualplay_twitter', 
-        __( 'Twitter link', 'actual-play' ), 
-        'actualplay_twitter_render', 
         'pluginPage', 
         'actualplay_pluginPage_section' 
     );
@@ -59,6 +51,14 @@ function actualplay_settings_init(  ) {
         'pluginPage', 
         'actualplay_pluginPage_section' 
     );
+    add_settings_field( 
+        'actualplay_twitter', 
+        __( 'Twitter link', 'actual-play' ), 
+        'actualplay_twitter_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+
     add_settings_field( 
         'actualplay_facebook', 
         __( 'Facebook link', 'actual-play' ), 
