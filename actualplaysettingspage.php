@@ -5,7 +5,7 @@ add_action( 'admin_init', 'actualplay_settings_init' );
 
 function actualplay_add_admin_menu(  ) { 
 
-    add_options_page( 'ActualPlay.Network', 'ActualPlay.Network', 'manage_options', 'actualplay.network', 'actualplay_options_page' );
+    add_options_page( 'ActualPlay.Network Theme Settings', 'ActualPlay.Network Theme Settings', 'manage_options', 'actualplay.network', 'actualplay_options_page' );
 
 }
 
@@ -16,7 +16,7 @@ function actualplay_settings_init(  ) {
 
     add_settings_section(
         'actualplay_pluginPage_section', 
-        __( 'Your section description', 'actual-play' ), 
+        __( 'Sharing Links', 'actual-play' ), 
         'actualplay_settings_section_callback', 
         'pluginPage'
     );
@@ -45,6 +45,57 @@ function actualplay_settings_init(  ) {
         'actualplay_pluginPage_section' 
     );
 
+    add_settings_field( 
+        'actualplay_twitter', 
+        __( 'Twitter link', 'actual-play' ), 
+        'actualplay_twitter_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+    add_settings_field( 
+        'actualplay_rss', 
+        __( 'RSS link', 'actual-play' ), 
+        'actualplay_rss_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+    add_settings_field( 
+        'actualplay_facebook', 
+        __( 'Facebook link', 'actual-play' ), 
+        'actualplay_facebook_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+
+
+
+}
+
+function actualplay_facebook_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_facebook]' value='<?php echo $options['actualplay_facebook']; ?>'>
+    <?php
+
+}
+
+
+function actualplay_rss_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_rss]' value='<?php echo $options['actualplay_rss']; ?>'>
+    <?php
+
+}
+
+function actualplay_twitter_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_twitter]' value='<?php echo $options['actualplay_twitter']; ?>'>
+    <?php
 
 }
 
@@ -81,7 +132,7 @@ function actualplay_soundcloud_render(  ) {
 
 function actualplay_settings_section_callback(  ) { 
 
-    echo __( 'This section description', 'actual-play' );
+    echo __( 'Enter in links for various social services to be displayed in theme', 'actual-play' );
 
 }
 
