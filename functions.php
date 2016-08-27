@@ -150,6 +150,15 @@ function actual_play_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( '404 Page Content', 'actual-play' ),
+		'id'            => '404-page-content',
+		'description'   => esc_html__( 'Add widgets here.', 'actual-play' ),
+		'before_widget' => '<section class="error-404 not-found">',
+		'after_widget'  => '</div></section>',
+		'before_title'  => '<header class="page-header"><h1 class="page-title">',
+		'after_title'   => '</header></h1><div class="page-content">',
+	) );	
 }
 add_action( 'widgets_init', 'actual_play_widgets_init' );
 

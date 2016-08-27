@@ -12,6 +12,15 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
+			
+		<?php if( is_active_sidebar( "404-page-content" ) ) { 
+
+			dynamic_sidebar("404-page-content");
+
+		} else { 
+
+			?>
+
 			<section class="error-404 not-found">
 				<header class="page-header">
 					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'actual-play' ); ?></h1>
@@ -56,6 +65,8 @@ get_header(); ?>
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
+
+			<?php } ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
