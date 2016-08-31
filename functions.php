@@ -223,3 +223,12 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/actualplaysettingspage.php';
 
 
+wp_scripts()->add_data( 'jquery', 'group', 1 );
+wp_scripts()->add_data( 'jquery-core', 'group', 1 );
+wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
+
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');

@@ -47,28 +47,38 @@
 				<?php
 				endif;
 
-				// if( $actual_play_settings["actualplay_rss"] || $actual_play_settings["actualplay_rss"] ||  $actual_play_settings["actualplay_soundcloud"] || $actual_play_settings["actualplay_stitcher"] ) || $actual_play_settings["actualplay_facebook"] || $actual_play_settings["actualplay_twitter"] ):
-
 				?>	<ul class="sharing-links">
 						<?php
-						if( $actual_play_settings["actualplay_rss"] ):?>
+						if( $actual_play_settings["actualplay_rss"]!= '' ):?>
 							<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
 						<?php endif;?>
 
-						<?php if( $actual_play_settings["actualplay_rss"]  ):?>
+						<?php if( $actual_play_settings["actualplay_rss"]!=''  ):?>
 							<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
 						<?php endif;
-						if( $actual_play_settings["actualplay_soundcloud"] ):?>	
+						if( $actual_play_settings["actualplay_soundcloud"]!= '' ):?>	
 							<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
 						<?php endif;	
-						if( $actual_play_settings["actualplay_stitcher"] ):?>		
+						if( $actual_play_settings["actualplay_stitcher"]!= ''):?>		
 							<li><a href="<?php echo $actual_play_settings["actualplay_stitcher"]; ?>">Stitcher</a></li>
 						<?php endif;
-						if( $actual_play_settings["actualplay_facebook"] ):?>	
+						if( $actual_play_settings["actualplay_facebook"]!= '' ):?>	
 							<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
 						<?php endif;
-						if( $actual_play_settings["actualplay_twitter"] ):?>	
+						if( $actual_play_settings["actualplay_twitter"]!=''
+
+						 ):?>	
 							<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<?php endif;
+						if( $actual_play_settings["actualplay_youtube"]!=''
+
+						 ):?>	
+							<li><a href="<?php echo $actual_play_settings["actualplay_youtube"]; ?>"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+						<?php endif; 
+						if( $actual_play_settings["actualplay_email"]!=''
+
+						 ):?>	
+							<li><a href="<?php echo $actual_play_settings["actualplay_email"]; ?>"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
 						<?php endif; ?>
 					</ul>
 				<?php// endif;?>
@@ -91,8 +101,7 @@
 
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
 
-					get_search_form();
-				 ?>
+					get_search_form(); ?>
 			</nav><!-- #site-navigation -->
 
 

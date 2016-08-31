@@ -66,10 +66,43 @@ function actualplay_settings_init(  ) {
         'pluginPage', 
         'actualplay_pluginPage_section' 
     );
+    add_settings_field( 
+        'actualplay_youtube', 
+        __( 'Youtube link', 'actual-play' ), 
+        'actualplay_youtube_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+    add_settings_field( 
+        'actualplay_email', 
+        __( 'Email Link', 'actual-play' ), 
+        'actualplay_email_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
 
 
 
 }
+
+function actualplay_email_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_email]' value='<?php echo $options['actualplay_email']; ?>'>
+    <?php
+
+}
+
+function actualplay_youtube_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_youtube]' value='<?php echo $options['actualplay_youtube']; ?>'>
+    <?php
+
+}
+
 
 function actualplay_facebook_render(  ) { 
 

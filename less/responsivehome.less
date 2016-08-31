@@ -21,7 +21,9 @@
 		}
 
 		body.home{
-
+			div#content{
+				display: block;
+			}
 			h2.callout{
 				display: none;
 			}	
@@ -45,16 +47,19 @@
 
 			}
 			div#page.site{
+				display: block;
 				flex-flow: column;
 				height: auto;
 			}
 			header#masthead.site-header{
 				width: 100%;
 				max-width: 100%;
+				float: left;
 			}
 			footer#colophon{
 				position: relative;
 				bottom: auto;
+
 			}
 			body.home div#content div.row:first-of-type article{
 
@@ -125,6 +130,8 @@
 	    			color: #39b5de;
 	    		}
 	    	}
+
+
 		}
 		body.home header#masthead{
 			nav.main-navigation{
