@@ -112,23 +112,7 @@
 			?>
 		<?php if ( !is_front_page() && !is_home() ) :  echo'</div>';  endif;?>
 
-		<?php if( is_front_page() || is_home() ): ?>
-
-		<?php  
-
-		$this_query = new WP_Query( array( 'category_name' => 'podcasts', 'posts_per_page' =>1 ) );
-
-		while ( $this_query->have_posts() ) {
-    		$this_query->the_post();
-    		echo "<h2 class='callout'><a href='" . esc_url( get_permalink() ) . "'' rel='bookmark'>Listen to our newest episode here</a> or <a href='". $actual_play_settings["actualplay_itunes"]   ."'>subscribe on iTunes</a></h2>"; 
-		}
-
-		wp_reset_postdata();
-		
-		?>
-
-		<?php endif; ?>
-
+	
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
