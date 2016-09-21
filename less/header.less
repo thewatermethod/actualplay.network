@@ -62,7 +62,7 @@ body.page, body.single, body.search, body.archive, body.category, body.error404 
 		nav.main-navigation{
 			height: 100%; 
 			width: 20%; 
-			position: absolute;
+			position: fixed;
 			top: 0;
 			bottom: 0;		
 			background:white;
@@ -71,6 +71,7 @@ body.page, body.single, body.search, body.archive, body.category, body.error404 
  			-webkit-transition: all .75s;
 			transition: all .75s;
 			z-index: 100;
+			overflow-y: scroll;
 
 			#nav-close{
 				display: none;
