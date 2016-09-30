@@ -28,7 +28,7 @@
 
 	<div class="entry-content">
 
-		<?php the_post_thumbnail(); ?>
+		<?php the_post_thumbnail( 'post-thumbnail', array( 'style' => 'max-height: 225px;') ); ?>
 		
 		<?php
 			the_content( sprintf(
