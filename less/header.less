@@ -22,6 +22,7 @@ body.page, body.single, body.search, body.archive, body.category, body.error404 
 			max-width: 100%;
 			max-height: 100%;
 			width: 50%;
+			max-width: 190px;
 			float: none;
 		}
 
@@ -61,8 +62,8 @@ body.page, body.single, body.search, body.archive, body.category, body.error404 
 
 		nav.main-navigation{
 			height: 100%; 
-			width: 20%; 
-			position: absolute;
+			width: 40%; 
+			position: fixed;
 			top: 0;
 			bottom: 0;		
 			background:white;
@@ -71,6 +72,7 @@ body.page, body.single, body.search, body.archive, body.category, body.error404 
  			-webkit-transition: all .75s;
 			transition: all .75s;
 			z-index: 100;
+			overflow-y: scroll;
 
 			#nav-close{
 				display: none;
@@ -138,7 +140,7 @@ div#primary{
 				max-width: 25%;
 			}
 			nav.main-navigation{				
-				width: 50%;
+				width: 90%;
 				box-shadow: 1px 1px 1px grey;
 
 				#nav-close{
@@ -159,13 +161,13 @@ div#primary{
 }
 
 @media(max-width: 768px){
-	body.page, body.single{
+	body{
 		header#masthead{
 			img#hideOnHome{
 				max-width: 25%;
 			}
 			nav.main-navigation{				
-				width: 90%;
+				
 				box-shadow: 1px 1px 1px grey;
 			}
 		}
@@ -173,11 +175,24 @@ div#primary{
 }
 
 @media(max-width: 675px){
-	body.page, body.single{
+	body{
 		header#masthead{
 			.site-title{
 				display: none;
 			}
 		}
 	}	
+}
+
+@media(max-width: 600px){
+	html{ 
+		body.single header#masthead{
+			nav.main-navigation{
+				ul li{
+					font-size: 1.25em;
+					
+				}
+			}
+		}	
+	}
 }
