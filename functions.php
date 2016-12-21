@@ -168,8 +168,9 @@ add_action( 'widgets_init', 'actual_play_widgets_init' );
 function actual_play_scripts() {
 
 	wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
-
-
+	if( in_category( 'everything-is-true' ) ){
+		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Metal+Mania|New+Rocker' );
+	}
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
 
 	wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -232,3 +233,13 @@ function cc_mime_types($mimes) {
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
+
+
+add_filter( 'single_template', function ($single_template) {
+     global $post;
+    if ( in_category( 'Everything is True' ) ) {
+          $single_template = dirname( __FILE__ ) . '/single-everything-is-true.php';
+     }
+     return $single_template;
+}, 10, 3 );
+

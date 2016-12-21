@@ -48,11 +48,11 @@ gulp.task('compile', function(){
 });
 
 gulp.task('serve', function(){
-	browserSync.init({
-		//change name of proxy to local dev URL
-		proxy: 'localhost/actualplay.network',
-		port: '80'
-	});
+	// browserSync.init({
+	// 	//change name of proxy to local dev URL
+	// 	proxy: 'localhost/actualplay.network',
+	// 	port: '81'
+	// });
 });
 
 

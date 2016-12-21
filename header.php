@@ -59,9 +59,9 @@
 						if( $actual_play_settings["actualplay_soundcloud"]!= '' ):?>	
 							<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
 						<?php endif;	
-						if( $actual_play_settings["actualplay_stitcher"]!= ''):?>		
-							<li><a href="<?php echo $actual_play_settings["actualplay_stitcher"]; ?>">Stitcher</a></li>
-						<?php endif;
+						//if( $actual_play_settings["actualplay_stitcher"]!= ''):?>		
+							<!---<li><a href="<?php //echo $actual_play_settings["actualplay_stitcher"]; ?>">Stitcher</a></li>-->
+						<?php //endif;
 						if( $actual_play_settings["actualplay_facebook"]!= '' ):?>	
 							<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
 						<?php endif;
