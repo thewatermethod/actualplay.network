@@ -58,9 +58,9 @@ gulp.task('serve', function(){
 
 gulp.task( 'default', function(){
 	runSequence(
-		'watch',
-		'compile',
-		'serve'
+		//'watch',
+		'compile'
+		//'serve'
 	);
 
 });
