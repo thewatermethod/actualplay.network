@@ -1,154 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="svg2180" xmlns:svg="http://www.w3.org/2000/svg"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 400 400"
-	 style="enable-background:new 0 0 400 400;" xml:space="preserve">
-<style type="text/css">
-	.st0{opacity:0.5;}
-	.st1{fill:none;stroke:#A9A9A9;}
-	.st2{fill:none;stroke:#336666;}
-</style>
-<g class="st0">
-	<g id="g8191">
-		<path id="path1872" class="st1" d="M20,0v400"/>
-		<g id="use8185" transform="translate(20,0)">
-			<path id="path1872_1_" class="st1" d="M40,0v400"/>
-		</g>
-		<g id="use8187" transform="translate(40,0)">
-			<path id="path1872_2_" class="st1" d="M60,0v400"/>
-		</g>
-		<g id="use8189" transform="translate(60,0)">
-			<path id="path1872_3_" class="st1" d="M80,0v400"/>
-		</g>
-	</g>
-	<g>
-		<g id="g8191_1_">
-			<path id="path1872_4_" class="st1" d="M120,0v400"/>
-			<g id="use8185_1_" transform="translate(20,0)">
-				<path id="path1872_5_" class="st1" d="M140,0v400"/>
-			</g>
-			<g id="use8187_1_" transform="translate(40,0)">
-				<path id="path1872_6_" class="st1" d="M160,0v400"/>
-			</g>
-			<g id="use8197" transform="translate(100,0)">
-				<path id="path1872_7_" class="st1" d="M180,0v400"/>
-			</g>
-		</g>
-		<g>
-			<g id="g8191_2_">
-				<path id="path1872_8_" class="st1" d="M220,0v400"/>
-				<g id="use8185_2_" transform="translate(20,0)">
-					<path id="path1872_9_" class="st1" d="M240,0v400"/>
-				</g>
-				<g id="use8187_2_" transform="translate(40,0)">
-					<path id="path1872_10_" class="st1" d="M260,0v400"/>
-				</g>
-				<g id="use8199" transform="translate(200,0)">
-					<path id="path1872_11_" class="st1" d="M280,0v400"/>
-				</g>
-			</g>
-			<g>
-				<g id="g8191_3_">
-					<path id="path1872_12_" class="st1" d="M320,0v400"/>
-					<g id="use8185_3_" transform="translate(20,0)">
-						<path id="path1872_13_" class="st1" d="M340,0v400"/>
-					</g>
-					<g id="use8187_3_" transform="translate(40,0)">
-						<path id="path1872_14_" class="st1" d="M360,0v400"/>
-					</g>
-					<g id="use8201" transform="translate(300,0)">
-						<path id="path1872_15_" class="st1" d="M380,0v400"/>
-					</g>
-				</g>
-				<g>
-					<g id="g8191_4_">
-						<path id="path1872_16_" class="st1" d="M400,20H0"/>
-						<g id="use8185_4_" transform="translate(20,0)">
-							<path id="path1872_17_" class="st1" d="M400,40H0"/>
-						</g>
-						<g id="use8187_4_" transform="translate(40,0)">
-							<path id="path1872_18_" class="st1" d="M400,60H0"/>
-						</g>
-						<g id="use8203" transform="matrix(0,1,-1,0,400,0)">
-							<path id="path1872_19_" class="st1" d="M400,80H0"/>
-						</g>
-					</g>
-					<g>
-						<g>
-							<g id="g8191_5_">
-								<path id="path1872_20_" class="st1" d="M400,120H0"/>
-								<g id="use8185_5_" transform="translate(20,0)">
-									<path id="path1872_21_" class="st1" d="M400,140H0"/>
-								</g>
-								<g id="use8187_5_" transform="translate(40,0)">
-									<path id="path1872_22_" class="st1" d="M400,160H0"/>
-								</g>
-								<g id="use8205" transform="translate(0,100)">
-									<path id="path1872_23_" class="st1" d="M400,180H0"/>
-								</g>
-							</g>
-							<g>
-								<g>
-									<g id="g8191_6_">
-										<path id="path1872_24_" class="st1" d="M400,220H0"/>
-										<g id="use8185_6_" transform="translate(20,0)">
-											<path id="path1872_25_" class="st1" d="M400,240H0"/>
-										</g>
-										<g id="use8187_6_" transform="translate(40,0)">
-											<path id="path1872_26_" class="st1" d="M400,260H0"/>
-										</g>
-										<g id="use8207" transform="translate(0,200)">
-											<path id="path1872_27_" class="st1" d="M400,280H0"/>
-										</g>
-									</g>
-									<g>
-										<g id="layer1">
-											<g id="g8191_7_">
-												<path id="path1872_28_" class="st1" d="M400,320H0"/>
-												<g id="use8185_7_" transform="translate(20,0)">
-													<path id="path1872_29_" class="st1" d="M400,340H0"/>
-												</g>
-												<g id="use8187_7_" transform="translate(40,0)">
-													<path id="path1872_30_" class="st1" d="M400,360H0"/>
-												</g>
-												<g id="use8209" transform="translate(0,300)">
-													<path id="path1872_31_" class="st1" d="M400,380H0"/>
-												</g>
-											</g>
-										</g>
-										<g>
-											<g id="g8225">
-												<path id="path8215" class="st2" d="M100,0v400"/>
-												<g id="use8217" transform="translate(100,0)">
-													<path id="path8215_1_" class="st2" d="M200,0v400"/>
-												</g>
-												<g id="use8219" transform="translate(200,0)">
-													<path id="path8215_2_" class="st2" d="M300,0v400"/>
-												</g>
-											</g>
-											<g id="layer2">
-												<g id="g8225_1_">
-													<path id="path8215_3_" class="st2" d="M400,100H0"/>
-													<g id="use8217_1_" transform="translate(100,0)">
-														<path id="path8215_4_" class="st2" d="M400,200H0"/>
-													</g>
-													<g id="use8232" transform="matrix(0,1,-1,0,400,0)">
-														<path id="path8215_5_" class="st2" d="M400,300H0"/>
-													</g>
-												</g>
-											</g>
-											<g id="layer3">
-												<rect id="rect10078" x="0.5" y="0.5" class="st2" width="399" height="399"/>
-											</g>
-										</g>
-									</g>
-								</g>
-							</g>
-						</g>
-					</g>
-				</g>
-			</g>
-		</g>
-	</g>
-</g>
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 201 201">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #CCFFFF;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+    <g>
+    <rect class="cls-1" x="0.5" y="0.5" width="200" height="200"/>
+    <line class="cls-1" x1="0.5" y1="167.17" x2="200.5" y2="167.17"/>
+    <line class="cls-1" x1="0.5" y1="133.83" x2="200.5" y2="133.83"/>
+    <line class="cls-1" x1="0.5" y1="100.5" x2="200.5" y2="100.5"/>
+    <line class="cls-1" x1="0.5" y1="67.17" x2="200.5" y2="67.17"/>
+    <line class="cls-1" x1="0.5" y1="33.83" x2="200.5" y2="33.83"/>
+    <line class="cls-1" x1="167.17" y1="0.5" x2="167.17" y2="200.5"/>
+    <line class="cls-1" x1="133.83" y1="0.5" x2="133.83" y2="200.5"/>
+    <line class="cls-1" x1="100.5" y1="0.5" x2="100.5" y2="200.5"/>
+    <line class="cls-1" x1="67.17" y1="0.5" x2="67.17" y2="200.5"/>
+    <line class="cls-1" x1="33.83" y1="0.5" x2="33.83" y2="200.5"/>
+  </g>
 </svg>
