@@ -30,7 +30,8 @@
 	<header id="masthead" class="site-header" role="banner">
 		<?php if ( !is_front_page() && !is_home() ) :  echo'<div class="branding-wrapper">';  endif;?>
 			<div class="site-branding">
-				<?php if ( get_header_image() ) : ?>
+				<?php // this function is badly named "get_header_image" but really seeks out the logo
+					if ( get_header_image() ) : ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 					<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
 					</a>
