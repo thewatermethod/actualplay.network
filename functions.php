@@ -83,7 +83,9 @@ function actual_play_setup() {
 		'default-image' => '',
 	) ) );
 }
+
 endif;
+
 add_action( 'after_setup_theme', 'actual_play_setup' );
 
 /**
@@ -176,9 +178,6 @@ function actual_play_scripts() {
 	wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'actual-play-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-	// remove jquery from front end
-	wp_deregister_script( 'jquery' );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -242,9 +241,9 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/actualplaysettingspage.php';
 
-// wp_scripts()->add_data( 'jquery', 'group', 1 );
-// wp_scripts()->add_data( 'jquery-core', 'group', 1 );
-// wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
+wp_scripts()->add_data( 'jquery', 'group', 1 );
+wp_scripts()->add_data( 'jquery-core', 'group', 1 );
+wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
 
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
