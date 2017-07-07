@@ -29,13 +29,13 @@ function actualplay_settings_init(  ) {
         'actualplay_pluginPage_section' 
     );
 
-    // add_settings_field( 
-    //     'actualplay_stitcher', 
-    //     __( 'Stitcher Page Link', 'actual-play' ), 
-    //     'actualplay_stitcher_render', 
-    //     'pluginPage', 
-    //     'actualplay_pluginPage_section' 
-    // );
+    add_settings_field( 
+        'actualplay_stitcher', 
+        __( 'Stitcher Page Link', 'actual-play' ), 
+        'actualplay_stitcher_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
 
     add_settings_field( 
         'actualplay_soundcloud', 

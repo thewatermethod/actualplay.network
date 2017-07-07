@@ -171,17 +171,36 @@ function actual_play_scripts() {
 	if( in_category( 'everything-is-true' ) ){
 		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Metal+Mania|New+Rocker' );
 	}
+
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
-
 	wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'actual-play-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	// remove jquery from front end
+	wp_deregister_script( 'jquery' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'actual_play_scripts' );
+
+
+/**
+ * Disable emojis.
+ */
+
+function disable_emojis() {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+}
+
+add_action( 'init', 'disable_emojis' );
 
 
 function limit_posts_on_homepage( $query ){
@@ -223,10 +242,9 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/actualplaysettingspage.php';
 
-
-wp_scripts()->add_data( 'jquery', 'group', 1 );
-wp_scripts()->add_data( 'jquery-core', 'group', 1 );
-wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
+// wp_scripts()->add_data( 'jquery', 'group', 1 );
+// wp_scripts()->add_data( 'jquery-core', 'group', 1 );
+// wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
 
 function cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';

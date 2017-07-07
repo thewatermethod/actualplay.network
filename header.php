@@ -47,40 +47,46 @@
 				<?php
 				endif;
 
-				?>	<ul class="sharing-links">
-						<?php
-						if( $actual_play_settings["actualplay_rss"]!= '' ):?>
-							<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-						<?php endif;?>
+					
+					// this next section grabs the sharing links and outputs them if on the home page				
 
-						<?php if( $actual_play_settings["actualplay_rss"]!=''  ):?>
-							<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
-						<?php endif;
-						if( $actual_play_settings["actualplay_soundcloud"]!= '' ):?>	
-							<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
-						<?php endif;	
-						//if( $actual_play_settings["actualplay_stitcher"]!= ''):?>		
-							<!---<li><a href="<?php //echo $actual_play_settings["actualplay_stitcher"]; ?>">Stitcher</a></li>-->
-						<?php //endif;
-						if( $actual_play_settings["actualplay_facebook"]!= '' ):?>	
-							<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-						<?php endif;
-						if( $actual_play_settings["actualplay_twitter"]!=''
+				?>
+					<?php if (is_home() || is_front_page()) : ?>
+						<ul class="sharing-links">
+							<?php
+							if( $actual_play_settings["actualplay_rss"]!= '' ):?>
+								<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+							<?php endif;?>
 
-						 ):?>	
-							<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<?php endif;
-						if( $actual_play_settings["actualplay_youtube"]!=''
+							<?php if( $actual_play_settings["actualplay_rss"]!=''  ):?>
+								<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
+							<?php endif;
+							if( $actual_play_settings["actualplay_soundcloud"]!= '' ):?>	
+								<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+							<?php endif;	
+							if( $actual_play_settings["actualplay_stitcher"]!= ''):?>		
+								<li><a href="<?php echo $actual_play_settings["actualplay_stitcher"]; ?>">Stitcher</a></li>
+							<?php endif;
+							if( $actual_play_settings["actualplay_facebook"]!= '' ):?>	
+								<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+							<?php endif;
+							if( $actual_play_settings["actualplay_twitter"]!=''
 
-						 ):?>	
-							<li><a href="<?php echo $actual_play_settings["actualplay_youtube"]; ?>"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-						<?php endif; 
-						if( $actual_play_settings["actualplay_email"]!=''
+							 ):?>	
+								<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<?php endif;
+							if( $actual_play_settings["actualplay_youtube"]!=''
 
-						 ):?>	
-							<li><a href="<?php echo $actual_play_settings["actualplay_email"]; ?>"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-						<?php endif; ?>
-					</ul>
+							 ):?>	
+								<li><a href="<?php echo $actual_play_settings["actualplay_youtube"]; ?>"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+							<?php endif; 
+							if( $actual_play_settings["actualplay_email"]!=''
+
+							 ):?>	
+								<li><a href="<?php echo $actual_play_settings["actualplay_email"]; ?>"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+							<?php endif; ?>
+						</ul>
+					<?php endif; ?>
 				<?php// endif;?>
 			</div><!-- .site-branding -->
 
@@ -102,7 +108,6 @@
 				<?php 
 
 					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
-
 					get_search_form(); 
 
 				?>
