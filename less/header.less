@@ -1,9 +1,9 @@
-body.page, body.single, body.search, body.archive, body.category, body.error404 {
+body:not(.home) {
 	.branding-wrapper{
-		max-width: 1200px;
+		max-width: 85%;
 		margin: auto;
 	}
-	header#masthead{
+	header.site-header{
 		background-color: white;
 		background-image: url(../assets/graph.svg);
 		width: 100%; 
@@ -27,7 +27,7 @@ body.page, body.single, body.search, body.archive, body.category, body.error404 
 		}
 
 		.site-title{
-			font-family: "Copse", Tahoma, Helvetica, sans-serif;
+			font-family: Tahoma, Helvetica, sans-serif;
 			margin: 0;
 			padding: .25em 0 0 0;
 			font-size: 3rem;
@@ -111,41 +111,46 @@ body.page, body.single, body.search, body.archive, body.category, body.error404 
 
 
 }
-//main#main,aside#secondary{
-div#primary{	
-	max-width: 1200px;
-	padding: 1em;
+body:not(.home) div.site-content{
+	max-width: 85%;
 	margin: auto;
-	background: white;
+	background: white;	
+	display: flex;
+	flex-direction: row;
 }
 
-html body header#masthead ul.sharing-links {
+html body header.site-header ul.sharing-links {
 	display: none;
 }
 
-html body.home header#masthead ul.sharing-links {
+html body.home header.site-header ul.sharing-links {
 	display: block;
 }
 
 
-
+@media( min-width: 1500px ){
+	body:not(.home) div.site-content, body:not(.home) .branding-wrapper{	
+		max-width: 70%;
+	}
+}
 
 @media(min-width: 1200px){
-	body.page, body.single, body.search, body.archive, body.category{
-		header#masthead i{
-			padding: 1.25rem 4rem;
+	body:not(.home){
+		header.site-header i{
+			padding: 1.25rem;
 		}
 	}
+
 
 }
 
 
 @media(max-width: 1200px){
-	header#masthead p.desc{
+	header.site-header p.desc{
 		display: none;
 	}
 	body.page, body.single{
-		header#masthead{
+		header.site-header{
 			img#hideOnHome{
 				max-width: 25%;
 			}
@@ -168,16 +173,18 @@ html body.home header#masthead ul.sharing-links {
 			}
 		}
 	}
+	body:not(.home) div.site-content{
+		flex-direction: column;
+	}
 }
 
 @media(max-width: 768px){
 	body{
-		header#masthead{
+		header.site-header{
 			img#hideOnHome{
 				max-width: 25%;
 			}
-			nav.main-navigation{				
-				
+			nav.main-navigation{			
 				box-shadow: 1px 1px 1px grey;
 			}
 		}
@@ -186,7 +193,7 @@ html body.home header#masthead ul.sharing-links {
 
 @media(max-width: 675px){
 	body{
-		header#masthead{
+		header.site-header{
 			.site-title{
 				display: none;
 			}
@@ -196,7 +203,7 @@ html body.home header#masthead ul.sharing-links {
 
 @media(max-width: 600px){
 	html{ 
-		body.single header#masthead{
+		body.single header.site-header{
 			nav.main-navigation{
 				ul li{
 					font-size: 1.25em;

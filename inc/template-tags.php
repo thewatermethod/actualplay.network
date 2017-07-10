@@ -31,7 +31,7 @@ function actual_play_posted_on() {
 
 	$byline = sprintf(
 		esc_html_x( 'by %s', 'post author', 'actual-play' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
+		'<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>'
 	);
 
 	// Hide category and tag text for pages.
@@ -39,7 +39,7 @@ function actual_play_posted_on() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'actual-play' ) );
 		if ( $categories_list && actual_play_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'actual-play' ) . '</span><br>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'actual-play' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 	}	
 

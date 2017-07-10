@@ -245,18 +245,18 @@ wp_scripts()->add_data( 'jquery', 'group', 1 );
 wp_scripts()->add_data( 'jquery-core', 'group', 1 );
 wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
 
-function cc_mime_types($mimes) {
+function apn_cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }
-add_filter('upload_mimes', 'cc_mime_types');
+add_filter('upload_mimes', 'apn_cc_mime_types');
 
 
-add_filter( 'single_template', function ($single_template) {
-     global $post;
-    if ( in_category( 'Everything is True' ) ) {
-          $single_template = dirname( __FILE__ ) . '/single-everything-is-true.php';
-     }
-     return $single_template;
-}, 10, 3 );
-
+function apn_add_category_name($classes = '') {
+   if(is_single()) {
+      $category = get_the_category();
+      $classes[] = 'category-'.$category[0]->slug; 
+   }
+   return $classes;
+}
+add_filter('body_class','apn_add_category_name');
