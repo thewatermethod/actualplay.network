@@ -11,6 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header" style="background-image: url(<?php echo the_post_thumbnail_url( 'full' ); ?>); background-size: cover; min-height: 400px;">
+		<div class="entry-header-content">
 		<?php
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -25,6 +26,7 @@
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
+		</div>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
