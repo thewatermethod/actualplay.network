@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	<header class="entry-header" style="background-image: url(<?php echo the_post_thumbnail_url( 'full' ); ?>); background-size: cover; min-height: 400px;">
 		<?php
 			if ( is_single() ) {
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -20,7 +20,8 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php actual_play_posted_on(); ?>
+			<?php the_powerpress_content(); ?>
+			<span class="meta-info"><?php actual_play_posted_on(); ?></span>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -28,7 +29,7 @@
 
 	<div class="entry-content">
 
-		<?php the_post_thumbnail( 'post-thumbnail', array( 'style' => 'max-height: 225px;') ); ?>
+		<?php //the_post_thumbnail( 'post-thumbnail', array( 'style' => 'max-height: 225px;') ); ?>
 		
 		<?php
 			the_content( sprintf(
