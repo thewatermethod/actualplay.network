@@ -10,7 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header" style="background-image: url(<?php echo the_post_thumbnail_url( 'full' ); ?>); background-size: cover; min-height: 400px;">
+	<header class="entry-header" <?php if(has_post_thumbnail() ) : ?>style="background-image: url(<?php echo the_post_thumbnail_url( 'full' ); ?>);"<?php endif;?>>
 		<div class="entry-header-content">
 		<?php
 			if ( is_single() ) {

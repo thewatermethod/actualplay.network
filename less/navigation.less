@@ -98,17 +98,27 @@
 	overflow: hidden;
 }
 
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
-	float: left;
-	width: 50%;
+/*  POST NAVIGATION */
+
+.nav-links{
+	display: flex;
+	flex-direction: row;
+}
+.nav-previous, .nav-next{
+	
+	flex-grow: 1;
+	text-align: center;
+
+	a{
+		color: white;
+		padding: 1rem;
+	}
+	
+}
+.nav-previous{
+	background: black;
+}
+.nav-next{
+	background: #1d8aae;	
 }
 
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
-}
