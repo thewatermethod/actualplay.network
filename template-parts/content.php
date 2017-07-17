@@ -21,8 +21,14 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php the_powerpress_content(); ?>
-			<span class="meta-info"><?php actual_play_posted_on(); ?></span>
+			<?php 
+				$EpisodeData = powerpress_get_enclosure_data( get_the_ID() );
+				the_powerpress_content(); ?>
+			<span class="meta-info">
+				<span><a href="<?php echo $EpisodeData['url']; ?>">Download Episode</a></span>
+				<span>Episode Length: <?php echo $EpisodeData['duration']; ?></span>				
+				<?php actual_play_posted_on(); ?>				
+			</span>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -31,9 +37,8 @@
 
 	<div class="entry-content">
 
-		<?php //the_post_thumbnail( 'post-thumbnail', array( 'style' => 'max-height: 225px;') ); ?>
-		
 		<?php
+
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'actual-play' ), array( 'span' => array( 'class' => array() ) ) ),

@@ -1,42 +1,76 @@
-.category-podcast{
-	.entry-header {
-		background-size: cover; 
-		min-height: 400px;
-		position: relative;
-		.entry-header-content{
-			
-			bottom: 0;
-			left: 0;
-			position: absolute;
-			right: 0;
+body:not(.home){
+	.category-podcast{
+		.entry-header {
+			background-size: cover; 
+			min-height: 400px;
+			position: relative;
+			.entry-header-content{
+				
+				bottom: 0;
+				left: 0;
+				position: absolute;
+				right: 0;
 
-			.entry-title{
-				background: rgba(1,1,1,.5);
-				color: white;
-				margin-bottom: 0;
-				padding: 1rem;
-				text-shadow: 1px 1px 2px white; 
-			}
-
-			.entry-meta{
-				background: #f2f2f2;
-
-				span.meta-info span{		
-				    border-right: 3px solid #1d8aae;
-				    font-size: .75em;
-				    margin: .5rem;
-				    padding-right: 1rem;
-				    text-transform: uppercase;	    
-					&:last-of-type{
-						border-right: 0;
-					}
+				.entry-title{
+					background: rgba(1,1,1,.5);
+					color: white;
+					margin-bottom: 0;
+					padding: 1rem;
+					text-shadow: 1px 1px 2px white; 
 				}
 
-				.powerpress_links.powerpress_links_mp3{
-					display:  none;
+				.entry-meta{
+					background: #f2f2f2;
+
+					span.meta-info span{		
+					    border-right: 3px solid #1d8aae;
+					    font-size: .75em;
+					    margin: .5rem;
+					    padding-right: 1rem;
+					    text-transform: uppercase;	    
+						&:last-of-type{
+							border-right: 0;
+						}
+					}
+
+					.powerpress_links.powerpress_links_mp3{
+						display:  none;
+					}
 				}
 			}
 		}
+	}
+}
+
+@media( max-width: 900px ){ 
+
+	body:not(.home) .category-podcast{
+
+		.entry-header{
+			min-height: 43vh;
+		}
+
+		.entry-header .entry-header-content h1.entry-title{
+			font-size: 1em;
+			text-shadow: none;
+		}
+
+		.entry-header .entry-header-content .entry-meta span.meta-info span{
+			border-right: 0;
+			display: block;
+		}
+
+	}
+
+}
+
+@media( max-width: 675px ){ 
+
+	body:not(.home) .category-podcast .entry-header .entry-header-content{
+		position: relative;
+	}
+	.entry-header .entry-header-content .entry-meta span.meta-info span{
+		text-align: center;
 	}
 
 }

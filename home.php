@@ -14,11 +14,9 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-	
+	<div id="primary" class="content-area">	
 
-		<?php
-
+		<?php	
 
 		if ( have_posts() ) :
 
@@ -43,8 +41,6 @@ get_header(); ?>
 			 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
 				<article id="post-<?php the_ID(); ?>" <?php post_class($post_int); ?> 
 					style="background-image: url('<?php echo $image[0]; ?>');">
-				
-
 
 					<div class="article-wrap" <?php if($post_int ===0): echo 'id="hero"'; endif;?> >
 						<header class="entry-header">
@@ -57,6 +53,9 @@ get_header(); ?>
 
 							 ?>
 						</header><!-- .entry-header -->
+						<div class="entry-meta">
+							<?php the_powerpress_content(); ?>						
+						</div><!-- .entry-meta -->
 
 						<div class="entry-content">
 							<?php
