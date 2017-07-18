@@ -1,5 +1,28 @@
+
 @media( max-width: 675px ){ 
+	html body:not(.home) div.site-content{
+		max-width: 100%;
+	}
+	html body:not(.home) header.site-header nav.main-navigation{
+		width: 100%;
+	}
+	html body:not(.home) header.site-header nav.main-navigation ul li{
+		font-size: 1em;
+	}
+	html body:not(.home) header.site-header nav.main-navigation #nav-close{
+		position: relative;
+	}
+	body:not(.home) aside.widget-area{
+		margin: 0;
+	}
+	
 	body .entry-content, body .entry-summary, body .page-content{
 		margin: 0;
+	}
+	html body:not(.home) .nav-links{
+		flex-direction: column;
+		.nav-next, .nav-previous{
+			max-width: 100%;
+		}
 	}
 }

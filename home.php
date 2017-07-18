@@ -38,9 +38,13 @@ get_header(); ?>
 
 				}
 			 		
-			 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
-				<article id="post-<?php the_ID(); ?>" <?php post_class($post_int); ?> 
-					style="background-image: url('<?php echo $image[0]; ?>');">
+			 	$bg = '';	
+			 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+			 	if( $image != ''){
+			 		$bg = 'style="background-image: url('.$image[0].');"';
+			 	}
+			 	?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class($post_int); echo $bg; ?>>
 
 					<div class="article-wrap" <?php if($post_int ===0): echo 'id="hero"'; endif;?> >
 						<header class="entry-header">
@@ -87,7 +91,6 @@ get_header(); ?>
 			$post_int++;
 			endwhile;
 
-			the_posts_navigation();
 
 		else :
 
