@@ -168,12 +168,10 @@ add_action( 'widgets_init', 'actual_play_widgets_init' );
  * Enqueue scripts and styles.
  */
 function actual_play_scripts() {
-
-	wp_enqueue_style('font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+	
 	if( in_category( 'everything-is-true' ) ){
 		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Metal+Mania|New+Rocker' );
 	}
-
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
 	wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'actual-play-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
