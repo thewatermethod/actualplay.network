@@ -10,30 +10,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header" <?php if(has_post_thumbnail() ) : ?>style="background-image: url(<?php echo the_post_thumbnail_url( 'full' ); ?>);"<?php endif;?>>
-		<div class="entry-header-content">
-		<?php
-			if ( is_single() ) {
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			} else {
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			}
 
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php 
-				$EpisodeData = powerpress_get_enclosure_data( get_the_ID() );
-				the_powerpress_content(); ?>
-			<span class="meta-info">
-				<span><a href="<?php echo $EpisodeData['url']; ?>">Download Episode</a></span>
-				<span>Episode Length: <?php echo $EpisodeData['duration']; ?></span>				
-				<?php actual_play_posted_on(); ?>				
-			</span>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-		</div>
-	</header><!-- .entry-header -->
+	<?php actualplay_get_post_header_and_meta( get_post_type() , get_the_ID(), false ); ?>
 
 	<div class="entry-content">
 

@@ -16,6 +16,8 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
+
+		<span class="desc"><?php bloginfo('description'); ?></span>	
 		
 		<?php if( !has_nav_menu('footer') ) : ?>
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'actual-play' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'actual-play' ), 'WordPress' ); ?></a>

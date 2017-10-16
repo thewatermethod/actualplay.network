@@ -169,9 +169,13 @@ add_action( 'widgets_init', 'actual_play_widgets_init' );
  */
 function actual_play_scripts() {
 	
+	
+	// this grabs the fonts for the everything is true pages
 	if( in_category( 'everything-is-true' ) ){
 		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Metal+Mania|New+Rocker' );
 	}
+
+	//here's the various javascripts for the webpage
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
 	wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'actual-play-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -200,12 +204,12 @@ function disable_emojis() {
 add_action( 'init', 'disable_emojis' );
 
 
-function limit_posts_on_homepage( $query ){
-   if ( $query->is_home() && $query->is_main_query() ) {
-        $query->set( 'posts_per_page', 3 );
-    }
-}
-add_action( 'pre_get_posts', 'limit_posts_on_homepage' );
+// function limit_posts_on_homepage( $query ){
+//    if ( $query->is_home() && $query->is_main_query() ) {
+//         $query->set( 'posts_per_page', 3 );
+//     }
+// }
+// add_action( 'pre_get_posts', 'limit_posts_on_homepage' );
 
 
 /**
@@ -232,6 +236,11 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Custom post header/meta
+ */
+require get_template_directory() . '/inc/podcast-header.php';
 
 
 /**

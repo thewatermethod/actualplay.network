@@ -10,7 +10,7 @@
 */
 
 
-	$actual_play_settings = get_option( 'actualplay_settings', "#" );
+$actual_play_settings = get_option( 'actualplay_settings' );
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -28,99 +28,90 @@
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'actual-play' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<?php if ( !is_front_page() && !is_home() ) :  echo'<div class="branding-wrapper">';  endif;?>
-			<div class="site-branding">
-				<?php // this function is badly named "get_header_image" but really seeks out the logo
-					if ( get_header_image() ) : ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
-					</a>
-				<?php endif; // End header image check. ?>
 
-				<?php
-				if ( is_front_page() && is_home() ) : ?>
-					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<p class="desc"><?php bloginfo('description'); ?></p>
+		<!-- here is the title text for the screen readers -->
+		<?php if ( is_front_page() && is_home() ) : ?>
+			<h1 class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
+		<?php else : ?>
+			<p class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></p>
+		<?php
+		endif; ?>
+		<!-- Ends screen reader texts-->
+
+
+
+		<!-- This is the wrapper for the header workings -->
+		<div class="site-branding">
+
+			<!-- -Hamburger Menu -->
+
+			<span class="fa fa-bars nav-toggle" aria-hidden="true" id="nav-toggle"></span>
+
+
+			<!-- Logo Image --> 
+
+			<?php // this function is badly named "get_header_image" but really seeks out the logo
+				if ( get_header_image() ) : ?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+					</a>
+			<?php endif; // End header image check. ?>
+
 	
-
-				<?php else : ?>
-					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			<!-- Social Media Icons -->
+			
+			<ul class="sharing-links">
 				<?php
-				endif;
+				if( $actual_play_settings["actualplay_rss"]):?>
+					<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><span class="fa fa-rss" aria-hidden="true"></span></a></li>
+				<?php endif;?>
 
-					
-					// this next section grabs the sharing links and outputs them if on the home page				
-
-				?>
-					<?php if (is_home() || is_front_page()) : ?>
-						<ul class="sharing-links">
-							<?php
-							if( $actual_play_settings["actualplay_rss"]!= '' ):?>
-								<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-							<?php endif;?>
-
-							<?php if( $actual_play_settings["actualplay_rss"]!=''  ):?>
-								<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><i class="fa fa-apple" aria-hidden="true"></i></a></li>
-							<?php endif;
-							if( $actual_play_settings["actualplay_soundcloud"]!= '' ):?>	
-								<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
-							<?php endif;								
-							if( $actual_play_settings["actualplay_facebook"]!= '' ):?>	
-								<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
-							<?php endif;
-							if( $actual_play_settings["actualplay_twitter"]!=''
-
-							 ):?>	
-								<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<?php endif;
-							if( $actual_play_settings["actualplay_youtube"]!=''
-
-							 ):?>	
-								<li><a href="<?php echo $actual_play_settings["actualplay_youtube"]; ?>"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-							<?php endif; 
-							if( $actual_play_settings["actualplay_email"]!=''
-
-							 ):?>	
-								<li><a href="<?php echo $actual_play_settings["actualplay_email"]; ?>"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-							<?php endif; ?>
-						</ul>
-					<?php endif; ?>
-				<?php// endif;?>
-			</div><!-- .site-branding -->
-
-			<i class="fa fa-bars" aria-hidden="true" id="nav-toggle"></i>
-
-			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<span id="nav-close">Close</span>
-
-				<?php if ( get_header_image() ) : ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<img id="hideOnHome" src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
-					</a>
+				<?php if( $actual_play_settings["actualplay_rss"] ):?>
+					<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><span class="fa fa-apple" aria-hidden="true"></span></a></li>
+				<?php endif;
+				if( $actual_play_settings["actualplay_soundcloud"]):?>	
+					<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><span class="fa fa-soundcloud" aria-hidden="true"></span></a></li>
+				<?php endif;								
+				if( $actual_play_settings["actualplay_facebook"] ):?>	
+					<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><span class="fa fa-facebook-official" aria-hidden="true"></span></a></li>
+				<?php endif;
+				if( $actual_play_settings["actualplay_twitter"] ):?>	
+					<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+				<?php endif;
+				if( $actual_play_settings["actualplay_youtube"] ):?>	
+					<li><a href="<?php echo $actual_play_settings["actualplay_youtube"]; ?>"><span class="fa fa-youtube" aria-hidden="true"></span></a></li>
 				<?php endif; 
-
+				if( $actual_play_settings["actualplay_email"] ):?>	
+					<li><a href="<?php echo $actual_play_settings["actualplay_email"]; ?>"><span class="fa fa-envelope" aria-hidden="true"></span></a></li>
+				<?php endif; ?>
+			</ul>
 				
-				
-				// End header image check. ?>
+		</div><!-- .site-branding -->
 
-				<?php 
 
-					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
-					get_search_form(); 
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<span id="nav-close">Close</span>
 
-				?>
-				
-			</nav><!-- #site-navigation -->
+			<?php if ( get_header_image() ) : ?>
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+				</a>
+			<?php endif; 
 
+			
+			
+			// End header image check. ?>
 
 			<?php 
-				if ( is_front_page() && is_home() ) : 
-					dynamic_sidebar( 'home-sidebar' ); 
-				endif;
-			?>
-		<?php if ( !is_front_page() && !is_home() ) :  echo'</div>';  endif;?>
 
-	
+				wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+				get_search_form(); 
+
+			?>
+			
+		</nav><!-- #site-navigation -->
+
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
