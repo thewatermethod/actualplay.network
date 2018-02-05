@@ -4,9 +4,11 @@ header.site-header {
 	background-color: white;	
 	border-bottom: 1px solid rgba(50,50,50,.15);
 	height: 90px;
-	position: absolute;
+	position: sticky;
 	top: 0;
-	width: 100%; 
+	width: 100%
+	; 
+	z-index: 2;
 
 	.site-branding {
 		align-items: center;
@@ -17,7 +19,7 @@ header.site-header {
 		
 		//logo 
 		img{
-			max-height: 80px;
+			height: 80px;
 			width: auto;
 			max-width: 80px;		
 		}
@@ -116,7 +118,7 @@ header.site-header {
 div.site-content{	
 	display: flex;
 	flex-direction: row;
-	margin: 90px auto auto auto;
+	margin: auto;
 	max-width: 1200px;
 }
 
