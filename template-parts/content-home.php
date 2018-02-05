@@ -11,9 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="entry-content">
-
 	<?php actualplay_get_post_header_and_meta( get_post_type() , get_the_ID(), true ); ?>	
+
+	<div class="entry-content">
 
 		<?php
 
