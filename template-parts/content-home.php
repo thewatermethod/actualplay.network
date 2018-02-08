@@ -17,6 +17,18 @@
 
 		<?php
 
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );			
+
+			
+			if ( 'post' === $post_type ) : ?>
+
+				<div class="entry-meta">
+					<?php actual_play_posted_on(); ?>
+				</div><!-- .entry-meta -->
+
+			<?php
+			endif; 
+
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'actual-play' ), array( 'span' => array( 'class' => array() ) ) ),

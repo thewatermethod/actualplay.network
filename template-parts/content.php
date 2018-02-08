@@ -17,6 +17,8 @@
 
 		<?php
 
+			the_title( '<h1 class="entry-title">', '</h1>' );
+
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'actual-play' ), array( 'span' => array( 'class' => array() ) ) ),

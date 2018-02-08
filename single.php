@@ -15,8 +15,10 @@ get_header(); ?>
 		<?php
 		while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content', get_post_format() );?>
 
+			<?php
+			
 			the_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.

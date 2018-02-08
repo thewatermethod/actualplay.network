@@ -17,11 +17,6 @@ function actualplay_get_post_header_and_meta( $post_type, $post_id, $is_home ){
 		?><header class="entry-header" <?php if(has_post_thumbnail() ) : ?>style="background-image: url(<?php echo the_post_thumbnail_url( 'full' ); ?>);"<?php endif;?>>
 			<div class="entry-header-content">
 			<?php
-				if ( is_single() ) {
-					the_title( '<h1 class="entry-title">', '</h1>' );
-				} else {
-					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-				}
 
 			if ( 'post' === $post_type ) : ?>
 
@@ -48,26 +43,6 @@ function actualplay_get_post_header_and_meta( $post_type, $post_id, $is_home ){
 
 		return;	
 		endif; ?>
-
-		<header class="entry-header">
-			<div class="entry-header-content">
-			<?php
-				if ( is_single() ) {
-					the_title( '<h1 class="entry-title">', '</h1>' );
-				} else {
-					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-				}
-
-			if ( 'post' === $post_type ) : ?>
-
-				<div class="entry-meta">
-					<?php actual_play_posted_on(); ?>
-				</div><!-- .entry-meta -->
-
-			<?php
-			endif; ?>
-			</div>
-		</header><!-- .entry-header -->
 
 
 <?php
