@@ -28,9 +28,8 @@ function actual_play_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	
-	//hide the admin bar
-	add_filter('show_admin_bar', '__return_false');
-
+	require_once 'inc/class-performer.php';
+	Podcast_Performer::init();
 
 	/*
 	 * Let WordPress manage the document title.
