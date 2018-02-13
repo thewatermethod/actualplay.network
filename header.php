@@ -65,7 +65,6 @@ $actual_play_settings = get_option( 'actualplay_settings' );
 				if( $actual_play_settings["actualplay_rss"]):?>
 					<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><span class="fa fa-rss" aria-hidden="true"></span></a></li>
 				<?php endif;?>
-
 				<?php if( $actual_play_settings["actualplay_rss"] ):?>
 					<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><span class="fa fa-apple" aria-hidden="true"></span></a></li>
 				<?php endif;
@@ -90,7 +89,7 @@ $actual_play_settings = get_option( 'actualplay_settings' );
 
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<span id="nav-close">Close</span>
+			<span id="nav-close" class="nav-close">Close</span>
 
 			<?php if ( get_header_image() ) : ?>
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
@@ -105,9 +104,12 @@ $actual_play_settings = get_option( 'actualplay_settings' );
 			<?php 
 
 				wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
-				get_search_form(); 
+				
+				if ( is_active_sidebar( 'home-sidebar' ) ) {
+					dynamic_sidebar( 'home-sidebar' ); 
+				}
 
-			?>
+			?>		
 			
 		</nav><!-- #site-navigation -->
 

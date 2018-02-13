@@ -30,7 +30,10 @@ gulp.task('build-less', function(){
 		.pipe( gulp.dest('min') )
 });
 
-
+gulp.task('gather-assets', function() {
+	return gulp.src(['node_modules/vue/dist/vue.min.js'])
+		.pipe( gulp.dest('admin'))
+});
 
 gulp.task('compile', function(){
 	runSequence(
