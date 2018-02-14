@@ -21,7 +21,7 @@ var gulp = require('gulp'),
 
 //this task builds the less files into minified css
 gulp.task('build-less', function(){
-	return gulp.src(['!less/fa/*.less','less/*.less'])
+	return gulp.src(['less/normalize.less,','less/vars.less','!less/fa/*.less','less/*.less'])
 		.pipe( sourcemaps.init() )
 		.pipe( concat('style.less') )
 		.pipe( less() )

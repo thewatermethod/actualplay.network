@@ -43,22 +43,6 @@
 	width: 200px;
 }
 
-.main-navigation ul ul li {
-
-}
-
-.main-navigation li:hover > a,
-.main-navigation li.focus > a {
-}
-
-.main-navigation ul ul :hover > a,
-.main-navigation ul ul .focus > a {
-}
-
-.main-navigation ul ul a:hover,
-.main-navigation ul ul a.focus {
-}
-
 .main-navigation ul li:hover > ul,
 .main-navigation ul li.focus > ul {
 	left: auto;
@@ -67,12 +51,6 @@
 .main-navigation ul ul li:hover > ul,
 .main-navigation ul ul li.focus > ul {
 	left: 100%;
-}
-
-.main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a,
-.main-navigation .current_page_ancestor > a,
-.main-navigation .current-menu-ancestor > a {
 }
 
 /* Small menu. */
@@ -97,46 +75,47 @@
 	overflow: hidden;
 }
 
-/*  POST NAVIGATION */
+/*--------------------------------------------------------------
+#  Post Navigation
+--------------------------------------------------------------*/
 
+.nav-links{
+	display: flex;
+	flex-direction: row;
+}
+.nav-previous, .nav-next{
+	padding: 1em;
+	flex-grow: 1;
+	min-width: 50%;
+	text-align: center;
 
-	.nav-links{
-		display: flex;
-		flex-direction: row;
+	a{
+		color: white;
+		padding: 1rem;
+		border: none;
 	}
-	.nav-previous, .nav-next{
-		padding: 1em;
-		flex-grow: 1;
-		min-width: 50%;
-		text-align: center;
-
-		a{
-			color: white;
-			padding: 1rem;
-			border: none;
-		}
-		
+	
+}
+.nav-previous{
+	background: #333;
+	border-bottom: .5em solid lighten(#333, 10%);
+	&:hover{
+		background: lighten(#333, 10%);
 	}
-	.nav-previous{
-		background: #333;
-		border-bottom: .5em solid lighten(#333, 10%);
-		&:hover{
-			background: lighten(#333, 10%);
-		}
-		&:before{
-			content: '<<';
-			color: white;
-		}
+	&:before{
+		content: '<<';
+		color: white;
 	}
-	.nav-next{
-		background: #1d8aae;	
-		border-bottom: .5em solid lighten(#1d8aae, 10%);
-		&:hover{
-			background: lighten(#1d8aae, 10%);
-		}
-		&:after{
-			content: '>>';
-			color: white;
-		}
+}
+.nav-next{
+	background: @link-color;	
+	border-bottom: .5em solid lighten( @link-color, 10%);
+	&:hover{
+		background: lighten(@link-color, 10%);
 	}
+	&:after{
+		content: '>>';
+		color: white;
+	}
+}
 
