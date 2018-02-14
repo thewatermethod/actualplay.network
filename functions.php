@@ -85,6 +85,7 @@ function actual_play_setup() {
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'content',
 		'footer' => 'page',
+		'footer_widgets' => 'sidebar-1',
 	) );
 
 }
@@ -208,14 +209,6 @@ function disable_emojis() {
 }
 
 add_action( 'init', 'disable_emojis' );
-
-
-// function limit_posts_on_homepage( $query ){
-//    if ( $query->is_home() && $query->is_main_query() ) {
-//         $query->set( 'posts_per_page', 3 );
-//     }
-// }
-// add_action( 'pre_get_posts', 'limit_posts_on_homepage' );
 
 
 /**
