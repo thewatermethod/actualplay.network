@@ -31,6 +31,10 @@ function actual_play_setup() {
 	require_once 'inc/class-performer.php';
 	Podcast_Performer::init();
 
+	// TODO: Add twitter integration
+	// TODO: Create custom game taxonomy
+
+
 	/*
 	 * Let WordPress manage the document title.
 	 * By adding theme support, we declare that this theme does not use a

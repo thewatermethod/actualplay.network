@@ -11,7 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php actualplay_get_post_header_and_meta( get_post_type() , get_the_ID(), false ); ?>
+<?php if (function_exists('powerpress_get_enclosure_data')) :?>
+	<?php actualplay_get_post_header_and_meta( get_post_type() , get_the_ID(), true ); ?>	
+<?php endif; ?>
 
 	<div class="entry-content">
 
