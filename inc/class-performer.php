@@ -82,6 +82,9 @@ class Podcast_Performer {
 		// add custom post meta box
 		add_action( 'add_meta_boxes_post', array( __CLASS__, 'add_custom_post_meta_box') , 10, 2 );
 
+		// handle save post action
+		add_action( 'save_post', array( __CLASS__, 'save_post') , 10, 2 );
+
 	}
 
     
@@ -107,8 +110,8 @@ class Podcast_Performer {
 
 	public static function add_custom_post_meta_box() {
 		add_meta_box( 
-			'selectHosts',
-			__( 'My Meta Box' ),
+			'selectPerfomers',
+			__( 'Podcast Performer Settings' ),
 			array( __CLASS__, 'render_post_meta_box'),
 			'post',
 			'normal',
@@ -123,8 +126,6 @@ class Podcast_Performer {
 		}
 		?>	
 
-
-
 		<h2>Podcast Performer Meta Settings</h2>
 		<table class="form-table">
         	<tr>
@@ -138,13 +139,56 @@ class Podcast_Performer {
 
 	}
 
-	public static function render_post_meta_box(){
+	public static function render_post_meta_box( $post ){
 		// TODO: Include admins	
-		$user_query = get_users( array( 'role__not_in' => array( 'Subscriber', 'Contributor', 'Author', 'Editor' ) ) );
-		 
-		// TODO: Allow multiple select of authors to be added to post -> import vue.js for the admin interface?
 		
+		$performers = get_post_meta( $post->ID, 'podcast_perfomers'); 
+		$user_query = get_users( array( 'role__not_in' => array( 'Subscriber', 'Contributor', 'Author', 'Editor' ) ) );
 	
+
+		?>
+		<?php var_dump( $performers ); ?>
+		<fieldset> 
+			<label class="widefat" for="podcastPerfomers">Select performers on this podcast</label>
+			<select multiple class="widefat" name="podcastPerfomers[]" id="podcastPerfomers">
+				
+				<?php foreach ($user_query as $user) { 				
+					$user = $user->data; 
+					$selected = false;
+					if( in_array( $user->ID, $performers ) ) {
+					
+						$selected = true;
+					}
+
+
+				?>				
+					<option <?php if( $selected ) : echo 'selected'; endif;?> value="<?php echo $user->ID; ?>"><?php echo $user->display_name ?></option>	
+				<?php } //endforeach ?>
+			</select>
+		</fieldset>
+
+		<?php
+
+	}
+
+	public static function save_post( $post_id ){
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		if ( defined( 'DOING_AJAX' ) && DOING_AUTOSAVE ) {
+			return;	
+		}
+
+		if( ! isset($_POST['podcastPerformers']) ){
+			return;
+		}
+
+		// TODO: This still isn't really working, but its close
+		$podcast_performers = $_POST['podcastPerformers'];
+		update_post_meta( $post_id, 'podcast_perfomers', $podcast_performers ); 
+
 	}
 
 
@@ -154,7 +198,15 @@ class Podcast_Performer {
 			update_user_meta( $user_id, 'twitterHandle', $_POST['twitterHandle'] );
 		}
 	}
-
-
-
 }
+
+if ( ! function_exists('write_log')) {
+	function write_log ( $log )  {
+	   if ( is_array( $log ) || is_object( $log ) ) {
+		  error_log( print_r( $log, true ) );
+	   } else {
+		  error_log( $log );
+	   }
+	}
+ }
+ 
