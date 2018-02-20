@@ -31,11 +31,6 @@ function actual_play_setup() {
 	require_once 'inc/class-performer.php';
 	Podcast_Performer::init();
 
-	//Twitter oauth wrapper
-
-
-	require_once 'inc/class-TwitterAPIExchange.php';
-
 	// TODO: Create custom game taxonomy
 
 

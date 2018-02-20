@@ -7,6 +7,11 @@
  * @package actual-play
  */
 
+ //loaded the twitter oauth stuff
+require  get_template_directory() . "/vendor/autoload.php";
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+
 if ( ! function_exists( 'actual_play_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -47,20 +52,15 @@ if ( ! function_exists( 'actual_play_entry_footer' ) ) :
  */
 function actual_play_entry_footer() {
 
-	include_once 'keys.php';
+	// include_once 'keys.php';
 
-	// TODO: Figure out how to test this locally
+	// var_dump( $twitter_api_settings ); 
 
-	//Display the performer twitter info
-	// $url = 'https://api.twitter.com/1.1/users/show.json';
-	// $postfields = array(
-	// 	'screen_name' => 'pizzapranks', 		
-	// );
+	// $content = $connection->get("account/verify_credentials");
+	// $info = $connection->get("users/show", ["screen_name"=> "thewatermethod"]);
 
-	// $twitter = new TwitterAPIExchange($twitter_api_settings);
-	// echo $twitter->buildOauth($url, 'GET')
-    // 	->setPostfields($postfields)
-    // 	->performRequest();
+	// var_dump($info);
+
 
 
 	// Hide category and tag text for pages.
