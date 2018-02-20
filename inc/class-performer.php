@@ -120,34 +120,27 @@ class Podcast_Performer {
 	}
 
 	public static function custom_user_profile_fields( $user ){
-		// TODO: Include admins	
-		if( !in_array( 'podcast_performer', $user->roles ) ) {
-			return;
-		}
-		?>	
-
-		<h2>Podcast Performer Meta Settings</h2>
+		
+		if( in_array( 'podcast_performer', $user->roles ) || current_user_can( 'manage_options' )  ) { ?>
+			
+				<h2>Podcast Performer Meta Settings</h2>
 		<table class="form-table">
         	<tr>
             	<th><label for="twitterHandle"><?php _e( 'Twitter Handle' ); ?></label> </th>
         	    <td><input type="text" name="twitterHandle" id="twitterHandle" value="<?php echo esc_attr( get_the_author_meta( 'twitterHandle', $user->ID ) ); ?>"/></td>
             </tr>
     	</table>
-
-
-	<?php
-
+		<?php 
+		}
 	}
 
 	public static function render_post_meta_box( $post ){
-		// TODO: Include admins	
-		
-		$performers = get_post_meta( $post->ID, 'podcast_perfomers'); 
-		$user_query = get_users( array( 'role__not_in' => array( 'Subscriber', 'Contributor', 'Author', 'Editor' ) ) );
-	
+
+		$performers = json_decode( get_post_meta( $post->ID, 'podcast_performers', true) ); 
+		$user_query = get_users( array( 'role__not_in' => array( 'Subscriber', 'Contributor', 'Author', 'Editor' ) ) );	
 
 		?>
-		<?php var_dump( $performers ); ?>
+		
 		<fieldset> 
 			<label class="widefat" for="podcastPerfomers">Select performers on this podcast</label>
 			<select multiple class="widefat" name="podcastPerfomers[]" id="podcastPerfomers">
@@ -181,14 +174,9 @@ class Podcast_Performer {
 			return;	
 		}
 
-		if( ! isset($_POST['podcastPerformers']) ){
-			return;
-		}
-
-		// TODO: This still isn't really working, but its close
-		$podcast_performers = $_POST['podcastPerformers'];
-		update_post_meta( $post_id, 'podcast_perfomers', $podcast_performers ); 
-
+		//TODO: This still isn't really working, but its close
+		$podcast_performers = json_encode( $_POST['podcastPerfomers']);
+		update_post_meta( $post_id, 'podcast_performers', $podcast_performers ) ; 
 	}
 
 
@@ -199,6 +187,8 @@ class Podcast_Performer {
 		}
 	}
 }
+
+// TODO: Delete below before deployment and double check for additional write log statements
 
 if ( ! function_exists('write_log')) {
 	function write_log ( $log )  {

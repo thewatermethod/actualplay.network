@@ -46,6 +46,23 @@ if ( ! function_exists( 'actual_play_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function actual_play_entry_footer() {
+
+	include_once 'keys.php';
+
+	// TODO: Figure out how to test this locally
+
+	//Display the performer twitter info
+	// $url = 'https://api.twitter.com/1.1/users/show.json';
+	// $postfields = array(
+	// 	'screen_name' => 'pizzapranks', 		
+	// );
+
+	// $twitter = new TwitterAPIExchange($twitter_api_settings);
+	// echo $twitter->buildOauth($url, 'GET')
+    // 	->setPostfields($postfields)
+    // 	->performRequest();
+
+
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
