@@ -66,7 +66,21 @@ class Podcast_Performer {
         // add user role
         add_action( 'init', array(__CLASS__, 'add_custom_user_roles') );
 
-        // add user meta
+		// add user meta box
+		// Hooks near the bottom of profile page (if current user) 
+		add_action('show_user_profile', array(__CLASS__, 'custom_user_profile_fields' ));
+
+		// Hooks near the bottom of the profile page (if not current user) 
+		add_action('edit_user_profile', array( __CLASS__, 'custom_user_profile_fields' ));
+
+		// Hook is used to save custom fields that have been added to the WordPress profile page (if current user) 
+		add_action( 'personal_options_update',  array( __CLASS__, 'update_extra_profile_fields') );
+
+		// Hook is used to save custom fields that have been added to the WordPress profile page (if not current user) 
+		add_action( 'edit_user_profile_update',  array( __CLASS__, 'update_extra_profile_fields' ) );
+
+		// add custom post meta box
+		add_action( 'add_meta_boxes_post', array( __CLASS__, 'add_custom_post_meta_box') , 10, 2 );
 
 	}
 
@@ -79,7 +93,8 @@ class Podcast_Performer {
             return;
         }       
              
-        $custom_roles_capabilities = self::$custom_roles_capabilities;
+		$custom_roles_capabilities = self::$custom_roles_capabilities;
+		
         set_transient( 'custom_roles_capabilites', $custom_roles_capabilities);
        
 	    foreach( self::$custom_roles as $key => $value ) {
@@ -89,5 +104,57 @@ class Podcast_Performer {
 		}
 
 	}
+
+	public static function add_custom_post_meta_box() {
+		add_meta_box( 
+			'selectHosts',
+			__( 'My Meta Box' ),
+			array( __CLASS__, 'render_post_meta_box'),
+			'post',
+			'normal',
+			'default'
+		);
+	}
+
+	public static function custom_user_profile_fields( $user ){
+		// TODO: Include admins	
+		if( !in_array( 'podcast_performer', $user->roles ) ) {
+			return;
+		}
+		?>	
+
+
+
+		<h2>Podcast Performer Meta Settings</h2>
+		<table class="form-table">
+        	<tr>
+            	<th><label for="twitterHandle"><?php _e( 'Twitter Handle' ); ?></label> </th>
+        	    <td><input type="text" name="twitterHandle" id="twitterHandle" value="<?php echo esc_attr( get_the_author_meta( 'twitterHandle', $user->ID ) ); ?>"/></td>
+            </tr>
+    	</table>
+
+
+	<?php
+
+	}
+
+	public static function render_post_meta_box(){
+		// TODO: Include admins	
+		$user_query = get_users( array( 'role__not_in' => array( 'Subscriber', 'Contributor', 'Author', 'Editor' ) ) );
+		 
+		// TODO: Allow multiple select of authors to be added to post -> import vue.js for the admin interface?
+		
+	
+	}
+
+
+
+	public static function update_extra_profile_fields( $user_id ) {
+		if ( current_user_can( 'edit_user', $user_id ) ) {
+			update_user_meta( $user_id, 'twitterHandle', $_POST['twitterHandle'] );
+		}
+	}
+
+
 
 }
