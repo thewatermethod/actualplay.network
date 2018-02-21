@@ -52,16 +52,48 @@ if ( ! function_exists( 'actual_play_entry_footer' ) ) :
  */
 function actual_play_entry_footer() {
 
-	// include_once 'keys.php';
+	$performers = json_decode( get_post_meta( get_the_ID(), 'podcast_performers', true ) );
 
-	// var_dump( $twitter_api_settings ); 
+	$connection = null;
+	$content = null;
 
-	// $content = $connection->get("account/verify_credentials");
-	// $info = $connection->get("users/show", ["screen_name"=> "thewatermethod"]);
+	if( $performers != null ){
 
-	// var_dump($info);
+		foreach( $performers as $performer ){
 
+			$screen_name = get_user_meta( $performer, 'twitterHandle', true);
 
+				//we're going to need our twitter api keys
+				include_once 'keys.php';
+
+				if( $connection == null ){
+
+					// and make our twitter connection
+					$connection = new TwitterOAuth(
+						$twitter_api_settings['consumer_key'], 
+						$twitter_api_settings['consumer_secret'], 
+						$twitter_api_settings['oauth_access_token'], 
+						$twitter_api_settings['oauth_access_token_secret']
+					);
+
+					$content = $connection->get("account/verify_credentials");
+
+			}
+
+			if( $screen_name != null ){
+
+				$info = $connection->get("users/show", ["screen_name"=> $screen_name ]);
+
+				//var_dump( $info );
+
+				$profile_pic = $info->profile_image_url_https;
+				?>
+					<img src="<?php echo $profile_pic; ?>" alt="">
+				<?php
+			}
+		}
+
+	}
 
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
