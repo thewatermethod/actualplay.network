@@ -57,9 +57,9 @@ function actual_play_entry_footer() {
 	$connection = null;
 	$content = null;
 
-	if( $performers != null ){
+	if( $performers != null && is_single() ){
 
-		?>Performers<?php
+		?><div class="performers"><h2>Performers</h2><?php
 
 		foreach( $performers as $performer ){
 
@@ -95,15 +95,19 @@ function actual_play_entry_footer() {
 				//var_dump( $info );
 
 				?>
-					<div class="performer-profile">
-						<h3><?php echo $user->display_name; ?></h3>
-						<p><strong><a href="https://www.twitter.com/<?php echo $screen_name; ?>">@<?php echo $screen_name; ?></a></strong></p>
+					<div class="performer">
+						<h3><?php echo $user->display_name; ?></h3>						
 						<img src="<?php echo $profile_pic; ?>" alt="">
+						<a class="twitter-follow-button"
+  							href="https://twitter.com/<?php echo $screen_name; ?>"
+							data-show-count="false"
+							data-size="large">
+							Follow @<?php echo $screen_name; ?></a>
 					</div>
 				<?php
 			}
 		}
-
+	?></div><?php
 	}
 
 	// Hide category and tag text for pages.
