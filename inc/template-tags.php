@@ -86,6 +86,8 @@ function actual_play_entry_footer() {
 
 				//var_dump( $info );
 
+				// TODO: Load web intents with follow link
+
 				$profile_pic = $info->profile_image_url_https;
 				?>
 					<img src="<?php echo $profile_pic; ?>" alt="">
