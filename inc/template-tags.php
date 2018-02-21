@@ -59,6 +59,8 @@ function actual_play_entry_footer() {
 
 	if( $performers != null ){
 
+		?>Performers<?php
+
 		foreach( $performers as $performer ){
 
 			$screen_name = get_user_meta( $performer, 'twitterHandle', true);
@@ -84,13 +86,20 @@ function actual_play_entry_footer() {
 
 				$info = $connection->get("users/show", ["screen_name"=> $screen_name ]);
 
-				//var_dump( $info );
-
+				$user = get_userdata( $performer );
+				
 				// TODO: Load web intents with follow link
 
 				$profile_pic = $info->profile_image_url_https;
+
+				//var_dump( $info );
+
 				?>
-					<img src="<?php echo $profile_pic; ?>" alt="">
+					<div class="performer-profile">
+						<h3><?php echo $user->display_name; ?></h3>
+						<p><strong><a href="https://www.twitter.com/<?php echo $screen_name; ?>">@<?php echo $screen_name; ?></a></strong></p>
+						<img src="<?php echo $profile_pic; ?>" alt="">
+					</div>
 				<?php
 			}
 		}
