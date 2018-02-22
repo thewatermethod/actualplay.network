@@ -65,7 +65,7 @@ $actual_play_settings = get_option( 'actualplay_settings' );
 				if( $actual_play_settings["actualplay_rss"]):?>
 					<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><span class="fa fa-rss" aria-hidden="true"></span></a></li>
 				<?php endif;?>
-				<?php if( $actual_play_settings["actualplay_rss"] ):?>
+				<?php if( $actual_play_settings["actualplay_itunes"] ):?>
 					<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><span class="fa fa-apple" aria-hidden="true"></span></a></li>
 				<?php endif;
 				if( $actual_play_settings["actualplay_soundcloud"]):?>	

@@ -23,8 +23,16 @@ function actualplay_settings_init(  ) {
 
     add_settings_field( 
         'actualplay_itunes', 
-        __( 'iTunes Page Link', 'actual-play' ), 
+        __( 'iTunes URL', 'actual-play' ), 
         'actualplay_itunes_render', 
+        'pluginPage', 
+        'actualplay_pluginPage_section' 
+    );
+
+    add_settings_field( 
+        'actualplay_google_play', 
+        __( 'Google Play URL', 'actual-play' ), 
+        'actualplay_google_play_render', 
         'pluginPage', 
         'actualplay_pluginPage_section' 
     );
@@ -141,6 +149,16 @@ function actualplay_itunes_render(  ) {
     <?php
 
 }
+
+function actualplay_google_play_render(  ) { 
+
+    $options = get_option( 'actualplay_settings' );
+    ?>
+    <input type='text' name='actualplay_settings[actualplay_google_play]' value='<?php echo $options['actualplay_google_play']; ?>'>
+    <?php
+
+}
+
 
 
 function actualplay_stitcher_render(  ) { 

@@ -25,7 +25,9 @@
 				the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 			}
 			
-			if( in_category('podcasts') ){
+			$wp_kses = wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'actual-play' ), array( 'span' => array( 'class' => array() ) ) );
+
+			if( in_category('podcast') ){
 				$wp_kses = wp_kses( __( 'Show notes %s <span class="meta-nav">&rarr;</span>', 'actual-play' ), array( 'span' => array( 'class' => array() ) ) );	
 			}
 

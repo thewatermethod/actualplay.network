@@ -15,7 +15,7 @@ if ( !is_active_sidebar( 'sidebar-1' ) // Generic Sidebar
 }
 ?>
 
-<?php if( in_category('podcasts') && is_active_sidebar( 'sidebar-4' ) ) :?>		
+<?php if( in_category('podcast') && is_active_sidebar( 'sidebar-4' ) ) :?>		
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 		<?php dynamic_sidebar( 'sidebar-4' ); ?>		
 	</div><!-- #primary-sidebar -->
