@@ -7,6 +7,11 @@
  * @package actual-play
  */
 
+ //loaded the twitter oauth stuff
+require  get_template_directory() . "/vendor/autoload.php";
+use Abraham\TwitterOAuth\TwitterOAuth;
+
+
 if ( ! function_exists( 'actual_play_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -46,6 +51,65 @@ if ( ! function_exists( 'actual_play_entry_footer' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function actual_play_entry_footer() {
+
+	$performers = json_decode( get_post_meta( get_the_ID(), 'podcast_performers', true ) );
+
+	$connection = null;
+	$content = null;
+
+	if( $performers != null && is_single() ){
+
+		?><div class="performers"><h2>Performers</h2><?php
+
+		foreach( $performers as $performer ){
+
+			$screen_name = get_user_meta( $performer, 'twitterHandle', true);
+
+				//we're going to need our twitter api keys
+				include_once 'keys.php';
+
+				if( $connection == null ){
+
+					// and make our twitter connection
+					$connection = new TwitterOAuth(
+						$twitter_api_settings['consumer_key'], 
+						$twitter_api_settings['consumer_secret'], 
+						$twitter_api_settings['oauth_access_token'], 
+						$twitter_api_settings['oauth_access_token_secret']
+					);
+
+					$content = $connection->get("account/verify_credentials");
+
+			}
+
+			if( $screen_name != null ){
+
+				$info = $connection->get("users/show", ["screen_name"=> $screen_name ]);
+
+				$user = get_userdata( $performer );
+				
+				// TODO: Load web intents with follow link
+
+				$profile_pic = $info->profile_image_url_https;
+
+				//var_dump( $info );
+
+				?>
+					<div class="performer">
+						<h3><?php echo $user->display_name; ?></h3>						
+						<img src="<?php echo $profile_pic; ?>" alt="">
+						<a class="twitter-follow-button"
+  							href="https://twitter.com/<?php echo $screen_name; ?>"
+							data-show-count="false"
+							data-size="large">
+							Follow @<?php echo $screen_name; ?></a>
+					</div>
+				<?php
+			}
+		}
+	?></div><?php
+	}
+
 	// Hide category and tag text for pages.
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */

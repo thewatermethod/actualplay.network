@@ -1,2 +1,4 @@
 node_modules
 maps
+inc/keys.php
+composer.lock

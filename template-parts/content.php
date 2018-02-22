@@ -11,7 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php actualplay_get_post_header_and_meta( get_post_type() , get_the_ID(), false ); ?>
+<?php if (function_exists('powerpress_get_enclosure_data')) :?>
+	<?php actualplay_get_post_header_and_meta( get_post_type() , get_the_ID(), true ); ?>	
+<?php endif; ?>
 
 	<div class="entry-content">
 
@@ -23,11 +25,9 @@
 				the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 			}
 			
-//			$wp_kses = wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'actual-play' ), array( 'span' => array( 'class' => array() ) ) );
-
-//			if( in_category('podcasts') ){
+			if( in_category('podcasts') ){
 				$wp_kses = wp_kses( __( 'Show notes %s <span class="meta-nav">&rarr;</span>', 'actual-play' ), array( 'span' => array( 'class' => array() ) ) );	
-//			}
+			}
 
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
