@@ -31,6 +31,9 @@ function actual_play_setup() {
 	require_once 'inc/class-performer.php';
 	Podcast_Performer::init();
 
+	require_once 'inc/class-theme-settings-page.php';
+	Podcast_SettingsPage::init();
+
 	// TODO: Create custom game taxonomy
 
 

@@ -88,11 +88,7 @@ function actual_play_entry_footer() {
 
 				$user = get_userdata( $performer );
 				
-				// TODO: Load web intents with follow link
-
 				$profile_pic = $info->profile_image_url_https;
-
-				//var_dump( $info );
 
 				?>
 					<div class="performer">
