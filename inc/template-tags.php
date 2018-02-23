@@ -208,5 +208,6 @@ function actual_play_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'actual_play_categories' );
 }
+
 add_action( 'edit_category', 'actual_play_category_transient_flusher' );
 add_action( 'save_post',     'actual_play_category_transient_flusher' );
