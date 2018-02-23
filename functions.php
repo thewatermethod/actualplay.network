@@ -250,11 +250,6 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/podcast-header.php';
 
 
-/**
- * Load Theme settings Page.
- */
-require get_template_directory() . '/actualplaysettingspage.php';
-
 wp_scripts()->add_data( 'jquery', 'group', 1 );
 wp_scripts()->add_data( 'jquery-core', 'group', 1 );
 wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );

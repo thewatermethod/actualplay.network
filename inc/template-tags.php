@@ -59,25 +59,24 @@ function actual_play_entry_footer() {
 
 	if( $performers != null && is_single() ){
 
-		?><div class="performers"><h2>Performers</h2><?php
+		?><div class="performers"><?php
 
 		foreach( $performers as $performer ){
 
 			$screen_name = get_user_meta( $performer, 'twitterHandle', true);
 
-				//we're going to need our twitter api keys
-				include_once 'keys.php';
+				$actual_play_settings = get_option( 'actualplay_settings' );
 
 				if( $connection == null ){
 
 					// and make our twitter connection
 					$connection = new TwitterOAuth(
-						$twitter_api_settings['consumer_key'], 
-						$twitter_api_settings['consumer_secret'], 
-						$twitter_api_settings['oauth_access_token'], 
-						$twitter_api_settings['oauth_access_token_secret']
+						$actual_play_settings['twitter_consumer_key'], 
+						$actual_play_settings['twitter_consumer_secret'], 
+						$actual_play_settings['twitter_oath_access_token'], 
+						$actual_play_settings['twitter_oath_access_token_secret']
 					);
-
+			
 					$content = $connection->get("account/verify_credentials");
 
 			}
@@ -86,7 +85,7 @@ function actual_play_entry_footer() {
 
 				$info = $connection->get("users/show", ["screen_name"=> $screen_name ]);
 
-				$user = get_userdata( $performer );
+				$user = get_userdata( $performer );							
 				
 				$profile_pic = $info->profile_image_url_https;
 
