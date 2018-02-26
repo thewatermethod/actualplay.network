@@ -1,0 +1,47 @@
+body.home {
+	
+	// recent posts layout
+
+	article.post{
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);	
+		
+		&.category-news{
+			background: #F5F5F5;
+		}
+
+
+		@media( max-width: 900px ){
+
+			header.entry-header {
+				align-items: flex-end;
+				display: flex;			
+				
+				.entry-header-content {
+					max-width: 100%;
+				}
+				
+			}
+
+		}
+
+	}
+
+	// footer layout
+
+ 	footer.site-footer{
+ 		position: fixed;		
+ 		bottom: 0;		
+ 	}
+
+	//helpers
+
+	.powerpress_links{
+		display: none;
+	 }
+
+	img#hideOnHome{
+		display: none;
+	}
+
+
+}

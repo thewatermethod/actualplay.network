@@ -211,3 +211,33 @@ function actual_play_category_transient_flusher() {
 
 add_action( 'edit_category', 'actual_play_category_transient_flusher' );
 add_action( 'save_post',     'actual_play_category_transient_flusher' );
+
+
+function actual_play_display_sharing_links( $actual_play_settings ){ ?>
+	<ul class="sharing-links">
+	<?php
+	if( $actual_play_settings["actualplay_rss"]):?>
+		<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><span class="fa fa-rss" aria-hidden="true"></span></a></li>
+	<?php endif;?>
+	<?php if( $actual_play_settings["actualplay_itunes"] ):?>
+		<li><a href="<?php echo $actual_play_settings["actualplay_itunes"]; ?>"><span class="fa fa-apple" aria-hidden="true"></span></a></li>
+	<?php endif;
+	if( $actual_play_settings["actualplay_soundcloud"]):?>	
+		<li><a href="<?php echo $actual_play_settings["actualplay_soundcloud"]; ?>"><span class="fa fa-soundcloud" aria-hidden="true"></span></a></li>
+	<?php endif;								
+	if( $actual_play_settings["actualplay_facebook"] ):?>	
+		<li><a href="<?php echo $actual_play_settings["actualplay_facebook"]; ?>"><span class="fa fa-facebook-official" aria-hidden="true"></span></a></li>
+	<?php endif;
+	if( $actual_play_settings["actualplay_twitter"] ):?>	
+		<li><a href="<?php echo $actual_play_settings["actualplay_twitter"]; ?>"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+	<?php endif;
+	if( $actual_play_settings["actualplay_youtube"] ):?>	
+		<li><a href="<?php echo $actual_play_settings["actualplay_youtube"]; ?>"><span class="fa fa-youtube" aria-hidden="true"></span></a></li>
+	<?php endif; 
+	if( $actual_play_settings["actualplay_email"] ):?>	
+		<li><a href="<?php echo $actual_play_settings["actualplay_email"]; ?>"><span class="fa fa-envelope" aria-hidden="true"></span></a></li>
+	<?php endif; ?>
+	</ul>
+<?php
+
+}
