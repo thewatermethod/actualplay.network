@@ -19,6 +19,8 @@ function actual_play_jetpack_setup() {
 		'container' => 'main',
 		'render'    => 'actual_play_infinite_scroll_render',
 		'footer'    => 'page',
+		'posts_per_page' => 12,
+		'wrapper' => false,
 	) );
 
 	// Add theme support for Responsive Videos.

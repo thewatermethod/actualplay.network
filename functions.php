@@ -88,12 +88,6 @@ function actual_play_setup() {
 		'default-image' => '',
 	) ) );
 
-	add_theme_support( 'infinite-scroll', array(
-		'container' => 'content',
-		'footer' => 'page',
-		'footer_widgets' => 'sidebar-1',
-	) );
-
 }
 
 endif;
