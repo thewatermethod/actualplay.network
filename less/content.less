@@ -1,11 +1,9 @@
 // Site Layout
-
 div.site-content{	
 	margin: auto;
 	max-width: 1000px;
 	width: 100%;
 }
-
 
 //Individual Articles
 
@@ -16,62 +14,4 @@ article.post{
 		padding: 0 1em;
 	}
 
-}
-
-.performers {
-	align-items: center;
-	display: flex;
-	justify-content: space-around;
-	margin-bottom: 1em;
-	.performer {
-		align-items: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-}
-
-.tags-links, .cat-links, .subscribe-links  {	
-	background: #f2f2f2;
-	display: flex;
-	font-size: .75em;
-	justify-content: center;
-	margin: 0;
-	padding: .5em;	
-}
-
-.subscribe-links {
-
-	@media( max-width: 600px ){			
-		flex-direction: column;
-		a {
-			width: 100%;
-		}
-	}
-
-	
-	.apple {
-		background: linear-gradient( to bottom, #D56EFB, #862DC3 );
-	}
-	
-	.google {
-		background: linear-gradient( to left, #68CBFA, #83FA65 );
-	}
-
-
-	a, a:visited {
-		border-bottom: 0;
-		color: white;
-		font-weight: bold;
-		padding: .5em;
-		text-align: center;
-		text-decoration: none;		
-		text-transform: uppercase;
-		width: 50%; 
-		
-		&:hover {
-			color: darken( white, 20%);
-		}
-
-	}
 }

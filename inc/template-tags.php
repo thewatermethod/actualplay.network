@@ -105,8 +105,8 @@ function actual_play_entry_footer() {
 	?></div><?php
 	}
 
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
+	if( in_category('podcast') ){
+	
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'actual-play' ) );
 		if ( $categories_list && actual_play_categorized_blog() ) {
@@ -118,53 +118,52 @@ function actual_play_entry_footer() {
 		if ( $tags_list ) {
 			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'actual-play' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
-	}
 	
-	$powerpress_settings = false;
+		$powerpress_settings = false;
 
-	if( function_exists( 'powerpresssubscribe_get_settings' ) ){
-		$powerpress_settings = powerpresssubscribe_get_settings( $ExtraData, false );
+		if( function_exists( 'powerpresssubscribe_get_settings' ) ){
+			$powerpress_settings = powerpresssubscribe_get_settings( $ExtraData, false );
+		}
+		
+		$actual_play_settings = get_option( 'actualplay_settings' );
+
+		$itunes_url = false;
+		$google_play_url = false;
+
+		// set itunes url
+		if( isset($actual_play_settings["actualplay_itunes"] )){
+			$itunes_url = $actual_play_settings["actualplay_itunes"];
+		}
+
+		if ( $powerpress_settings && $powerpress_settings['itunes_url'] != '' ){
+			$itunes_url = $powerpress_settings['itunes_url'];
+		}
+
+		// set google play url
+		if( isset($actual_play_settings["actualplay_google_play"] )){
+			$google_play_url = $actual_play_settings["actualplay_google_play"];
+		}
+
+		if ( $powerpress_settings && $powerpress_settings['google_play_url'] != '' ){
+			$google_play_url = $powerpress_settings['google_play_url'];
+		}
+
+		if( $itunes_url || $google_play_url) {
+			echo '<span class="subscribe-links">';
+		}
+
+		if( $itunes_url ) {
+			echo '<a class="apple" href="'.$itunes_url.'">Open in Apple Podcasts</a>';
+		}
+
+		if( $google_play_url) {
+			echo '<a class="google" href="'.$google_play_url.'">Open in Google Play</a>';
+		}
+
+		if( $itunes_url || $google_play_url) {
+			echo '</span>';
+		}
 	}
-	
-	$actual_play_settings = get_option( 'actualplay_settings' );
-
-	$itunes_url = false;
-	$google_play_url = false;
-
-	// set itunes url
-	if( isset($actual_play_settings["actualplay_itunes"] )){
-		$itunes_url = $actual_play_settings["actualplay_itunes"];
-	}
-
-	if ( $powerpress_settings && $powerpress_settings['itunes_url'] != '' ){
-		$itunes_url = $powerpress_settings['itunes_url'];
-	}
-
-	// set google play url
-	if( isset($actual_play_settings["actualplay_google_play"] )){
-		$google_play_url = $actual_play_settings["actualplay_google_play"];
-	}
-
-	if ( $powerpress_settings && $powerpress_settings['google_play_url'] != '' ){
-		$google_play_url = $powerpress_settings['google_play_url'];
-	}
-
-	if( $itunes_url || $google_play_url) {
-		echo '<span class="subscribe-links">';
-	}
-
-	if( $itunes_url ) {
-		echo '<a class="apple" href="'.$itunes_url.'">Open in Apple Podcasts</a>';
-	}
-
-	if( $google_play_url) {
-		echo '<a class="google" href="'.$google_play_url.'">Open in Google Play</a>';
-	}
-
-	if( $itunes_url || $google_play_url) {
-		echo '</span>';
-	}
-
 }
 endif;
 
@@ -213,8 +212,17 @@ add_action( 'edit_category', 'actual_play_category_transient_flusher' );
 add_action( 'save_post',     'actual_play_category_transient_flusher' );
 
 
-function actual_play_display_sharing_links( $actual_play_settings ){ ?>
-	<ul class="sharing-links">
+function actual_play_display_sharing_links( $actual_play_settings, $for_home_only ){ 
+
+	//true is for
+
+
+	$class = 'hide-on-home-desktop';
+
+	if( $for_home_only ) {
+		$class = 'show-on-home-desktop';
+	}	
+	?><ul class="sharing-links <?php echo $class; ?>">
 	<?php
 	if( $actual_play_settings["actualplay_rss"]):?>
 		<li><a href="<?php echo $actual_play_settings["actualplay_rss"]; ?>"><span class="fa fa-rss" aria-hidden="true"></span></a></li>

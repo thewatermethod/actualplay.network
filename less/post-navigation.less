@@ -1,0 +1,113 @@
+/*--------------------------------------------------------------
+#  Post Navigation
+--------------------------------------------------------------*/
+
+.nav-links{
+	display: flex;
+	flex-direction: row;
+}
+.nav-previous, .nav-next{
+	background-size: 100%;
+	flex-grow: 1;	
+	min-width: 50%;
+	min-height: 215px;
+	text-align: center;
+
+	// TODO: This needs to be checked on smaller screen sizes
+
+	a{
+		background: rgba( 1,1,1,.5);
+		border: none;
+		color: white;		
+		display: block;
+		height: 100%;	
+		width: 100%;
+
+		span {
+			display: block;
+			padding: 3em 1em;
+		}
+	}
+	
+}
+.nav-previous{
+	background-color: #333;
+	border-bottom: .5em solid lighten(#333, 10%);
+	&:hover{
+		background: lighten(#333, 10%);
+	}
+	span:before{
+		content: '<<';
+		color: white;
+	}
+}
+.nav-next{
+	background-color: @link-color;	
+	border-bottom: .5em solid lighten( @link-color, 10%);
+	&:hover{
+		background: lighten(@link-color, 10%);
+	}
+	span:after{
+		content: '>>';
+		color: white;
+	}
+}
+
+
+.performers {
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 1em;
+	.performer {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}
+
+.tags-links, .cat-links, .subscribe-links  {	
+	background: #f2f2f2;
+	display: flex;
+	font-size: .75em;
+	justify-content: center;
+	margin: 0;
+	padding: .5em;	
+}
+
+.subscribe-links {
+
+	@media( max-width: 600px ){			
+		flex-direction: column;
+		a {
+			width: 100%;
+		}
+	}
+
+	
+	.apple {
+		background: linear-gradient( to bottom, #D56EFB, #862DC3 );
+	}
+	
+	.google {
+		background: linear-gradient( to left, #68CBFA, #83FA65 );
+	}
+
+
+	a, a:visited {
+		border-bottom: 0;
+		color: white;
+		font-weight: bold;
+		padding: .5em;
+		text-align: center;
+		text-decoration: none;		
+		text-transform: uppercase;
+		width: 50%; 
+		
+		&:hover {
+			color: darken( white, 20%);
+		}
+
+	}
+}

@@ -11,6 +11,8 @@
 
 
 $actual_play_settings = get_option( 'actualplay_settings' );
+$show_on_home = 'show-on-home-desktop';
+$hide_on_home = 'hide-on-home-desktop';
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -30,9 +32,7 @@ $actual_play_settings = get_option( 'actualplay_settings' );
 	<header id="masthead" class="site-header" role="banner">
 
 		<!-- here is the title text for the screen readers -->
-		<?php if ( is_front_page() && is_home() ) : ?>
-			<h1 class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></h1>
-		<?php else : ?>
+		<?php if ( !is_front_page() && !is_home() ) : ?>
 			<p class="site-title screen-reader-text"><?php bloginfo( 'name' ); ?></p>
 		<?php
 		endif; ?>
@@ -43,30 +43,23 @@ $actual_play_settings = get_option( 'actualplay_settings' );
 		<!-- This is the wrapper for the header workings -->
 		<div class="site-branding">
 
-			<?php if( !is_home() && !is_front_page() ) : ?>
 				<!-- -Hamburger Menu -->
 
-				<span class="fa fa-bars nav-toggle" aria-hidden="true" id="nav-toggle"></span>
+				<span class="fa fa-bars nav-toggle <?php echo $hide_on_home; ?>" aria-hidden="true" id="nav-toggle"></span>
 
 
 				<!-- Logo Image --> 
 
 				<?php // this function is badly named "get_header_image" but really seeks out the logo
 					if ( get_header_image() ) : ?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<a class="<?php echo $hide_on_home; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 							<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
 						</a>
 				<?php endif; // End header image check. ?>
-			<?php endif; ?>
-
 	
-			<!-- Social Media Icons -->
-			
-			<?php if( !is_home() && !is_front_page() ) : ?>
-
-				<?php actual_play_display_sharing_links( $actual_play_settings ); ?>
-
-			<?php endif; ?>
+	
+			<!-- Social Media Icons -->			
+			<?php actual_play_display_sharing_links( $actual_play_settings, false ); ?>			
 
 				
 		</div><!-- .site-branding -->
@@ -74,28 +67,25 @@ $actual_play_settings = get_option( 'actualplay_settings' );
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<div class="sticky-nav">
-				<?php if( !is_home() && !is_front_page() ) : ?>
-					<span id="nav-close" class="nav-close">Close</span>
-				<?php endif; ?>
+					<span id="nav-close" class="nav-close <?php echo $hide_on_home; ?>">Close Menu</span>
+				
 
 				<?php if ( get_header_image() ) : ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 					<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
 					</a>
-				<?php endif; 
+				<?php endif; ?>
 
+				<?php if( is_home() && is_front_page() ) : ?>
+					<h1 class="site-title show-on-home-desktop"><?php bloginfo( 'name' ); ?></h1>
+				<?php endif; ?>
 				
-				
-				// End header image check. ?>
-
 				<?php 
 
 					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+									
+					actual_play_display_sharing_links( $actual_play_settings, true );
 					
-					if( is_home() || is_front_page() ) {
-						actual_play_display_sharing_links( $actual_play_settings );
-					}
-
 					if ( is_active_sidebar( 'home-sidebar' ) ) {
 						dynamic_sidebar( 'home-sidebar' ); 
 					}

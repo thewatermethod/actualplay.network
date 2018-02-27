@@ -1,9 +1,17 @@
-@media( min-width: 1200px ){ 
-    @supports( display: grid){
-         body.home div.site{
+.show-on-home-desktop {
+    display: none;
+}
+
+@media( min-width: 1300px ){ 
+    @supports( display:grid ){
+        
+        .powerpress_links{
+            display: none;
+         }
+
+        body.home div.site {
             display: grid;
             grid-template-columns: 1fr 2fr;
-
             header.site-header {
                 bottom: 0;
                 border-bottom: 0;
@@ -53,12 +61,36 @@
                     justify-content: space-around;
                     display: flex;     
                     flex-direction: column;               
-                }
+                
+                    &:not(.category-podcast) {
+                        font-size: 1.25em;
 
+                        h2 {
+                            text-align: center;
+                        }
+
+                        a.more-link {
+                            display: block;
+                            font-size: 1.25em;
+                            margin: auto;
+                            text-align: center;
+                            width: 50%;
+                        }
+                    }
+                }
             }
 
             div.site-content {
                 max-width: 100%;
+            }
+
+            .show-on-home-desktop {
+                display: block;
+            }
+    
+            .hide-on-home-desktop {
+                .screen-reader-text;
+                visibility: hidden;
             }
 
         }
