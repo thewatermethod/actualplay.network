@@ -186,17 +186,4 @@ class Podcast_Performer {
 			update_user_meta( $user_id, 'twitterHandle', $_POST['twitterHandle'] );
 		}
 	}
-}
-
-// TODO: Delete below before deployment and double check for additional write log statements
-
-if ( ! function_exists('write_log')) {
-	function write_log ( $log )  {
-	   if ( is_array( $log ) || is_object( $log ) ) {
-		  error_log( print_r( $log, true ) );
-	   } else {
-		  error_log( $log );
-	   }
-	}
- }
- 
+} 

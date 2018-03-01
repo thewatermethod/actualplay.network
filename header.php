@@ -22,7 +22,13 @@ $hide_on_home = 'hide-on-home-desktop';
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-<?php wp_head(); ?>
+<?php 
+	wp_head(); 
+
+	if( is_home() || is_front_page() ){
+		apn_home_css();
+	}
+?>
 </head>
 
 <body <?php body_class(); ?>>

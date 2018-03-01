@@ -113,12 +113,12 @@ add_action( 'after_setup_theme', 'actual_play_content_width', 0 );
  */
 function actual_play_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Home Sidebar', 'actual-play' ),
+		'name'          => esc_html__( 'Menu Widget Area', 'actual-play' ),
 		'id'            => 'home-sidebar',
-		'description'   => esc_html__( 'Add widgets here.', 'actual-play' ),
-		'before_widget' => '<div class="home-callout">',
+		'description'   => esc_html__( 'This displays below the sharing links in the main menu', 'actual-play' ),
+		'before_widget' => '<div class="menu-callout">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<span style="style:display: none;">',
+		'before_title'  => '<span style="display: none;">',
 		'after_title'   => '</span>',
 	) );
 
@@ -182,7 +182,7 @@ function actual_play_scripts() {
 	}
 
 	//here's the various javascripts for the webpage
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Yrsa' );	
+	//wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Yrsa' );	
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
 	wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'twitter-for-websites', 'https://platform.twitter.com/widgets.js', array(), '20151215', true );
@@ -243,9 +243,6 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/podcast-header.php';
 
-wp_scripts()->add_data( 'jquery', 'group', 1 );
-wp_scripts()->add_data( 'jquery-core', 'group', 1 );
-wp_scripts()->add_data( 'jquery-migrate', 'group', 1 );
 
 function apn_cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
@@ -262,3 +259,8 @@ function apn_add_category_name($classes = '') {
    return $classes;
 }
 add_filter('body_class','apn_add_category_name');
+
+/**
+ * Custom css compilation
+ */
+require get_template_directory() . '/inc/css.php';

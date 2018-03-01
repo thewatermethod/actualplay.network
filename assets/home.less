@@ -1,0 +1,148 @@
+@link-color: #3F8CB5;
+@complementary: #B5A33F;
+@analogous1: #693FB5;
+@analogous2: #3F51B5;
+
+@inner: 1200px;
+@inner-inner: 800px;
+
+.box-shadow {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.powerpress_links{
+    display: none;
+}
+
+body.home div.site {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    header.site-header {                
+        bottom: 0;
+        border-bottom: 0;
+        box-shadow: none;            
+        height: 100%;         
+        position: relative;   
+        top: 0;
+        width: auto;
+
+        .site-branding {
+            max-width: 100%;
+        }
+        
+        .sticky-nav {                  
+            
+            padding: 1em;
+            position: sticky;
+            top: 20px;
+            width: 100%;
+
+            @media( min-width: 1600px ){  
+                background: white;     
+                .box-shadow;                
+                bottom: 10%;                       
+                left: 3%;                        
+                position: fixed;                       
+                top: 5%;
+                width: 27%; 
+            }                   
+        }
+
+        nav.main-navigation {
+            background: transparent;
+            left: 0;
+            overflow-y: unset;
+            position: relative;
+            width: 100%;
+            text-align: center;           
+            
+        }
+
+
+        ul.sharing-links {
+            display: flex;
+            justify-content: center;
+        }
+
+        ul.sharing-links li {
+            display: inline-block;
+            width: auto;
+        }
+
+        ul.sharing-links li a {
+            border-bottom: 0;
+            color: @analogous1;                        
+            &:hover {
+                color: @analogous2;
+            }
+        }
+
+    }
+
+    main.site-main {
+        display: grid;               
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 750px 750px 750px;
+
+        @media( max-width: 1700px ) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+
+        article {
+            justify-content: space-around;
+            display: flex;                 
+            flex-direction: column;               
+
+            @media( max-width: @inner-inner ){
+                margin-top: 25px;
+            }
+
+            .entry-header {
+                max-height: 400px;
+            }
+
+            &:not(.category-podcast) {
+                font-size: 1.25em;
+
+                h2 {
+                    text-align: center;
+                }
+
+                a.more-link {
+                    display: block;
+                    font-size: 1.25em;
+                    margin: auto;
+                    text-align: center;
+                    width: 50%;
+                }
+            }
+        }
+    }
+
+    div.site-content {
+        max-width: 100%;
+    }
+
+    .entry-title {
+        margin: 0;
+        padding: 0 .5em;
+        text-align: left;
+    }
+
+    .entry-content {
+        margin: 0;
+        padding: 0 1em;
+    }
+
+    .show-on-home-desktop {
+        display: block;
+    }
+
+    .hide-on-home-desktop {
+        display: none;
+        visibility: hidden;
+    }
+
+}

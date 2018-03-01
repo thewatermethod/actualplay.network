@@ -1,17 +1,46 @@
-// Site Layout
+/*--------------------------------------------------------------
+#  Site Content
+--------------------------------------------------------------*/
+
 div.site-content{	
 	margin: auto;
-	max-width: 1000px;
+	max-width: @inner;
 	width: 100%;
 }
 
-//Individual Articles
+/*--------------------------------------------------------------
+# Article Styling
+--------------------------------------------------------------*/
 
 article.post{
 	background: white;
+	
+	
+	.entry-title {
+		margin: auto;
+		max-width: @inner-inner;
+
+		@media( max-width: @inner-inner ){
+			padding: 0 .5em;
+		} 
+	}
 
 	.entry-content{
-		padding: 0 1em;
+		margin: auto;
+		max-width: @inner-inner;
+
+		@media( max-width: @inner-inner ){
+			padding: 0 1em;
+		} 
+
+		iframe {
+			width: 100%;
+		}
+
+	}
+
+	@media( max-width: @inner-inner ){
+		margin-top: 50px;
 	}
 
 }

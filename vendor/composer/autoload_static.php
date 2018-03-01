@@ -6,25 +6,18 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit1ca4ed535892f1ebc5b00569fff67c2d
 {
-    public static $prefixLengthsPsr4 = array (
-        'A' => 
-        array (
-            'Abraham\\TwitterOAuth\\' => 21,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'Abraham\\TwitterOAuth\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/abraham/twitteroauth/src',
-        ),
+    public static $classMap = array (
+        'lessc' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
+        'lessc_formatter_classic' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
+        'lessc_formatter_compressed' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
+        'lessc_formatter_lessjs' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
+        'lessc_parser' => __DIR__ . '/..' . '/leafo/lessphp/lessc.inc.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1ca4ed535892f1ebc5b00569fff67c2d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1ca4ed535892f1ebc5b00569fff67c2d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit1ca4ed535892f1ebc5b00569fff67c2d::$classMap;
 
         }, null, ClassLoader::class);
     }
