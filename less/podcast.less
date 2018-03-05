@@ -29,14 +29,20 @@ article.post.category-podcast{
 				}
 
 				span.meta-info span{		
-				    border-right: 3px solid ;
+				    //border-right: 3px solid #b5a33f;
 				    font-size: .75em;
 				    margin: .5rem;
-				    padding-right: 1rem;
-				    text-transform: uppercase;	    
-					&:last-of-type{
-						border-right: 0;
+				   	text-transform: uppercase;	 
+					
+					&:after{
+						color: #b5a33f;
+						content: ' /';
 					}
+
+					&:last-of-type:after{
+						content: '';
+					}
+
 					@media( max-width: @inner-inner ){						
 						border-right: 0;
 					} 
