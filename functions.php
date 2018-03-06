@@ -116,7 +116,7 @@ function actual_play_widgets_init() {
 		'name'          => esc_html__( 'Menu Widget Area', 'actual-play' ),
 		'id'            => 'home-sidebar',
 		'description'   => esc_html__( 'This displays below the sharing links in the main menu', 'actual-play' ),
-		'before_widget' => '<div class="menu-callout">',
+		'before_widget' => '<div class="menu-callout widget">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<span style="display: none;">',
 		'after_title'   => '</span>',

@@ -13,6 +13,7 @@
 
 <?php if (function_exists('powerpress_get_enclosure_data')) :?>
 	<?php actualplay_get_post_header_and_meta( get_post_type() , get_the_ID(), true ); ?>	
+	
 <?php endif; 
 
 	if( is_single() ){
@@ -43,15 +44,6 @@
 			) );
 		?>
 
-	<?php if( in_category('podcasts') ) :?>		
-		<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-			<?php dynamic_sidebar( 'sidebar-4' ); ?>		
-		</div><!-- #primary-sidebar -->	
-	<?php elseif ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-		<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-			<?php dynamic_sidebar( 'sidebar-2' ); ?>
-		</div><!-- #primary-sidebar -->
-	<?php endif; ?>	
 	</div><!-- .entry-content -->
 	
 	<footer class="entry-footer">
