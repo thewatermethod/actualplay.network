@@ -2,7 +2,7 @@
 ## Links
 --------------------------------------------------------------*/
 a, a:visited {
-	border-bottom: 1px dotted darken(@link-color, 15%);  
+	border-bottom: 1px solid @complementary;  
 	color: @link-color;
 	text-decoration: none;	
 }
@@ -14,7 +14,8 @@ a, a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: darken(@link-color, 15%);
+	border-bottom: 1px solid @analogous1;
+	color: @analogous2;
 }
 
 a:focus {

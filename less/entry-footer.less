@@ -6,13 +6,14 @@
 	display: flex;
 	flex-direction: row;
 	margin: 1em auto;
+	max-width: @inner-inner;
 }
 
 .nav-previous, .nav-next{
 	background-size: 100%;
 	flex-grow: 1;	
 	min-width: 50%;
-	min-height: 215px;
+	min-height: 170px;
 	text-align: center;
 
 	// TODO: This needs to be checked on smaller screen sizes
@@ -35,7 +36,6 @@
 }
 .nav-previous{
 	background-color: #333;
-	border-bottom: .5em solid lighten(#333, 10%);
 	&:hover{
 		background: lighten(#333, 10%);
 	}
@@ -46,7 +46,6 @@
 }
 .nav-next{
 	background-color: @link-color;	
-	border-bottom: .5em solid lighten( @link-color, 10%);
 	&:hover{
 		background: lighten(@link-color, 10%);
 	}
