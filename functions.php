@@ -181,8 +181,7 @@ function actual_play_scripts() {
 		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Metal+Mania|New+Rocker' );
 	}
 
-	//here's the various javascripts for the webpage
-	//wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Yrsa' );	
+	//here's the various javascripts for the webpage	
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
 	wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'twitter-for-websites', 'https://platform.twitter.com/widgets.js', array(), '20151215', true );

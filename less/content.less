@@ -18,7 +18,7 @@ article.post{
 	
 	.entry-title {
 		margin: auto;
-		max-width: @inner-inner;
+		max-width: @inner-inner;		
 
 		@media( max-width: @inner-inner ){
 			padding: 0 .5em;
@@ -38,6 +38,28 @@ article.post{
 		}
 
 	}
+
+	.entry-footer {
+		margin: auto;
+		max-width: @inner-inner;
+	}
+
+	a.more-link {
+		background-color: @analogous1;
+		box-shadow: .25em .25em 0 @complementary;
+		border-bottom: 0;
+		color: white;
+		display: inline-block;
+		margin: .5em 0;
+		padding: .5em;
+	
+		&:hover {
+			background: @link-color;
+			text-decoration: underline;
+		}
+	}
+
+
 
 	@media( max-width: @inner-inner ){
 		margin-top: 50px;
