@@ -31,7 +31,7 @@ function actualplay_get_post_header_and_meta( $post_type, $post_id, $is_home ){
 				</span>
 			</div><!-- .entry-meta -->
 
-			<?php if(!is_home() && !is_front_page() ) : subscribe_links();  endif;?>
+			<?php if(!is_home() && !is_front_page() && is_single() ) : subscribe_links();  endif;?>
 
 
 

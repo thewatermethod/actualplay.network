@@ -36,8 +36,15 @@
 				/* translators: %s: Name of current post. */
 				$wp_kses,
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
+			) ); ?>
 
+
+			<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+				<?php dynamic_sidebar( 'sidebar-4' ); ?>		
+			</div><!-- #podcasts-sidebar-->
+		
+			<?php
+			
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'actual-play' ),
 				'after'  => '</div>',

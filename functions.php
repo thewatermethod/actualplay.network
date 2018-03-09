@@ -115,7 +115,7 @@ function actual_play_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Menu Widget Area', 'actual-play' ),
 		'id'            => 'home-sidebar',
-		'description'   => esc_html__( 'This displays below the sharing links in the main menu', 'actual-play' ),
+		'description'   => esc_html__( 'This displays below the sharing links in the main menu and on the home page', 'actual-play' ),
 		'before_widget' => '<div class="menu-callout widget">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<span style="display: none;">',
@@ -125,7 +125,7 @@ function actual_play_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'actual-play' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'actual-play' ),
+		'description'   => esc_html__( 'Below all other sidebars, posts and pages.', 'actual-play' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -134,14 +134,14 @@ function actual_play_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Posts Sidebar', 'actual-play' ),
 		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'Add widgets here.', 'actual-play' ),
+		'description'   => esc_html__( 'Below all content, posts only', 'actual-play' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
-		'name'          => esc_html__( 'Pages Sidebar', 'actual-play' ),
+		'name'          => esc_html__( 'Below all content pages only', 'actual-play' ),
 		'id'            => 'sidebar-3',
 		'description'   => esc_html__( 'Add widgets here.', 'actual-play' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -152,7 +152,7 @@ function actual_play_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Podcasts Sidebar', 'actual-play' ),
 		'id'            => 'sidebar-4',
-		'description'   => esc_html__( 'Add widgets here.', 'actual-play' ),
+		'description'   => esc_html__( 'After content, before posts navigation, only on "Podcasts" category', 'actual-play' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',

@@ -2,9 +2,8 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: none;
-	
-	background: #2f2f2f;
+	border: none;	
+	background: @link-color;
 	box-shadow: none;
 	color: white;
 	font-size: 1.25em;
@@ -17,11 +16,7 @@ input[type="submit"] {
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
-	
-	background: darken(@link-color, 15%);
-}
-
+input[type="submit"]:hover,
 button:focus,
 input[type="button"]:focus,
 input[type="reset"]:focus,
@@ -29,9 +24,8 @@ input[type="submit"]:focus,
 button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
-input[type="submit"]:active {
-	
-	background: darken(@link-color, 15%);
+input[type="submit"]:active {	
+	background: @analogous2;
 }
 
 input[type="text"],

@@ -67,7 +67,7 @@ function actual_play_entry_footer() {
 			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'actual-play' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	
-		subscribe_links();
+		if( is_single() ): subscribe_links(); endif;
 	}
 }
 endif;
