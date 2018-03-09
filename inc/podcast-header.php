@@ -26,7 +26,7 @@ function actualplay_get_post_header_and_meta( $post_type, $post_id, $is_home ){
 					the_powerpress_content(); ?>
 				<span class="meta-info">
 					<span class="download-episode"><a href="<?php echo $EpisodeData['url']; ?>">Download Episode</a></span>
-					<span class="episode-length">Episode Length: <?php echo $EpisodeData['duration']; ?></span>				
+					<span class="episode-length">Length: <?php echo $EpisodeData['duration']; ?></span>				
 					<?php actual_play_posted_on(); ?>				
 				</span>
 			</div><!-- .entry-meta -->

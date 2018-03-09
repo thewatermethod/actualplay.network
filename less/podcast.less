@@ -17,75 +17,56 @@ article.post.category-podcast{
 			.entry-meta{
 				background: #f2f2f2;
 
-				span.meta-info {
-					align-items: center;
-					display: flex;
-					justify-content: center;
+			}
 
-					@media( max-width: @inner-inner ){												
-						flex-direction: column;
-					} 
+			.entry-meta span.meta-info {
+				align-items: center;
+				display: flex;
+				justify-content: center;		
+			}
 
-				}
-
-				span.meta-info span{		
-				    //border-right: 3px solid #b5a33f;
-				    font-size: .75em;
-				    margin: .5em;
-				   	text-transform: uppercase;	 
-					
-					&:after{
-						color: #b5a33f;
-						content: ' /';
-					}
-
-					&:last-of-type:after{
+			.entry-meta	span.meta-info span{		
+				font-size: .75em;
+				margin: .5em;
+				text-transform: uppercase;	 
+				
+				@media( max-width: @inner-inner ){						
+					border-right: 0;
+				} 
+				
+				&:after{
+					color: #b5a33f;
+					content: ' /';
+					@media( max-width: @inner-inner ) {
 						content: '';
 					}
-
-					@media( max-width: @inner-inner ){						
-						border-right: 0;
-					} 
 				}
 
-				.powerpress_links.powerpress_links_mp3{
-					display:  none;
+				&:first-of-type:after {
+					@media( max-width: @inner-inner ) {
+						content: ' / ';
+					}						
 				}
+
+
+				&:last-of-type:after{
+					content: '';
+					@media( max-width: @inner-inner ) {
+						content: '';
+					}
+				}
+	
+			}
+
+			.entry-meta	span.meta-info span.posted-on, .entry-meta	span.meta-info span.byline {
+				@media( max-width: @inner-inner ){
+					display: none;
+				}
+			}
+
+			.powerpress_links.powerpress_links_mp3{
+				display:  none;
 			}
 		}
 	}
-
-}
-
-
-@media( max-width: 900px ){ 
-
-	.category-podcast{
-
-		.entry-header{
-			min-height: 43vh;
-		}
-
-		.entry-header .entry-header-content h1.entry-title{
-			font-size: 1em;
-		}
-
-		.entry-header .entry-header-content .entry-meta span.meta-info span{
-			border-right: 0;
-			display: block;
-		}
-
-	}
-
-}
-
-@media( max-width: 675px ){ 
-
-	.category-podcast .entry-header .entry-header-content{
-		position: relative;
-	}
-	.entry-header .entry-header-content .entry-meta span.meta-info span{
-		text-align: center;
-	}
-
 }

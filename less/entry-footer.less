@@ -7,6 +7,11 @@
 	flex-direction: row;
 	margin: 1em auto;
 	max-width: @inner-inner;
+
+	@media( max-width: 600px ){
+		flex-direction: column;
+		margin: .5em;
+	}
 }
 
 .nav-previous, .nav-next{
@@ -31,6 +36,16 @@
 			display: block;			
 			padding: 3em 1em;
 		}
+	}
+
+	@media( max-width: 800px ){
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	@media( max-width: 600px ){
+		margin: .5em auto;
+		min-width: 100%;
 	}
 	
 }
@@ -79,14 +94,6 @@
 }
 
 .subscribe-links {
-
-	@media( max-width: 600px ){			
-		flex-direction: column;
-		a {
-			width: 100%;
-		}
-	}
-
 	
 	.apple {
 		background: linear-gradient( to bottom, #D56EFB, #862DC3 );
@@ -111,5 +118,15 @@
 			color: darken( white, 20%);
 		}
 
+		@media( max-width: 600px ){			
+			width: 100%;
+		}
+
 	}
+
+	@media( max-width: 600px ){			
+		flex-direction: column;
+	}
+
+
 }
