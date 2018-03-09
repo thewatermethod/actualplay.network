@@ -95,6 +95,7 @@ body.home div.site {
             margin: 1em;
             padding: 0;    
 
+            
             @media( max-width: @inner-inner ){
                 margin-top: 25px;
             }
@@ -158,8 +159,14 @@ body.home div.site {
 
     .entry-content {
         height: 100%;
-        margin: 0;
-        padding: 0 1em;                
+        margin: 0;         
+        padding: 0 1em 4em 1em;
+        position: relative;
+
+        img.wp-post-image {
+            margin: 1em auto;
+        } 
+
     }
 
     .show-on-home-desktop {
@@ -169,6 +176,12 @@ body.home div.site {
     .hide-on-home-desktop {
         display: none;
         visibility: hidden;
+    }
+
+    a.more-link {
+        bottom: 1em;
+        left: 1em;
+        position: absolute;
     }
 
 }

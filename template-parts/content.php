@@ -25,7 +25,13 @@
 	?><div class="entry-content">
 
 		<?php
-		
+
+			if( is_home() || is_front_page() ){
+				if( !in_category('podcast')){					
+					the_post_thumbnail();
+				}				
+			}
+
 			$wp_kses = wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'actual-play' ), array( 'span' => array( 'class' => array() ) ) );
 
 			if( in_category('podcast') ){
