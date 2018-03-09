@@ -18,11 +18,10 @@ a:active {
 	color: @analogous2;
 }
 
-a:focus {
-	outline: thin dotted;
+a:focus, a:active {
+	outline: @analogous2 thin dotted;
 }
 
-a:hover,
-a:active {
+a:hover {
 	outline: 0;
 }

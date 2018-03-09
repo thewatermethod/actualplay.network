@@ -39,9 +39,11 @@
 			) ); ?>
 
 
-			<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-				<?php dynamic_sidebar( 'sidebar-4' ); ?>		
-			</div><!-- #podcasts-sidebar-->
+			<?php if( in_category('podcast') && is_single() && is_active_sidebar('sidebar-4') ){ ?>
+				<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+					<?php dynamic_sidebar( 'sidebar-4' ); ?>		
+				</div><!-- #podcasts-sidebar-->
+			<?php } ?>
 		
 			<?php
 			

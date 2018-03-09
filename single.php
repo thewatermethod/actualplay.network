@@ -22,37 +22,38 @@ get_header(); ?>
 			$previous_post = get_previous_post();
 			$next_post = get_next_post(); ?>
 
-			<nav class="navigation post-navigation" role="navigation">
-				<h2 class="screen-reader-text">Post navigation</h2>
-				<div class="nav-links">
-					<?php if( $previous_post != null) :?>
-						<?php $previous_post_link =  get_permalink( $previous_post->ID);?>
-						<?php $featured_image = get_the_post_thumbnail_url( $previous_post->ID);?>
-						<div class="nav-previous"
-							<?php if($featured_image): ?>
-								style="background-image: url(<?php echo $featured_image; ?>);"
-							<?php endif;?>>
-							<a href="<?php echo $previous_post_link; ?>" rel="prev">
-								<span><?php echo $previous_post->post_title; ?></span>
-							</a>
-						</div>
-					<?php endif; ?>
-					<?php if( $next_post != null ) : ?>
-						<?php $next_post_link =  get_permalink( $next_post->ID);  ?>
-						<?php $featured_image = get_the_post_thumbnail_url( $next_post->ID);?>
-						<div class="nav-next"
-							<?php if($featured_image): ?>
-								style="background-image: url(<?php echo $featured_image; ?>);"
-							<?php endif;?>>
-							<a href="<?php echo $next_post_link; ?>" rel="next">
-								<span><?php echo $next_post->post_title; ?></span>
-							</a>
-						</div>
-					<?php endif; ?>
-				</div>
-			</nav>
-
+			<?php if( $previous_post != null ) : ?>
+				<nav class="navigation post-navigation" role="navigation">
+					<h2 class="screen-reader-text">Post navigation</h2>
+					<div class="nav-links">
+						<?php if( $previous_post != null) :?>
+							<?php $previous_post_link =  get_permalink( $previous_post->ID);?>
+							<?php $featured_image = get_the_post_thumbnail_url( $previous_post->ID);?>
+							<div class="nav-previous"
+								<?php if($featured_image): ?>
+									style="background-image: url(<?php echo $featured_image; ?>);"
+								<?php endif;?>>
+								<a href="<?php echo $previous_post_link; ?>" rel="prev">
+									<span><?php echo $previous_post->post_title; ?></span>
+								</a>
+							</div>
+						<?php endif; ?>
+						<?php if( $next_post != null ) : ?>
+							<?php $next_post_link =  get_permalink( $next_post->ID);  ?>
+							<?php $featured_image = get_the_post_thumbnail_url( $next_post->ID);?>
+							<div class="nav-next"
+								<?php if($featured_image): ?>
+									style="background-image: url(<?php echo $featured_image; ?>);"
+								<?php endif;?>>
+								<a href="<?php echo $next_post_link; ?>" rel="next">
+									<span><?php echo $next_post->post_title; ?></span>
+								</a>
+							</div>
+						<?php endif; ?>
+					</div>
+				</nav>
 			<?php
+			endif;
 
 			get_sidebar();
 
