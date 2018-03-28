@@ -247,12 +247,19 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/podcast-header.php';
 
 
+/**
+ * Allow SVG upload
+ */
+
 function apn_cc_mime_types($mimes) {
   $mimes['svg'] = 'image/svg+xml';
   return $mimes;
 }
 add_filter('upload_mimes', 'apn_cc_mime_types');
 
+/**
+ * Add category names to body classes
+ */
 
 function apn_add_category_name($classes = '') {
    if(is_single()) {

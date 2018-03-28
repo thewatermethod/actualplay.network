@@ -64,4 +64,4 @@
 	<footer class="entry-footer">
 		<?php actual_play_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+</article><!-- #post-<?php the_ID(); ?> -->
