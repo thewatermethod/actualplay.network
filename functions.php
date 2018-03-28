@@ -175,7 +175,11 @@ add_action( 'widgets_init', 'actual_play_widgets_init' );
  */
 function actual_play_scripts() {
 	
-	
+	// Let's not even bother
+	//wp_deregister_script( 'jquery' );
+	// TODO - infinite scroll without jetpack/remove jetpack completely
+	// we really want this site to scrape the bare metals
+
 	// this grabs the fonts for the everything is true pages
 	if( in_category( 'everything-is-true' ) ){
 		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Metal+Mania|New+Rocker' );
