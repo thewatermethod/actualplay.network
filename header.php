@@ -29,6 +29,10 @@ $hide_on_home = 'hide-on-home-desktop';
 		apn_home_css();
 	}
 ?>
+
+<!-- Apple Podcasts-->
+<meta name="apple-itunes-app" content="app-id=1160590394">
+
 </head>
 
 <body <?php body_class(); ?>>
