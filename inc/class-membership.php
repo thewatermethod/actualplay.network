@@ -44,8 +44,8 @@ class ActualPlayMembership {
 
         <style>
             body {
-                background-color: white;
-              /*  background-image: url( '<?php echo get_template_directory_uri(); ?>/assets/graph.svg');*/
+                /*background-color: white;*/
+                 
             }
             #login {
                 width: 400px;
@@ -60,7 +60,8 @@ class ActualPlayMembership {
                 width: auto!important;
             }
             .login form {
-                background: #f1f1f1;           
+                /*background: #f1f1f1;*/
+                background-image: url( '<?php echo get_template_directory_uri(); ?>/assets/graph.svg');*/
             }
 	    </style> 
         
