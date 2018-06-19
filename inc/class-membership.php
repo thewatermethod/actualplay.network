@@ -45,7 +45,6 @@ class ActualPlayMembership {
         <style>
             body {
                 /*background-color: white;*/
-                 
             }
             #login {
                 width: 400px;
@@ -63,6 +62,23 @@ class ActualPlayMembership {
                 /*background: #f1f1f1;*/
                 background-image: url( '<?php echo get_template_directory_uri(); ?>/assets/graph.svg');*/
             }
+
+            #login input[type=submit] {
+                background-color: #693fb5;
+                box-shadow: 0.25em 0.25em 0 #b5a33f;
+                border-bottom: 0;
+                color: #fff;      
+                display: block;
+                float: none;
+                margin: 0 auto;          
+                width: 50%;
+            }
+
+            #login input[type=submit]:hover {
+                background: #3f8cb5;
+                text-decoration: underline;
+            }
+
 	    </style> 
         
 	                        
