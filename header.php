@@ -14,6 +14,10 @@ $actual_play_settings = get_option( 'actualplay_settings' );
 $show_on_home = 'show-on-home-desktop';
 $hide_on_home = 'hide-on-home-desktop';
 
+if( $_SERVER['REQUEST_URI'] == '/register') {
+	wp_redirect( home_url('/wp-login.php?action=register'), 302 );
+}
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
