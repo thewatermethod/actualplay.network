@@ -5,42 +5,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class ActualPlayMembership {
 
+    // TODO: move these to settings fields
     static $public_key = '6Leikl8UAAAAAMhN94iOAvtNw5MBEMHUw1nBCjNk';
     static $secret_key = '6Leikl8UAAAAACiKDcGPWE8nWhQjjNlmv_dWLxqT';
 
 	public static function init() {
 
         add_action('login_head', array( __CLASS__, 'custom_login_logo') );
-        add_action( 'register_form', array( __CLASS__, 'add_captcha' ) );
+        add_action( 'register_form', array( __CLASS__, 'add_captcha' ) );        
         add_action( 'registration_errors', array( __CLASS__, 'validate_captcha' ), 10, 3 );
-
 
     }
     
+
+
     /**
      * Add captcha to new user registration
      */
 
     public static function add_captcha() { ?>
-    
+        <!-- RECAPTCHA -->
         <script src='https://www.google.com/recaptcha/api.js'></script>        
         <div class="g-recaptcha" data-sitekey="6Leikl8UAAAAAMhN94iOAvtNw5MBEMHUw1nBCjNk"></div>
+        <!-- END RECAPTCHA -->
 
     <?      
     }
 
 
     /**
-     *  Reskin the login page
+     *  Reskin the login & register pages
      */
 
     public static function custom_login_logo() {
        
+        // if there is no custom logo set, then we don't bother we any of this
         if ( !get_header_image() ) {
             return;             
         } 
 
         ?>
+
+        <script>
+            
+            document.addEventListener("DOMContentLoaded", function(event) {
+                /**
+                 * This makes sure that the logo links to the site home page, not wordpress.org
+                 */                
+                document.querySelector('#login h1 a').setAttribute('href', '<?php echo home_url('/'); ?>');
+            });
+            
+        </script>
 
         <style>
             body {
@@ -86,10 +101,15 @@ class ActualPlayMembership {
         <?php
     }
 
-    public static function validate_captcha($errors, $sanitized_user_login, $user_email){
+    /**
+     * Validates the captcha response to validate new user registration
+     */
 
+    public static function validate_captcha($errors, $sanitized_user_login, $user_email){
+        
         $g_captcha_response = $_POST['g-recaptcha-response'];     
 
+        // TODO: add ip address to response
         $request_args = array(
             'secret' => self::$secret_key,
             'response' => $g_captcha_response,
@@ -111,6 +131,9 @@ class ActualPlayMembership {
 
 
 } // Closes ActualPlay Membership class
+
+
+// A debug function
 
 if ( ! function_exists('write_log')) {
     function write_log ( $log )  {
