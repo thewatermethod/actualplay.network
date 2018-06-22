@@ -34,6 +34,10 @@ function actual_play_setup() {
 	require_once 'inc/class-theme-settings-page.php';
 	Podcast_SettingsPage::init();
 
+	require_once 'inc/class-statistics.php';
+	Podcast_Statistics::init();
+
+
 	// TODO: Create custom game taxonomy
 
 
@@ -198,7 +202,12 @@ function actual_play_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'actual_play_scripts' );
 
+function actual_play_admin_scripts(){
+	wp_enqueue_script( 'stats', get_template_directory_uri() . '/dist/bundle.js', array(), wp_rand(1,99), true );
+	//wp_enqueue_script( 'vue', 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js' );
+}
 
+add_action( 'admin_enqueue_scripts', 'actual_play_admin_scripts');
 /**
  * Disable emojis.
  */
