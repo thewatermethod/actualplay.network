@@ -22,10 +22,17 @@ export default {
             const apiKey = 'sc_XyIm1Abxy_s2xP4bFPIRvQ';
             const headers = new Headers();
             headers.append( 'X-API-KEY', apiKey ); 
+            
+            const podcastId = '3142';
+            const episodeId = '128899';
 
-            // 
-            //https://api.simplecast.com/v1/podcasts/{PODCAST_ID}/statistics.json
+            let url = `https://api.simplecast.com/v1/podcasts/${podcastId}/statistics/episode.json?episode_id=${episodeId}&api_key=${apiKey}&timeframe=all`;
 
+            fetch( url, {  mode: 'no-cors', })
+            .then(function(response) {
+                console.log( response );
+            });
+   
         }
 
     },

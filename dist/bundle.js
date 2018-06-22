@@ -153,7 +153,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./admin/statistics/components/stats.vue?./node_modules/css-loader??ref--0-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./admin/statistics/components/stats.vue?./node_modules/css-loader??ref--0-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -242,7 +242,7 @@ eval("/* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\r\n \r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n    \r\n    components: {\r\n    \r\n    },\r\n \r\n    data() {    \r\n        return {\r\n                         \r\n        }\r\n    },\r\n \r\n    methods: {\r\n        \r\n\r\n    },\r\n   \r\n    mounted() {\r\n       \r\n    },\r\n \r\n    props: [ 'podcast' ],\r\n  \r\n});\r\n \r\n\n\n//# sourceURL=webpack:///./admin/statistics/components/stats.vue?./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\r\n \r\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\r\n    \r\n    components: {\r\n    \r\n    },\r\n \r\n    data() {    \r\n        return {\r\n            stats: 0,   \r\n        }\r\n    },\r\n \r\n    methods: {\r\n        fetchStats: function(){\r\n\r\n            const apiKey = 'sc_XyIm1Abxy_s2xP4bFPIRvQ';\r\n            const headers = new Headers();\r\n            headers.append( 'X-API-KEY', apiKey ); \r\n            \r\n            const podcastId = '3142';\r\n            const episodeId = '128899';\r\n\r\n            let url = `https://api.simplecast.com/v1/podcasts/${podcastId}/statistics/episode.json?episode_id=${episodeId}&api_key=${apiKey}&timeframe=all`;\r\n\r\n            fetch( url, {  mode: 'no-cors', })\r\n            .then(function(response) {\r\n                console.log( response );\r\n            });\r\n   \r\n        }\r\n\r\n    },\r\n   \r\n    mounted() {\r\n        this.fetchStats();\r\n    },\r\n \r\n    props: [ 'podcast' ],\r\n  \r\n});\r\n \r\n\n\n//# sourceURL=webpack:///./admin/statistics/components/stats.vue?./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
@@ -254,7 +254,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n//\n//\n//\n//\n\r\n \r\n/* h
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"h1\", [_vm._v(_vm._s(_vm.podcast) + \"}\")])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./admin/statistics/components/stats.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"render\", function() { return render; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"staticRenderFns\", function() { return staticRenderFns; });\nvar render = function() {\n  var _vm = this\n  var _h = _vm.$createElement\n  var _c = _vm._self._c || _h\n  return _c(\"h1\", [_vm._v(_vm._s(_vm.stats))])\n}\nvar staticRenderFns = []\nrender._withStripped = true\n\n\n\n//# sourceURL=webpack:///./admin/statistics/components/stats.vue?./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options");
 
 /***/ }),
 
