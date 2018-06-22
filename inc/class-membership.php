@@ -6,14 +6,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 class ActualPlayMembership {
 
     // TODO: move these to settings fields
-    static $public_key = '6Leikl8UAAAAAMhN94iOAvtNw5MBEMHUw1nBCjNk';
-    static $secret_key = '6Leikl8UAAAAACiKDcGPWE8nWhQjjNlmv_dWLxqT';
+    static $gc_public_key = '6Leikl8UAAAAAMhN94iOAvtNw5MBEMHUw1nBCjNk';
+    static $gc_secret_key = '6Leikl8UAAAAACiKDcGPWE8nWhQjjNlmv_dWLxqT';
+    static $mc_api_key = '97ed91c6086bdc5fde65f8cc6f9b1696-us8';
 
 	public static function init() {
 
-        add_action('login_head', array( __CLASS__, 'custom_login_logo') );
+        /**
+         * New fresh and clean login skin
+         */
+        add_action( 'login_head', array( __CLASS__, 'custom_login_logo') );
+
+        /**
+         * Add a captcha to the registration form cause we aren't having a billion fake registrations
+         */
         add_action( 'register_form', array( __CLASS__, 'add_captcha' ) );        
-        add_action( 'registration_errors', array( __CLASS__, 'validate_captcha' ), 10, 3 );
+        add_action( 'registration_errors', array( __CLASS__, 'validate_captcha' ), 10, 3 );      
+        
+        /**
+         * Check to see if logged in user is subscribed to the mailchimp list
+         */
+        add_action( 'admin_init', array( __CLASS__, 'check_subscription_status') );   
+
+		// add user meta box
+		// Hooks near the bottom of profile page (if current user) 
+		add_action('show_user_profile', array(__CLASS__, 'custom_user_profile_fields' ));
+
+		// Hooks near the bottom of the profile page (if not current user) 
+        add_action('edit_user_profile', array( __CLASS__, 'custom_user_profile_fields' ));
+        
+        add_action( 'rest_api_init', array( __CLASS__, 'add_user_meta_to_api' ) );
+ 
+         
+
 
     }
     
@@ -30,6 +55,63 @@ class ActualPlayMembership {
         <!-- END RECAPTCHA -->
 
     <?      
+    }
+
+    public static function add_user_meta_to_api() {
+        // register_rest_field ( 'name-of-post-type', 'name-of-field-to-return', array-of-callbacks-and-schema() )
+            register_rest_field( 'user', '_membership', array(
+               'get_callback'    => array( __CLASS__, 'get_user_meta_for_api'),
+               'schema'          => null,
+             )
+         );
+
+
+    }
+
+    /**
+     * Check the logged in users subscription status
+     */
+
+    public static function check_subscription_status() { 
+
+        // get current user
+
+        if( !is_user_logged_in() ) {
+            return;
+        }
+
+        $user = wp_get_current_user();
+                     
+        // get current user meta
+        $user_status = get_user_meta( $user->ID, '_membership', true );
+
+    
+        // hash that user email for use in the api call
+        //$hashed_email = md5( $user->user_email );    
+        $hashed_email = md5('thewatermethod@gmail.com');
+     
+        // mail chimp api route 
+        $url = 'https://us8.api.mailchimp.com/3.0/lists/fb4ae35f4c/members/' . $hashed_email;
+
+        if ( false === ( $mailchimp_user_data = get_transient( $url ) ) ) {
+
+            // check mail chimp
+            $response = wp_remote_get( $url, array(            
+                'headers' => array(
+                    'Authorization' => 'Basic ' . base64_encode( 'anystring' . ':' . self::$mc_api_key ),
+                ),
+            ) );
+
+            $mailchimp_user_data = wp_remote_retrieve_body( $response );   
+            set_transient( $url, $mailchimp_user_data, HOUR_IN_SECONDS );
+
+        }
+
+        $mailchimp_user_data = json_decode( $mailchimp_user_data );
+
+        // update user meta
+        update_user_meta( $user->ID, '_membership', $mailchimp_user_data->status );                    
+
     }
 
 
@@ -101,6 +183,30 @@ class ActualPlayMembership {
         <?php
     }
 
+	public static function custom_user_profile_fields( $user ){         
+        
+        ?>
+				
+			<h2>Membership</h2>
+            <table class="form-table">
+                <tr>
+                    <th><?php _e( 'Email Subscription' ); ?></label> </th>
+                    <td><span><?php echo esc_attr( get_user_meta( '_membership', $user->ID , false) ); ?></span></td>
+                </tr>
+            </table>
+
+		<?php 
+		
+    }
+    
+    public static function get_user_meta_for_api( $object ){
+        //get the id of the post object array
+        $user_id = $object['id'];
+         
+        //return the post meta
+        return get_user_meta( $user_id, '_membership', true );
+    }
+
     /**
      * Validates the captcha response to validate new user registration
      */
@@ -111,7 +217,7 @@ class ActualPlayMembership {
 
         // TODO: add ip address to response
         $request_args = array(
-            'secret' => self::$secret_key,
+            'secret' => self::$gc_secret_key,
             'response' => $g_captcha_response,
         );
 

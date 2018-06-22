@@ -180,7 +180,7 @@ function actual_play_scripts() {
 	
 	// Let's not even bother
 	//wp_deregister_script( 'jquery' );
-	// TODO - infinite scroll without jetpack/remove jetpack completely
+	// TODO - infinite scroll without jetpack/remove jetpack completely, which is the last reason why we have jquery
 	// we really want this site to scrape the bare metals
 
 	// this grabs the fonts for the everything is true pages
@@ -188,17 +188,25 @@ function actual_play_scripts() {
 		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Metal+Mania|New+Rocker' );
 	}
 
-	//here's the various javascripts for the webpage	
-	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
-	wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-	wp_enqueue_script( 'twitter-for-websites', 'https://platform.twitter.com/widgets.js', array(), '20151215', true );
-	
-	wp_enqueue_script( 'actual-play-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	if( get_page_template_slug() == 'membership.php') {	
+		
+		$membership = array(
+			'user' => wp_get_current_user(),
+		);
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+		wp_register_script( 'actual-play-membership', get_template_directory_uri() . '/dist/main.js', array(), false, true);
+		wp_localize_script( 'acutal-play_membership', 'memberInfo', $membership );
+		wp_enqueue_script( 'actual-play-membership');
+
+	} else {
+		//here's the various javascripts for the webpage	
+		wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
+		wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+		wp_enqueue_script( 'twitter-for-websites', 'https://platform.twitter.com/widgets.js', array(), '20151215', true );	
+		wp_enqueue_script( 'actual-play-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 	}
 }
+
 add_action( 'wp_enqueue_scripts', 'actual_play_scripts' );
 
 

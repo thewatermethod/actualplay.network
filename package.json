@@ -4,7 +4,9 @@
   "description": "The ActualPlay.Network Wordpress Theme",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"    
   },
   "repository": {
     "type": "git",
@@ -17,16 +19,24 @@
   },
   "homepage": "https://github.com/thewatermethod/actualplay.network#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^3.9.2",
+    "gulp-clean-css": "^3.9.4",
     "gulp-concat": "^2.6.1",
-    "gulp-less": "^3.4.0",
+    "gulp-less": "^3.5.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
-    "run-sequence": "^2.2.1"
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "run-sequence": "^2.2.1",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "vue": "^2.5.13"
+    "vue": "^2.5.16"
   }
 }
