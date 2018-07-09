@@ -35,9 +35,7 @@ class ActualPlayMembership {
 		// Hooks near the bottom of the profile page (if not current user) 
         add_action('edit_user_profile', array( __CLASS__, 'custom_user_profile_fields' ));
         
-        add_action( 'rest_api_init', array( __CLASS__, 'add_user_meta_to_api' ) );
- 
-         
+        add_action( 'rest_api_init', array( __CLASS__, 'add_user_meta_to_api' ) );         
 
 
     }

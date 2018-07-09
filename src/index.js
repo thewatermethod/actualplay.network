@@ -1,30 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import MemberContent from './components/MemberContent'
+import NotSubscribed from './components/NotSubscribed'
+
 // we need to get some stuff from the DOM
-let user = document.querySelector('#root').dataset.user;
-let api_root = document.querySelector( 'link[rel="https://api.w.org/"]' ).getAttribute('href');
+let user = document.querySelector('#root').dataset.user
 
 class Index extends React.Component {
 
-   // _membership = false
-
+    state = {
+        membership: '',
+        subscription: '',
+    };
 
     render() {
-        return <h1>Psychedelic Dracula</h1>
+        if( user == '0' ){
+           return <NotSubscribed membership={false} />
+        }
+        return <MemberContent userId={user} />
     }
 
-    componentDidMount() {
-        fetch( api_root + 'wp/v2/users/' + user )
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(asJson) {
-            console.log( asJson._membership );
-        });
-    }
 
 }
-
 
 ReactDOM.render( <Index />, document.getElementById('root') );
