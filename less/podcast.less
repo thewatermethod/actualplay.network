@@ -1,72 +1,71 @@
-article.post.category-podcast{
-	
-	.entry-header {
+article.post.category-podcast {
+  .entry-header {
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    position: relative;
 
-		background-size: cover; 
-		background-position: center;
-		min-height: 500px;		
-		position: relative;
+    @media (max-width: @inner-inner) {
+      min-height: 25vh;
+    }
 
-		.entry-header-content{
-			
-			bottom: 0;
-			left: 0;
-			position: absolute;
-			right: 0;
+    .entry-header-content {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
 
-			.entry-meta{
-				background: #f2f2f2;
+      .entry-meta {
+        background: #f2f2f2;
+      }
 
-			}
+      .entry-meta span.meta-info {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
 
-			.entry-meta span.meta-info {
-				align-items: center;
-				display: flex;
-				justify-content: center;		
-			}
+      .entry-meta span.meta-info span {
+        font-size: 0.75em;
+        margin: 0.5em;
+        text-transform: uppercase;
 
-			.entry-meta	span.meta-info span{		
-				font-size: .75em;
-				margin: .5em;
-				text-transform: uppercase;	 
-				
-				@media( max-width: @inner-inner ){						
-					border-right: 0;
-				} 
-				
-				&:after{
-					color: #b5a33f;
-					content: ' /';
-					@media( max-width: @inner-inner ) {
-						content: '';
-					}
-				}
+        @media (max-width: @inner-inner) {
+          border-right: 0;
+        }
 
-				&:first-of-type:after {
-					@media( max-width: @inner-inner ) {
-						content: ' / ';
-					}						
-				}
+        &:after {
+          color: #b5a33f;
+          content: " /";
+          @media (max-width: @inner-inner) {
+            content: "";
+          }
+        }
 
+        &:first-of-type:after {
+          @media (max-width: @inner-inner) {
+            content: " / ";
+          }
+        }
 
-				&:last-of-type:after{
-					content: '';
-					@media( max-width: @inner-inner ) {
-						content: '';
-					}
-				}
-	
-			}
+        &:last-of-type:after {
+          content: "";
+          @media (max-width: @inner-inner) {
+            content: "";
+          }
+        }
+      }
 
-			.entry-meta	span.meta-info span.posted-on, .entry-meta	span.meta-info span.byline {
-				@media( max-width: @inner-inner ){
-					display: none;
-				}
-			}
+      .entry-meta span.meta-info span.posted-on,
+      .entry-meta span.meta-info span.byline {
+        @media (max-width: @inner-inner) {
+          display: none;
+        }
+      }
 
-			.powerpress_links.powerpress_links_mp3{
-				display:  none;
-			}
-		}
-	}
+      .powerpress_links.powerpress_links_mp3 {
+        display: none;
+      }
+    }
+  }
 }

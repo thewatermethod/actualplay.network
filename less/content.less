@@ -2,67 +2,62 @@
 #  Site Content
 --------------------------------------------------------------*/
 
-div.site-content{	
-	margin: auto;
-	max-width: @inner;
-	width: 100%;
+div.site-content {
+  margin: auto;
+  max-width: @inner;
+  width: 100%;
 }
 
 /*--------------------------------------------------------------
 # Article Styling
 --------------------------------------------------------------*/
 
-article.post{
-	background: white;
-	
-	
-	.entry-title {
-		margin: auto;
-		max-width: @inner-inner;		
+article {
+  background: white;
 
-		@media( max-width: @inner-inner ){
-			padding: 0 .5em;
-		} 
-	}
+  .entry-title {
+    margin: auto;
+    max-width: @inner-inner;
 
-	.entry-content{
-		margin: auto;
-		max-width: @inner-inner;
+    @media (max-width: @inner-inner) {
+      padding: 0 0.5em;
+    }
+  }
 
-		@media( max-width: @inner-inner ){
-			padding: 0 1em;
-		} 
+  .entry-content {
+    margin: auto;
+    max-width: @inner-inner;
 
-		iframe {
-			width: 100%;
-		}
+    @media (max-width: @inner-inner) {
+      padding: 0 1em;
+    }
 
-	}
+    iframe {
+      width: 100%;
+    }
+  }
 
-	.entry-footer {
-		margin: auto;
-		max-width: @inner-inner;
-	}
+  .entry-footer {
+    margin: auto;
+    max-width: @inner-inner;
+  }
 
-	a.more-link {
-		background-color: @analogous1;
-		box-shadow: .25em .25em 0 @complementary;
-		border-bottom: 0;
-		color: white;
-		display: inline-block;
-		margin: .5em 0;
-		padding: .5em;
-	
-		&:hover {
-			background: @link-color;
-			text-decoration: underline;
-		}
-	}
+  a.more-link {
+    background-color: @analogous1;
+    box-shadow: 0.25em 0.25em 0 @complementary;
+    border-bottom: 0;
+    color: white;
+    display: inline-block;
+    margin: 0.5em 0;
+    padding: 0.5em;
 
+    &:hover {
+      background: @link-color;
+      text-decoration: underline;
+    }
+  }
 
-
-	@media( max-width: @inner-inner ){
-		margin-top: 50px;
-	}
-
+  @media (max-width: @inner-inner) {
+    margin-top: 50px;
+  }
 }
