@@ -180,7 +180,7 @@ function actual_play_scripts() {
 	// TODO - infinite scroll without jetpack/remove jetpack completely
 	// we really want this site to scrape the bare metals
 
-	wp_deregister_style('dashicons');
+	//wp_deregister_style('dashicons');
 
 	// this grabs the fonts for the everything is true pages
 	if( in_category( 'everything-is-true' ) ){
