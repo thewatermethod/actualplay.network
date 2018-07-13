@@ -191,14 +191,17 @@ function actual_play_scripts() {
 	if( get_page_template_slug() == 'membership.php') {	
 		
 		$membership = array(
+			'homeUrl' => home_url(),
+			'adminUrl' => admin_url(),
 			'user' => wp_get_current_user(),
 		);
 
 		wp_register_script( 'actual-play-membership', get_template_directory_uri() . '/dist/main.js', array(), false, true);
-		wp_localize_script( 'acutal-play_membership', 'memberInfo', $membership );
+		wp_localize_script( 'acutal-play_membership', 'membership', $membership );
 		wp_enqueue_script( 'actual-play-membership');
 
 	} else {
+
 		//here's the various javascripts for the webpage	
 		wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
 		wp_enqueue_script( 'actual-play-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
@@ -297,3 +300,16 @@ function featuredtoRSS( $content ) {
 	
 add_filter('the_excerpt_rss', 'featuredtoRSS');
 add_filter('the_content_feed', 'featuredtoRSS');
+
+if( is_user_logged_in() ){
+	add_filter('show_admin_bar', 'apn_membership_template_admin_bar');
+}
+
+function apn_membership_template_admin_bar() {
+	if( get_page_template_slug() == 'membership.php' ) {
+		return false;		
+	}
+
+	return true;
+
+}

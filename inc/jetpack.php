@@ -19,7 +19,7 @@ function actual_play_jetpack_setup() {
 		'container' => 'main',
 		'render'    => 'actual_play_infinite_scroll_render',
 		'footer'    => 'page',
-		'posts_per_page' => 11,
+		'posts_per_page' => 4,
 		'wrapper' => false,
 	) );
 

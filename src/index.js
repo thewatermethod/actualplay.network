@@ -1,30 +1,54 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-// we need to get some stuff from the DOM
-let user = document.querySelector('#root').dataset.user;
-let api_root = document.querySelector( 'link[rel="https://api.w.org/"]' ).getAttribute('href');
+import MemberContent from "./components/MemberContent";
+import NotSubscribed from "./components/NotSubscribed";
+import SiteHeader from "./components/SiteHeader";
+import SiteFooter from "./components/SiteFooter";
 
 class Index extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: "0"
+    };
+  }
 
-   // _membership = false
+  updateUser = user => {
+    this.setState({
+      user: user
+    });
+  };
 
-
-    render() {
-        return <h1>Psychedelic Dracula</h1>
+  render() {
+    if (this.state.user == "0") {
+      return (
+        <div>
+          <SiteHeader />
+          <NotSubscribed
+            user={this.state.user}
+            updateUser={this.updateUser}
+            membership={false}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <SiteHeader />
+          <MemberContent user={this.state.user} />
+          <SiteFooter />
+        </div>
+      );
     }
+  }
 
-    componentDidMount() {
-        fetch( api_root + 'wp/v2/users/' + user )
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(asJson) {
-            console.log( asJson._membership );
-        });
-    }
-
+  componentDidMount() {
+    const user = document.querySelector("#root").dataset.user;
+    this.setState({
+      user: user
+    });
+  }
 }
 
-
-ReactDOM.render( <Index />, document.getElementById('root') );
+ReactDOM.render(<Index />, document.getElementById("root"));

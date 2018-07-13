@@ -25,6 +25,9 @@ class Podcast_SettingsPage{
         'actualplay_facebook' => 'Facebook Page',
         'actualplay_youtube' => 'Youtube Channel',
         'actualplay_email' => 'Email Address',
+        'actualplay_captcha_public' => 'Google Captcha Public Key',
+        'actualplay_captcha_private' => 'Google Captcha Private Key',
+        'actualplay_mailchimp' => 'Mailchimp API',
     );
 
 

@@ -119,9 +119,6 @@ add_action( 'save_post',     'actual_play_category_transient_flusher' );
 
 function actual_play_display_sharing_links( $actual_play_settings, $for_home_only ){ 
 
-	//true is for
-
-
 	$class = 'hide-on-home-desktop';
 
 	if( $for_home_only ) {

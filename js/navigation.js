@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  	// TODO: this could be better
 	// TODO: needs aria roles
 
 	[].forEach.call(document.querySelectorAll("#nav-toggle"), function(el) {
