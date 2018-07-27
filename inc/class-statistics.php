@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Podcast_Statistics {	
 	
+
 	/*--------------------------------------------------------------------------------------
     *
     * Add Actions
@@ -39,9 +40,17 @@ class Podcast_Statistics {
 
 	public static function render_tools_page() {
 
-		$all_episodes_url =  'https://api.simplecast.com/v1/podcasts/3142/episodes.json';
+		$actual_play_settings = get_option( 'actualplay_settings' );
+		$simplecast_api_key = $actual_play_settings['simplecast_api'];
+		$simplecast_podcast_id = $actual_play_settings['simplecast_podcast_id'];
 
-		$all_episodes_request = self::cache_api_reponse( $all_episodes_url );			
+		if( $simplecast_api_key == '' || $simplecast_podcast_id == '' ) {
+			return;
+		}
+
+		$all_episodes_url =  'https://api.simplecast.com/v1/podcasts/'.$simplecast_podcast_id.'/episodes.json';
+
+		$all_episodes_request = self::cache_api_reponse( $all_episodes_url, $simplecast_api_key );			
 		
 		$episodes = json_decode( $all_episodes_request );
 		
@@ -62,8 +71,8 @@ class Podcast_Statistics {
 					?><tr style="width: 100%;">
 						<td style="padding: .5em; border-bottom: 1px solid #ccc;width: 50%; font-size: 1.25em"><?php echo $episode->title; ?></td>
 					<?php
-						$episode_url = 'https://api.simplecast.com/v1/podcasts/3142/statistics/episode.json?timeframe=all&episode_id=' . $episode->id;
-						$episode_stats_request = self::cache_api_reponse( $episode_url );
+						$episode_url = 'https://api.simplecast.com/v1/podcasts/'.$simplecast_podcast_id.'/statistics/episode.json?timeframe=all&episode_id=' . $episode->id;
+						$episode_stats_request = self::cache_api_reponse( $episode_url, $simplecast_api_key );
 						$episode_stats = json_decode($episode_stats_request);			
 									?>
 						<td style="padding: .5em; border-bottom: 1px solid #ccc;width: 50%; font-size: 1.25em"><?php echo $episode_stats->total_listens; ?></td>
@@ -84,12 +93,12 @@ class Podcast_Statistics {
 		
 	}
 
-	public static function cache_api_reponse( $url ) {
+	public static function cache_api_reponse( $url, $simplecast_api_key ) {
 		// Get any existing copy of our transient data
 		if ( false === ( $request_body = get_transient( $url ) ) ) {
 
 			$headers = array(
-				'X-API-KEY' =>  'sc_XyIm1Abxy_s2xP4bFPIRvQ'
+				'X-API-KEY' =>  $simplecast_api_key
 			);
 
 			$response = wp_remote_get( $url, array( 'headers' => $headers ) ); 

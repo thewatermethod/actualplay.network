@@ -25,6 +25,8 @@ class Podcast_SettingsPage{
         'actualplay_facebook' => 'Facebook Page',
         'actualplay_youtube' => 'Youtube Channel',
         'actualplay_email' => 'Email Address',
+        'simplecast_api' => 'Simplecast API Key',
+        'simplecast_podcast_id' => 'Simplecast Podcast ID'
     );
 
 
