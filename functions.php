@@ -295,3 +295,6 @@ function featuredtoRSS( $content ) {
 	
 add_filter('the_excerpt_rss', 'featuredtoRSS');
 add_filter('the_content_feed', 'featuredtoRSS');
+
+
+

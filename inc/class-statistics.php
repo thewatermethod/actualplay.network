@@ -13,27 +13,96 @@ class Podcast_Statistics {
 
 	public static function init() {
 
-		// add custom post meta box
-		add_action( 'add_meta_boxes_post', array( __CLASS__, 'add_custom_post_meta_box') , 10, 2 );
+		add_action('admin_menu', array( __CLASS__, 'add_tools_page' ));
+
+
 	}
 
-	public static function add_custom_post_meta_box() {
-		add_meta_box( 
-			'episodeStatistics',
-			__( 'Episode Statistics' ),
-			array( __CLASS__, 'render_post_meta_box'),
-			'post',
-			'normal',
-			'default'
-        );
-    }
-    
+	/*--------------------------------------------------------------------------------------
+    *
+    * Add the Podcast Statistics Page under menu title
+    *
+    *--------------------------------------------------------------------------------------*/
 
-    public static function render_post_meta_box(){ ?>
+	
+	public static function add_tools_page(){
+		add_management_page( 'Podcast Statistics','Podcast Statistics','edit_posts', 'podcast-statistics', array(__CLASS__, 'render_tools_page') );
+	}
+	
+	
 
-        <stats podcast="136666"></stats>
+	/*--------------------------------------------------------------------------------------
+    *
+    * Render the Podcast Statistics Page
+    *
+    *--------------------------------------------------------------------------------------*/
 
-    <?
-    }
+	public static function render_tools_page() {
+
+		$all_episodes_url =  'https://api.simplecast.com/v1/podcasts/3142/episodes.json';
+
+		$all_episodes_request = self::cache_api_reponse( $all_episodes_url );			
+		
+		$episodes = json_decode( $all_episodes_request );
+		
+		?>
+		<div class="wrap">
+			<h1>Podcast Statistics</h1>
+
+			<table style="width: 100%;">
+
+		<?php 
+			foreach ($episodes as $episode ) {
+
+				$haystack = $episode->title;
+				$needle = 'ActualPlay.Network';
+
+				if (strpos($haystack, $needle) !== false) {
+
+					?><tr style="width: 100%;">
+						<td style="padding: .5em; border-bottom: 1px solid #ccc;width: 50%; font-size: 1.25em"><?php echo $episode->title; ?></td>
+					<?php
+						$episode_url = 'https://api.simplecast.com/v1/podcasts/3142/statistics/episode.json?timeframe=all&episode_id=' . $episode->id;
+						$episode_stats_request = self::cache_api_reponse( $episode_url );
+						$episode_stats = json_decode($episode_stats_request);			
+									?>
+						<td style="padding: .5em; border-bottom: 1px solid #ccc;width: 50%; font-size: 1.25em"><?php echo $episode_stats->total_listens; ?></td>
+					</tr>
+
+				<?php
+
+				}				
+
+			}
+			
+
+		?>
+		</table>
+		</div>
+
+		<?php
+		
+	}
+
+	public static function cache_api_reponse( $url ) {
+		// Get any existing copy of our transient data
+		if ( false === ( $request_body = get_transient( $url ) ) ) {
+
+			$headers = array(
+				'X-API-KEY' =>  'sc_XyIm1Abxy_s2xP4bFPIRvQ'
+			);
+
+			$response = wp_remote_get( $url, array( 'headers' => $headers ) ); 
+			$request_body = wp_remote_retrieve_body( $response );
+
+			set_transient( $url, $request_body, 24 * HOUR_IN_SECONDS );
+
+		}
+		
+		return $request_body;
+
+
+	}
+
 
 } 
