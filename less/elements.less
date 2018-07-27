@@ -2,62 +2,68 @@
 # Elements
 --------------------------------------------------------------*/
 html {
-	box-sizing: border-box;
-	font-size: 18px;
+  box-sizing: border-box;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
 }
 
 *,
 *:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-	box-sizing: inherit;
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit;
 }
 
 body {
-	background: white;
-	@media( max-width: @inner-inner ){
-		overflow-x: hidden;
-	}
+  background: white;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: @inner-inner) {
+    overflow-x: hidden;
+  }
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: "";
+  content: "";
 }
 
 blockquote,
 q {
-	quotes: "" "";
+  quotes: "" "";
 }
 
 hr {
-	background-color: @complementary;
-	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
+  background-color: @complementary;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
 }
 
 ul {
-	list-style: disc;
+  list-style: disc;
 }
 
 ol {
-	list-style: decimal;
+  list-style: decimal;
 }
 
 li > ul,
 li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+  margin-bottom: 0;
+  margin-left: 1.5em;
 }
 
 img {
-	height: auto; /* Make sure images are scaled correctly. */
-	max-width: 100%; /* Adhere to container width. */
+  height: auto; /* Make sure images are scaled correctly. */
+  max-width: 100%; /* Adhere to container width. */
 }
 
 table {
-	margin: 0 0 1.5em;
-	width: 100%;
+  margin: 0 0 1.5em;
+  width: 100%;
 }

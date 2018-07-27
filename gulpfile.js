@@ -8,45 +8,37 @@
 */
 
 //these are all the modules that you installed above
-var gulp = require('gulp'),
-	clean = require('gulp-clean'),
-	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	sourcemaps = require('gulp-sourcemaps'),
-	less = require('gulp-less'),
-	cleanCSS = require('gulp-clean-css'),
-	runSequence = require('run-sequence');
-
-	
+var gulp = require("gulp"),
+  clean = require("gulp-clean"),
+  concat = require("gulp-concat"),
+  uglify = require("gulp-uglify"),
+  sourcemaps = require("gulp-sourcemaps"),
+  less = require("gulp-less"),
+  cleanCSS = require("gulp-clean-css"),
+  runSequence = require("run-sequence");
 
 //this task builds the less files into minified css
-gulp.task('build-less', function(){
-	return gulp.src(['less/normalize.less,','less/vars.less','!less/fa/*.less','less/*.less'])
-		.pipe( sourcemaps.init() )
-		.pipe( concat('style.less') )
-		.pipe( less() )
-		.pipe( cleanCSS() )
-		.pipe( sourcemaps.write('maps') )
-		.pipe( gulp.dest('min') )
+gulp.task("build-less", function() {
+  return gulp
+    .src(["less/normalize.less,", "less/vars.less", "less/*.less"])
+    .pipe(sourcemaps.init())
+    .pipe(concat("style.less"))
+    .pipe(less())
+    .pipe(cleanCSS())
+    .pipe(sourcemaps.write("maps"))
+    .pipe(gulp.dest("min"));
 });
 
-gulp.task('gather-assets', function() {
-	return gulp.src(['node_modules/vue/dist/vue.min.js'])
-		.pipe( gulp.dest('admin'))
+gulp.task("gather-assets", function() {
+  return gulp
+    .src(["node_modules/vue/dist/vue.min.js"])
+    .pipe(gulp.dest("admin"));
 });
 
-gulp.task('compile', function(){
-	runSequence(
-		'build-less'
-	);
+gulp.task("compile", function() {
+  runSequence("build-less");
 });
 
-
-
-
-gulp.task( 'default', function(){
-	runSequence(
-		'compile'
-	);
-
+gulp.task("default", function() {
+  runSequence("compile");
 });
