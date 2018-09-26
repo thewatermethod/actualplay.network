@@ -1,0 +1,15 @@
+.flex {
+  display: flex;
+}
+
+@media (max-width: @inner) {
+  .hide-on-tablet {
+    display: none;
+  }
+}
+
+@media (max-width: @inner-inner) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}

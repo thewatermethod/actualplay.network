@@ -15,11 +15,16 @@ div.site-content {
 article {
   background: white;
 
+  @media (max-width: @inner-inner) {
+    max-height: ~"calc(100vh - 90px)";
+  }
+
   .entry-title {
     margin: auto;
     max-width: @inner-inner;
 
     @media (max-width: @inner-inner) {
+      font-size: 1em;
       padding: 0 0.5em;
     }
   }
@@ -41,7 +46,9 @@ article {
     margin: auto;
     max-width: @inner-inner;
   }
+}
 
+@media (min-width: @inner-inner) {
   a.more-link {
     background-color: @analogous1;
     box-shadow: 0.25em 0.25em 0 @complementary;
@@ -55,9 +62,5 @@ article {
       background: @link-color;
       text-decoration: underline;
     }
-  }
-
-  @media (max-width: @inner-inner) {
-    margin-top: 50px;
   }
 }

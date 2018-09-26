@@ -1,7 +1,6 @@
-node_modules
-
+node_modules/*
 maps
-
 inc/keys.php
-
 composer.lock
+yarn.lock
+package-lock.json

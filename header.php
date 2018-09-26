@@ -62,7 +62,7 @@ $hide_on_home = 'hide-on-home-desktop';
 
 				<?php // this function is badly named "get_header_image" but really seeks out the logo
 					if ( get_header_image() ) : ?>
-						<a class="<?php echo $hide_on_home; ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<a class="<?php echo $hide_on_home; ?> " href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 							<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
 						</a>
 				<?php endif; // End header image check. ?>
@@ -77,11 +77,11 @@ $hide_on_home = 'hide-on-home-desktop';
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<div class="sticky-nav">
-					<span id="nav-close" class="nav-close <?php echo $hide_on_home; ?>">Close Menu</span>
+					<span id="nav-close" class="nav-close fa fa-bars <?php echo $hide_on_home; ?>"></span>
 				
 
 				<?php if ( get_header_image() ) : ?>
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<a class="hide-on-mobile" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 					<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
 					</a>
 				<?php endif; ?>

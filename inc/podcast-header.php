@@ -27,11 +27,12 @@ function actualplay_get_post_header_and_meta( $post_type, $post_id, $is_home ){
 				<span class="meta-info">
 					<span class="download-episode"><a href="<?php echo $EpisodeData['url']; ?>">Download Episode</a></span>
 					<span class="episode-length">Length: <?php echo $EpisodeData['duration']; ?></span>				
-					<?php actual_play_posted_on(); ?>				
+					<?php actual_play_posted_on(); ?>		
+					<?php if(!is_home() && !is_front_page() && is_single() ) : subscribe_links();  endif;?>		
 				</span>
 			</div><!-- .entry-meta -->
 
-			<?php if(!is_home() && !is_front_page() && is_single() ) : subscribe_links();  endif;?>
+			
 
 
 

@@ -247,7 +247,7 @@ function subscribe_links(){
 	}
 
 	if( $itunes_url ) {
-		echo '<a class="apple" href="'.$itunes_url.'">Open in Apple Podcasts</a>';
+		echo '<a class="apple" href="'.$itunes_url.'"><span class="fa fa-apple" aria-hidden="true"></span><span class="hide-on-mobile"> Open in Apple Podcasts</span></a>';
 	}
 
 	if( $google_play_url) {

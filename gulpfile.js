@@ -21,11 +21,9 @@ var gulp = require("gulp"),
 gulp.task("build-less", function() {
   return gulp
     .src(["less/normalize.less,", "less/vars.less", "less/*.less"])
-    .pipe(sourcemaps.init())
     .pipe(concat("style.less"))
     .pipe(less())
     .pipe(cleanCSS())
-    .pipe(sourcemaps.write("maps"))
     .pipe(gulp.dest("min"));
 });
 

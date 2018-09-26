@@ -3,25 +3,47 @@
 --------------------------------------------------------------*/
 
 .widget {
-	margin: 1em auto;
-	max-width: @inner-inner;	
+  margin: 1em auto;
+  max-width: @inner-inner;
 
-	@media( max-width: @inner-inner ){
-		padding: 0 .5em;
-	}
+  @media (max-width: @inner-inner) {
+    padding: 0 0.5em;
+  }
 }
 
 /* Make sure select elements fit in widgets. */
 .widget select {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 /*--------------------------------------------------------------
 # Home Callouts
 --------------------------------------------------------------*/
 
-.menu-callout{
-	margin: 1em 0;
+.menu-callout {
+  margin: 1em 0;
+}
+
+/*--------------------------------------------------------------
+# Search Form
+--------------------------------------------------------------*/
+
+form.search-form {
+  display: flex;
+
+  label {
+    flex: 2;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  > input {
+    flex: 1;
+    padding: 0;
+    width: 100%;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -29,8 +51,8 @@
 --------------------------------------------------------------*/
 
 .widget .mc-field-group * {
-	clear: both;
-	width: 100%;
+  clear: both;
+  width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -38,7 +60,7 @@
 --------------------------------------------------------------*/
 
 .widget .pp-ssb-widget-modern a.pp-ssb-android {
-	background: linear-gradient(to left,#68cbfa,#83fa65);
+  background: linear-gradient(to left, #68cbfa, #83fa65);
 }
 
 /*--------------------------------------------------------------
@@ -46,13 +68,13 @@
 --------------------------------------------------------------*/
 
 .widget .ad {
-	text-align: center;
+  text-align: center;
 
-	img {
-		width: 100%;
-	}
+  img {
+    width: 100%;
+  }
 
-	a {
-		border-bottom: 0;
-	}
+  a {
+    border-bottom: 0;
+  }
 }
