@@ -28,9 +28,6 @@ function actual_play_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	
-	require_once 'inc/class-performer.php';
-	Podcast_Performer::init();
-
 	require_once 'inc/class-theme-settings-page.php';
 	Podcast_SettingsPage::init();
 
