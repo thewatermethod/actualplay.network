@@ -3,6 +3,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+
+/***
+ * 
+ *  This class is currently NOT in use
+ * 
+ */
+
 class Podcast_Performer {	
 	
 	/*--------------------------------------------------------------------------------------
