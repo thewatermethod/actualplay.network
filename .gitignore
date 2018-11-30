@@ -4,3 +4,4 @@ inc/keys.php
 composer.lock
 yarn.lock
 package-lock.json
+\.DS_Store
