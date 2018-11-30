@@ -185,7 +185,7 @@ function actual_play_scripts() {
 
 	// this grabs the fonts for the everything is true pages
 	if( in_category( 'everything-is-true' ) ){
-		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Metal+Mania|New+Rocker' );
+		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Carrois+Gothic+SC' );
 	}
 
 	//here's the various javascripts for the webpage	
