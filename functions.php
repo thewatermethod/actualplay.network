@@ -183,10 +183,7 @@ function actual_play_scripts() {
 
 	//wp_deregister_style('dashicons');
 
-	// this grabs the fonts for the everything is true pages
-	if( in_category( 'everything-is-true' ) ){
-		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Carrois+Gothic+SC' );
-	}
+
 
 	//here's the various javascripts for the webpage	
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
