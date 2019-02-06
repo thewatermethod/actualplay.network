@@ -27,8 +27,7 @@ class Podcast_SettingsPage{
         'actualplay_email' => 'Email Address',
         'simplecast_api' => 'Simplecast API Key',
         'simplecast_podcast_id' => 'Simplecast Podcast ID',
-        'amazons3' => 's3 api key',
-        'amazons3secret' => 's3 secret key'
+        'azuresas' => 'Azure SAS for file upload',
     );
 
 
