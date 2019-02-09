@@ -31,7 +31,7 @@ class Azure_Upload_Form {
 
 			?>
 
-			<div id="message" style="display: none;" class=" notice notice-success is-dismissible"><p>Upload Successful</p></div>
+			<div id="message" style="display: none;" class=" notice notice-success"><p>Upload Successful</p></div>
 			
 			<div class="wrap">  
 			<h1>Upload your Everything is True files</h1>
@@ -53,9 +53,8 @@ class Azure_Upload_Form {
 
 			<script>
 				document.addEventListener("DOMContentLoaded", function(event) {
-					document.querySelector("#upload").addEventListener( "click", function(event) {
-						
-						event.preventDefault();
+					document.querySelector("#upload").addEventListener( "click", function(event) {						
+						event.preventDefault();						
 						sendStorageRequest();
 
 					});
@@ -74,14 +73,16 @@ class Azure_Upload_Form {
 				function sendStorageRequest() {
 
 					const file = document.querySelector( "#file" ).files[0];
-
-					if( file.type != "audio/mpeg") {
+					
+					if( file.type.search('audio') == -1) {
 						return;
 					}
 
+					document.querySelector("#message").style.display = "block";
+					document.querySelector("#message p").innerText = "Please Wait...";
+
 					blobService.createContainerIfNotExists('audio',  (error, container) => {
-						if (error) {
-							// Handle create container error
+						if (error) {							
 							console.log(error);
 						} else {
 							finishStorageRequest( file );
@@ -98,10 +99,10 @@ class Azure_Upload_Form {
 						file, 
 						(error, result) => {
 							if(error) {
-								// Handle blob error
+								console.log(error);	
 							} else {
-								document.querySelector("#message").style.display = "block";
-								console.log('Upload is successful');
+								document.querySelector("#message p").innerText = "Upload is successful";
+					
 							}
                     });
 				}
