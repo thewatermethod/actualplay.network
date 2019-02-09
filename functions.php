@@ -200,7 +200,7 @@ function actual_play_scripts() {
 add_action( 'wp_enqueue_scripts', 'actual_play_scripts' );
 
 function actual_play_admin_scripts(){
-	wp_enqueue_script( 'stats', get_template_directory_uri() . '/dist/bundle.js', array(), wp_rand(1,99), true );
+	//wp_enqueue_script( 'stats', get_template_directory_uri() . '/dist/bundle.js', array(), wp_rand(1,99), true );
 	//wp_enqueue_script( 'vue', 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js' );
 }
 

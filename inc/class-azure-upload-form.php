@@ -52,6 +52,14 @@ class Azure_Upload_Form {
 			<script src="<?php echo get_template_directory_uri(); ?>/assets/azure-storage.blob.min.js" charset="utf-8"></script>
 
 			<script>
+				document.addEventListener("DOMContentLoaded", function(event) {
+					document.querySelector("#upload").addEventListener( "click", function(event) {
+						
+						event.preventDefault();
+						sendStorageRequest();
+
+					});
+				});
 
 				const account = {
     				name: "everythingistrue",
@@ -61,13 +69,7 @@ class Azure_Upload_Form {
 				const blobUri = 'https://' + account.name + '.blob.core.windows.net';
 				const blobService = AzureStorage.Blob.createBlobServiceWithSas(blobUri, account.sas);
 
-				document.querySelector("#upload").addEventListener( "click", function(event) {
-					
-					event.preventDefault();
-					sendStorageRequest();
-
-				});
-
+	
 
 				function sendStorageRequest() {
 
@@ -80,6 +82,7 @@ class Azure_Upload_Form {
 					blobService.createContainerIfNotExists('audio',  (error, container) => {
 						if (error) {
 							// Handle create container error
+							console.log(error);
 						} else {
 							finishStorageRequest( file );
 						}
