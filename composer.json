@@ -1,6 +1,5 @@
 {
-    "require": {
-        "abraham/twitteroauth": "^0.7.4", 
-        "leafo/lessphp": "0.4.0",        
-    }
+  "require": {
+    "leafo/lessphp": "0.4.0"
+  }
 }

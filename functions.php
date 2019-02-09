@@ -34,6 +34,8 @@ function actual_play_setup() {
 	require_once 'inc/class-statistics.php';
 	Podcast_Statistics::init();
 
+	require_once 'inc/class-azure-upload-form.php';
+	Azure_Upload_Form::init();
 
 	// TODO: Create custom game taxonomy
 
@@ -182,11 +184,6 @@ function actual_play_scripts() {
 	// we really want this site to scrape the bare metals
 
 	//wp_deregister_style('dashicons');
-
-	// this grabs the fonts for the everything is true pages
-	if( in_category( 'everything-is-true' ) ){
-		wp_enqueue_style('everything-is-true-fonts', 'https://fonts.googleapis.com/css?family=Carrois+Gothic+SC' );
-	}
 
 	//here's the various javascripts for the webpage	
 	wp_enqueue_style( 'actual-play-style', get_template_directory_uri() . '/min/style.css' );
