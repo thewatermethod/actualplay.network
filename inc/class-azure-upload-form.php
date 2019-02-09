@@ -80,6 +80,7 @@ class Azure_Upload_Form {
 					blobService.createContainerIfNotExists('audio',  (error, container) => {
 						if (error) {
 							// Handle create container error
+							console.log(error);
 						} else {
 							finishStorageRequest( file );
 						}
