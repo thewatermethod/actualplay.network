@@ -31,17 +31,8 @@ function actual_play_setup() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	
-	require_once 'inc/class-theme-settings-page.php';
-	Podcast_SettingsPage::init();
 
-	require_once 'inc/class-statistics.php';
-	Podcast_Statistics::init();
 
-	require_once 'inc/class-azure-upload-form.php';
-	Azure_Upload_Form::init();
-
-	// TODO: Create custom game taxonomy
 
 
 	/*
