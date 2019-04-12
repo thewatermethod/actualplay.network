@@ -1,4 +1,8 @@
 <?php
+
+	require_once 'inc/class-actual-play-theme.php';
+	Actual_Play_Theme::init();
+
 /**
  * actual-play functions and definitions.
  *
