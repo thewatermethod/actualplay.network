@@ -276,17 +276,3 @@ add_filter('body_class','apn_add_category_name');
  */
 require get_template_directory() . '/inc/css.php';
 
-function featuredtoRSS( $content ) {
-	global $post;
-
-	if ( has_post_thumbnail( $post->ID ) ){
-		$content = '' . get_the_post_thumbnail( $post->ID, 'thumbnail', array( 'style' => 'float:left; margin:0 15px 15px 0;' ) ) . '' . $content;
-	}
-	return $content;
-}
-	
-add_filter('the_excerpt_rss', 'featuredtoRSS');
-add_filter('the_content_feed', 'featuredtoRSS');
-
-
-
