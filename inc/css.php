@@ -5,8 +5,6 @@
 function apn_home_css() { 
     
  ?>
-
-
     
     <style>
     body.home div.site main.site-main article:not(.category-podcast) {
@@ -30,12 +28,12 @@ function apn_home_css() {
 
         <?php            
 
-            //if ( false === ( $compiled_home_css = get_transient( 'compiled_home_css' ) ) ) {
+            if ( false === ( $compiled_home_css = get_transient( 'compiled_home_css' ) ) ) {
                 require  get_template_directory() . "/vendor/autoload.php";
                 $less = new lessc;                 
                 $compiled_home_css = $less->compileFile( get_template_directory(). "/assets/home.less" );                
-            //    set_transient( 'compiled_home_css', $compiled_home_css, 24 * HOUR_IN_SECONDS );
-            //}                  
+                set_transient( 'compiled_home_css', $compiled_home_css, 24 * HOUR_IN_SECONDS );
+            }                  
 
             echo $compiled_home_css;
 
