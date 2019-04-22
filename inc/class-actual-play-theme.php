@@ -32,6 +32,9 @@ class Actual_Play_Theme {
 
         add_action( 'init', array(__CLASS__, 'disable_emojis' ) );
 
+        require_once 'class-game-taxonomy.php';
+        GameTaxonomy::init();
+
     }  
 
     /**

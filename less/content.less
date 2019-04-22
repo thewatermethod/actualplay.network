@@ -3,9 +3,9 @@
 --------------------------------------------------------------*/
 
 div.site-content {
-  margin: auto;
-  max-width: @inner;
-  width: 100%;
+	margin: auto;
+	max-width: @inner;
+	width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -13,50 +13,54 @@ div.site-content {
 --------------------------------------------------------------*/
 
 article {
-  background: white;
+	background: white;
 
-  .entry-title {
-    margin: auto;
-    max-width: @inner-inner;
+	.entry-title {
+		margin: auto;
+		max-width: @inner-inner;
 
-    @media (max-width: @inner-inner) {
-      font-size: 1em;
-      padding: 0 0.5em;
-    }
-  }
+		@media (max-width: @inner-inner) {
+			font-size: 1em;
+			padding: 0 0.5em;
+		}
+	}
 
-  .entry-content {
-    margin: auto;
-    max-width: @inner-inner;
+	.entry-content {
+		margin: auto;
+		max-width: @inner-inner;
 
-    @media (max-width: @inner-inner) {
-      padding: 0 1em;
-    }
+		@media (max-width: @inner-inner) {
+			padding: 0 1em;
+		}
 
-    iframe {
-      width: 100%;
-    }
-  }
+		iframe {
+			width: 100%;
+		}
+	}
 
-  .entry-footer {
-    margin: auto;
-    max-width: @inner-inner;
-  }
+	.entry-footer {
+		margin: auto;
+		max-width: @inner-inner;
+	}
 }
 
 @media (min-width: @inner-inner) {
-  a.more-link {
-    background-color: @analogous1;
-    box-shadow: 0.25em 0.25em 0 @complementary;
-    border-bottom: 0;
-    color: white;
-    display: inline-block;
-    margin: 0.5em 0;
-    padding: 0.5em;
+	a.more-link {
+		background-color: @analogous1;
+		box-shadow: 0.25em 0.25em 0 @complementary;
+		border-bottom: 0;
+		color: white;
+		display: inline-block;
+		margin: 0.5em 0;
+		padding: 0.5em;
 
-    &:hover {
-      background: @link-color;
-      text-decoration: underline;
-    }
-  }
+		&:visited {
+			color: white;
+		}
+
+		&:hover {
+			background: @link-color;
+			text-decoration: underline;
+		}
+	}
 }
