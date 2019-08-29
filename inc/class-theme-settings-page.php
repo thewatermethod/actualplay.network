@@ -12,10 +12,10 @@ class Podcast_SettingsPage{
     *--------------------------------------------------------------------------------------*/
 
     static $settings_fields = array(
-        'twitter_consumer_key' => 'Twitter Consumer Key',
-        'twitter_consumer_secret' => 'Twitter Consumer Secret Key',
-        'twitter_oath_access_token' => 'Twitter Oath Access Token',
-        'twitter_oath_access_token_secret' => 'Twitter Oath Access Token Secret',
+        // 'twitter_consumer_key' => 'Twitter Consumer Key',
+        // 'twitter_consumer_secret' => 'Twitter Consumer Secret Key',
+        // 'twitter_oath_access_token' => 'Twitter Oath Access Token',
+        // 'twitter_oath_access_token_secret' => 'Twitter Oath Access Token Secret',
         'actualplay_itunes' => 'Apple Podcasts URL',
         'actualplay_google_play' => 'Google Play URL',
         'actualplay_stitcher' => 'Stitcher URL',
@@ -27,7 +27,7 @@ class Podcast_SettingsPage{
         'actualplay_email' => 'Email Address',
         'simplecast_api' => 'Simplecast API Key',
         'simplecast_podcast_id' => 'Simplecast Podcast ID',
-        'azuresas' => 'Azure SAS for file upload',
+      //  'azuresas' => 'Azure SAS for file upload',
     );
 
 
