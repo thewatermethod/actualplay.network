@@ -52,19 +52,19 @@ function actual_play_entry_footer() {
 
 
 	if( in_category('podcast') && !is_front_page() && !is_home() ){
-
-		performers_footer();
-
+		
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'actual-play' ) );
 		if ( $categories_list && actual_play_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'actual-play' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links uppercase">' . esc_html__( '%1$s', 'actual-play' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
+
+		printf('<span> </span>');
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'actual-play' ) );
 		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'actual-play' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links uppercase">' . esc_html__( '%1$s', 'actual-play' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	
 		if( is_single() ): subscribe_links(); endif;
@@ -155,62 +155,7 @@ function actual_play_display_sharing_links( $actual_play_settings, $for_home_onl
 
 }
 
-function performers_footer(){
-	if( class_exists('TwitterOAuth') ) {
-		$performers = json_decode( get_post_meta( get_the_ID(), 'podcast_performers', true ) );
-	
-		$connection = null;
-		$content = null;
-	
-			if( $performers != null && is_single() ){
-	
-				?><div class="performers"><?php
-	
-				foreach( $performers as $performer ){
-	
-					$screen_name = get_user_meta( $performer, 'twitterHandle', true);
-	
-						$actual_play_settings = get_option( 'actualplay_settings' );
-	
-						if( $connection == null ){
-	
-							// and make our twitter connection
-							$connection = new TwitterOAuth(
-								$actual_play_settings['twitter_consumer_key'], 
-								$actual_play_settings['twitter_consumer_secret'], 
-								$actual_play_settings['twitter_oath_access_token'], 
-								$actual_play_settings['twitter_oath_access_token_secret']
-							);
-					
-							$content = $connection->get("account/verify_credentials");
-	
-					}
-	
-					if( $screen_name != null ){
-	
-						$info = $connection->get("users/show", ["screen_name"=> $screen_name ]);
-	
-						$user = get_userdata( $performer );							
-						
-						$profile_pic = $info->profile_image_url_https;
-	
-						?>
-							<div class="performer">
-								<h3><?php echo $user->display_name; ?></h3>						
-								<img src="<?php echo $profile_pic; ?>" alt="">
-								<a class="twitter-follow-button"
-								href="https://twitter.com/<?php echo $screen_name; ?>"
-								data-show-count="false"
-								data-size="large">
-								Follow @<?php echo $screen_name; ?></a>
-						</div>
-					<?php
-				}
-			}
-		?></div><?php
-		}
-	}
-}
+
 
 function subscribe_links(){
 	$powerpress_settings = false;
