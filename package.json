@@ -1,62 +1,28 @@
 {
-  "name": "actualplay.network",
-  "version": "1.1.0",
-  "description": "The ActualPlay.Network Wordpress Theme",
-  "main": "gulpfile.js",
-  "dependencies": {
-    "@tinymce/tinymce-vue": "^1.0.8",
-    "@types/react": "^16.3.14",
-    "@types/react-dom": "^16.0.5",
-    "ajv": "^6.5.0",
-    "axios": "^0.18.0",
-    "debug": "^3.1.0",
-    "jsx-loader": "^0.13.2",
-    "promise-polyfill": "7.0.2",
-    "pump": "^1.0.3",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "source-map": "^0.7.3",
-    "vue": "^2.5.16"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thewatermethod/actualplay.network.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thewatermethod/actualplay.network/issues"
-  },
-  "homepage": "https://github.com/thewatermethod/actualplay.network#readme",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-3": "^6.24.1",
-    "browser-sync": "^2.24.4",
-    "cross-env": "^5.0.5",
-    "css-loader": "^0.28.11",
-    "file-loader": "^1.1.11",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.4.0",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-concat": "^2.6.1",
-    "gulp-less": "^3.5.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0",
-    "gulp-watch": "^4.3.11",
-    "node-sass": "^4.9.0",
-    "run-sequence": "^2.2.1",
-    "sass-loader": "^7.0.1",
-    "style-loader": "^0.21.0",
-    "url-loader": "^1.0.1",
-    "vue-loader": "^15.0.11",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.8.3",
-    "webpack-cli": "^2.1.3"
-  }
+	"name": "actualplay.network",
+	"version": "1.1.0",
+	"description": "The ActualPlay.Network Wordpress Theme",
+	"main": "gulpfile.js",
+	"dependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thewatermethod/actualplay.network.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/thewatermethod/actualplay.network/issues"
+	},
+	"homepage": "https://github.com/thewatermethod/actualplay.network#readme",
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-clean-css": "^3.9.4",
+		"gulp-concat": "^2.6.1",
+		"gulp-less": "^3.5.0",
+		"run-sequence": "^2.2.1"
+	}
 }
