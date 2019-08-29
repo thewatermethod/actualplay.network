@@ -53,6 +53,8 @@ function actual_play_entry_footer() {
 
 	if( in_category('podcast') && !is_front_page() && !is_home() ){
 		
+		printf('<div class="tags-and-cats">');
+
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'actual-play' ) );
 		if ( $categories_list && actual_play_categorized_blog() ) {
@@ -66,6 +68,8 @@ function actual_play_entry_footer() {
 		if ( $tags_list ) {
 			printf( '<span class="tags-links uppercase">' . esc_html__( '%1$s', 'actual-play' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
+
+		printf('</div>');
 	
 		if( is_single() ): subscribe_links(); endif;
 	}
@@ -119,8 +123,8 @@ add_action( 'save_post',     'actual_play_category_transient_flusher' );
 
 function actual_play_display_sharing_links( $actual_play_settings, $for_home_only ){ 
 
-	//true is for
-
+	//true is for 
+	//?? wrote the above at some point and wtf did I mean
 
 	$class = 'hide-on-home-desktop';
 

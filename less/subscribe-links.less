@@ -1,0 +1,40 @@
+.subscribe-links {
+	display: none;
+
+	@media (min-width: @inner-inner) {
+		display: flex;
+
+		a span.fa:after {
+			content: '' !important;
+		}
+
+		.apple {
+			background: linear-gradient(to bottom, #d56efb, #862dc3);
+		}
+
+		.google {
+			background: linear-gradient(to left, #68cbfa, #83fa65);
+		}
+
+		a,
+		a:visited {
+			border-bottom: 0;
+			border-radius: 6px;
+			color: white;
+			font-weight: bold;
+			padding: 0.5em;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+
+			&:hover {
+				border-bottom: 0;
+				color: darken(white, 20%);
+			}
+
+			@media (max-width: 600px) {
+				width: 100%;
+			}
+		}
+	}
+}
