@@ -194,7 +194,21 @@ function create_api_posts_meta_field() {
 			'get_callback' => 'get_post_meta_for_api',
 			'schema' => null,
 		)
+	 );
+	 
+	register_rest_field( 'post', 'image', 
+		array(
+			'get_callback' => 'get_featured_image_for_api',
+			'schema' => null,
+		)
  	);
+}
+
+function get_featured_image_for_api( $object ) {
+	$post_id = $object['id'];
+
+	return the_post_thumbnail_url();
+
 }
 
 function get_post_meta_for_api( $object ) {
