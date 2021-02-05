@@ -202,5 +202,10 @@ function get_post_meta_for_api( $object ) {
 	$post_id = $object['id'];
 
 	//return the post meta
-	return get_post_meta( $post_id );
+
+	if( function_exists('powerpress_get_enclosure_data')) {
+		return powerpress_get_enclosure_data($post_id);
+	}
+
+	return get_post_meta($post_id);
 }
