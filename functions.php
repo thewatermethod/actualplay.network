@@ -207,7 +207,7 @@ function create_api_posts_meta_field() {
 function get_featured_image_for_api( $object ) {
 	$post_id = $object['id'];
 
-	return the_post_thumbnail_url();
+	return get_the_post_thumbnail_url();
 
 }
 
